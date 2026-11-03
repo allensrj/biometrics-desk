@@ -20,7 +20,7 @@ jobs:
     permissions:
       contents: read
     env:
-      RADAR_STATE_DIR: ${{ runner.temp }}/radar-state
+      RADAR_STATE_DIR: /tmp/biometrics-desk-state
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
