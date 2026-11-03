@@ -1,0 +1,62 @@
+{
+  "window_days": 5,
+  "display_days": 5,
+  "lookback_days": 7,
+  "max_readme_fetches": 90,
+  "deepseek_model": "deepseek-flash",
+  "tier1_keywords": [
+    "CDISC",
+    "SDTM",
+    "SDTMIG",
+    "ADaMIG",
+    "\"define.xml\"",
+    "CDASH",
+    "\"Pinnacle 21\"",
+    "ODM-XML",
+    "pharmaverse",
+    "PHUSE",
+    "SDRG",
+    "ADRG"
+  ],
+  "tier2_keywords": [
+    "ADaM",
+    "TFL",
+    "TLF",
+    "TLG",
+    "TGL",
+    "aCRF",
+    "P21",
+    "XPT",
+    "XPORT",
+    "SAS",
+    "admiral"
+  ],
+  "context_words": [
+    "clinical",
+    "trial",
+    "pharma",
+    "pharmaceutical",
+    "biostat",
+    "biostatistics",
+    "CDISC",
+    "SDTM",
+    "ADaM",
+    "regulatory",
+    "submission",
+    "FDA",
+    "statistical programming",
+    "eCRF"
+  ],
+  "watch_orgs": [
+    "pharmaverse",
+    "phuse-org",
+    "atorus-research",
+    "cdisc-org",
+    "RConsortium",
+    "shajoezhu",
+    "Roche",
+    "swhume",
+    "AstraZeneca",
+    "openpharma"
+  ]
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#263775" />
+    <title>临床编程观察台 · Biometrics Desk</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="wrap mast">
+        <div class="brand">
+          <svg viewBox="0 0 34 34" width="32" height="32" aria-hidden="true">
+            <rect width="34" height="34" rx="8" fill="#293975" />
+            <path
+              d="M8 24V12m6 12V8m6 16V14m6 10V10"
+              stroke="#fff"
+              stroke-width="2.6"
+            />
+            <circle cx="20" cy="10" r="2" fill="#ffcc77" /></svg
+          ><b>Biometrics Desk</b>
+        </div>
+        <span>临床统计编程工作台</span><a href="#sources">同步记录</a>
+      </div>
+    </header>
+    <main class="wrap">
+      <section class="hero">
+        <div>
+          <p id="issue"></p>
+          <h1>临床编程观察台</h1>
+          <p>法规、数据标准与开源工具</p>
+        </div>
+        <section class="axis">
+          <h2>未来 30 天 <small>悬停日期查看事项</small></h2>
+          <div id="timeline"></div>
+        </section>
+      </section>
+      <nav id="metrics" aria-label="快速筛选"></nav>
+      <div class="columns">
+        <section id="results" tabindex="-1">
+          <div class="section-head">
+            <h2>情报索引</h2>
+            <label
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="query"
+                type="search"
+                placeholder="搜索标题、来源或关键词"
+                aria-label="搜索标题、来源或关键词"
+            /></label>
+          </div>
+          <div id="tabs"></div>
+          <div class="controls">
+            <div id="context"></div>
+            <button id="reset" hidden>清除筛选 ×</button>
+          </div>
+          <details id="release-watch" hidden></details>
+          <div id="feed"></div>
+        </section>
+        <aside>
+          <section>
+            <h2>临床情报分布</h2>
+            <p>按主题查看收录内容</p>
+            <div id="categories"></div>
+          </section>
+          <section>
+            <h2>近期事项</h2>
+            <div id="dates"></div>
+          </section>
+          <section id="sources">
+            <h2>同步记录与说明</h2>
+            <p>每日北京时间 08:00 启动</p>
+            <div id="updates"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

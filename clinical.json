@@ -1,0 +1,408 @@
+{
+ "updated": "2026-10-30",
+ "items": [
+  {
+   "title": "CDE 就《新生抗原药品关键问题的技术考虑（征求意见稿）》公开征求意见，截止 11/30",
+   "category": "FDA与法规",
+   "importance": "中",
+   "summary": "10 月 30 日 CDE 发布征求意见通知，针对新生抗原（Neoantigen）药品的研发与注册申报起草关键技术考虑，征求意见时限为自发布之日起 1 个月，反馈通过指定邮箱提交。",
+   "impact": "个体化新生抗原项目的统计与递交策略（个体化批次、免疫原性数据、伴随检测）可能被重新界定，建议在 11 月 30 日前组织统计与注册联合反馈，避免定稿后改设计。",
+   "source": "国家药监局药品审评中心（CDE）",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/876a3d7ae3af17d948c21d4974079d0d",
+   "tags": [
+    "CDE",
+    "新生抗原",
+    "public review",
+    "个体化治疗"
+   ],
+   "published": "2026-10-30",
+   "deadline": "2026-11-30",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "ICH 举办 M15 线上说明会（10/29）",
+   "category": "行业与会议",
+   "importance": "中",
+   "summary": "由 FDA 主办的 ICH M15 线上说明会于 2026-10-29 举行（美东 8:30—10:00），围绕 2026 年 2 月获 ICH 通过的 MIDD 通用原则讲解实施要点。",
+   "impact": "若团队在做 MIDD 相关交付，值得回看录播，重点关注对模型证据在申报文件中呈现方式与可解释性要求的具体表述。",
+   "source": "ICH Events",
+   "url": "https://www.ich.org/page/ich-events",
+   "tags": [
+    "ICH M15",
+    "会议",
+    "培训"
+   ],
+   "published": "2026-10-29",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "FDA 发布 IDE 申请电子递交模板草案指南（10/28）",
+   "category": "FDA与法规",
+   "importance": "中",
+   "summary": "FDA CDRH 与 CBER 于 10 月 28 日发布 IDE 电子递交模板草案指南，向申办方介绍现有公开资源与内容，目标是提升电子递交一致性、提高审评效率；文件为征求意见稿，对应 Docket FDA-2026-D-11188。",
+   "impact": "器械与生物制品早期试验的电子递交模板正在标准化，统计与数据递交团队应跟踪模板对数据集组织和文档编排的要求，提前调整 eCTD 骨架。",
+   "source": "U.S. FDA",
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/electronic-submission-template-investigational-device-exemption-ide-applications",
+   "tags": [
+    "FDA",
+    "eSubmission",
+    "IDE",
+    "草案指南"
+   ],
+   "published": "2026-10-28",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "FDA 发布个体化人类基因组编辑产品 BLA 递交指南草案（10/27，Docket FDA-2026-D-11783）",
+   "category": "FDA与法规",
+   "importance": "中",
+   "summary": "CBER 生物治疗产品办公室于 10 月 27 日发布草案指南，说明含多个产品变体（variants）的个体化基因组编辑产品如何以单一 BLA（PHS Act 351(a)）递交、如何在申请中界定变体范围、以及获批后如何新增变体。文件同时涉及变体的体外安全性与效价评价、工艺验证、标签与适应症表述、药物命名与识别，并配套录制了官方讲解视频。",
+   "impact": "“一个 BLA 覆盖多变体”意味着数据集要能按变体维度切分并支持汇总分析，ADaM 的变体标识变量与 define.xml 的变体元数据会成为审评关注点。个体化治疗项目应尽早确定变体编码规则与汇总层级（变体/批次/患者），避免递交前重构数据集。",
+   "source": "U.S. FDA（CBER / OTP）",
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/individualized-human-genome-editing-products-considerations-bla-submission-and-postapproval",
+   "tags": [
+    "FDA",
+    "CBER",
+    "BLA",
+    "基因编辑",
+    "个体化治疗",
+    "指南草案"
+   ],
+   "published": "2026-10-27",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "CDE 发布《抗肿瘤药物基于后线研究数据开展前线适应症临床试验技术指导原则》（2026年第48号）",
+   "category": "FDA与法规",
+   "importance": "高",
+   "summary": "10 月 23 日 CDE 发布该指导原则，回答“后线已验证有效的抗肿瘤药能否、如何向前线适应症推进”这一路径问题，适用于抗肿瘤治疗性药物，不含细胞与基因治疗产品。文件对后线数据外推、对照设置与证据强度提出技术要求，10 月下旬起行业解读集中出现。",
+   "impact": "前线扩展项目重写 SAP 时，须重新论证单臂/外部对照的证据充分性并预置敏感性分析与外推假设说明；相关 ADaM 需保留后线与前线数据的可追溯映射。",
+   "source": "国家药监局药品审评中心（CDE）",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/e50c89621a69b8bffeaf90977d836f17",
+   "tags": [
+    "CDE",
+    "肿瘤",
+    "试验设计",
+    "后线数据外推"
+   ],
+   "published": "2026-10-23",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "FDA 设立神经科学创新中心 NAIN，首个项目锁定阿尔茨海默病预防",
+   "category": "FDA与法规",
+   "importance": "中",
+   "summary": "FDA 于 10 月 22 日宣布成立 Neuroscience Advancement and Innovation Nexus（NAIN），整合 CDER、CBER、CDRH 资源统一应对脑与神经系统疾病的研发与审评问题；首个落地项目为“阿尔茨海默病预防加速器”，重点探索预防/早期干预试验的人群选择、分期适配终点（stage-appropriate endpoints）以及证明“延缓或预防认知下降”的证据路径。",
+   "impact": "AD 预防类试验的终点多为时间-事件或纵向认知量表，且随访周期长、脱落多，会直接推高 TTE 与 MMRM 类分析的复杂度。建议提前固化“事件判定—截尾规则—敏感性分析”三件套的编程规范，并关注加速器后续是否发布终点与证据要求的专门文件。",
+   "source": "U.S. FDA",
+   "url": "https://www.fda.gov/news-events/press-announcements/fda-launches-new-program-advance-neuroscience-medical-product-development",
+   "tags": [
+    "FDA",
+    "神经科学",
+    "阿尔茨海默病",
+    "终点",
+    "预防试验"
+   ],
+   "published": "2026-10-22",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "PHUSE 博客：受监管临床编程中使用生成式 AI，人工复核仍是关键",
+   "category": "行业与会议",
+   "importance": "中",
+   "summary": "PHUSE 于 10 月 22 日发布由 Ephicacy 统计编程高级经理 Paramesh Venna 撰写的博文，系统区分了生成式 AI 在临床编程中的可用与不可用边界：解读遗留代码、生成程序头注释、辅助排查日志报错有效；但读得懂 protocol/SAP 不等于能正确解释，非计划访视归属等边界情形往往没有成文规则可依。文中引用 USENIX Security 2025 对 16 个 LLM、57.6 万次代码生成的研究（商业模型幻觉包比例≥5.2%，开源模型>21%），并指出 FDA 2025 年 1 月 AI 草案与 EMA reflection paper 均把责任落在使用者而非工具。",
+   "impact": "可以直接拿来支撑内部 SOP：把 AI 产出定义为“初稿”，强制走与人工代码相同的验证与文档留痕流程；同时补齐“边界情形决策日志”（如非计划访视归属、SAP 版本适用性），因为这类判断目前 AI 无从推断，必须先成文再交给工具执行。",
+   "source": "PHUSE Blog",
+   "url": "https://phuse.global/Communications/PHUSE_Blog/human-review-still-matters-responsible-use-of-generative-ai-in-regulated-clinical-programming",
+   "tags": [
+    "生成式AI",
+    "统计编程",
+    "human review",
+    "SOP",
+    "PHUSE"
+   ],
+   "published": "2026-10-22",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "FDA 发布驾驶能力临床试验数据递交技术规范（10/20）",
+   "category": "FDA与法规",
+   "importance": "中",
+   "summary": "FDA CDER 发布《Submitting Clinical Trial Data to Evaluate the Ability to Operate a Motor Vehicle》，为驾驶研究（主要评估精神活性药物对驾驶能力的影响）向上市申请递交数据提供技术规范，配套 2017 年驾驶研究行业指南。",
+   "impact": "中枢神经类药物的驾驶研究需按该技术规范组织数据集与变量，统计编程应在建库阶段就对齐其规格，避免递交前因结构不符返工。",
+   "source": "U.S. FDA",
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/submitting-clinical-trial-data-evaluate-ability-operate-motor-vehicle",
+   "tags": [
+    "FDA",
+    "技术规范",
+    "数据递交",
+    "CNS"
+   ],
+   "published": "2026-10-20",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "CDE 发布《青少年体重管理适应症临床试验设计指导原则》（2026年第50号）",
+   "category": "FDA与法规",
+   "importance": "中",
+   "summary": "10 月 20 日 CDE 发布该指导原则并即日施行，目的是鼓励青少年体重管理药物研发、规范该适应症临床试验设计，为该人群的疗效与安全性评价提供统一技术标准。",
+   "impact": "青少年减重项目的终点定义、年龄分层与长期安全性随访设计需按新指导原则复核 SAP 与样本量假设，已在进行中的项目应评估是否需要补充分析。",
+   "source": "国家药监局药品审评中心（CDE）",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/25b67cd7ce808a1fdedc9a51360f0d24",
+   "tags": [
+    "CDE",
+    "儿科",
+    "试验设计",
+    "体重管理"
+   ],
+   "published": "2026-10-20",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "CDE 发布《斑秃治疗药物临床试验技术指导原则》（2026年第49号）",
+   "category": "FDA与法规",
+   "importance": "中",
+   "summary": "10 月 20 日 CDE 发布该指导原则并即日施行，为斑秃治疗药物的研发与评价提供可参考的技术标准，覆盖该适应症临床试验设计与疗效评价的基本要求。",
+   "impact": "斑秃项目需对照新指导原则核对主要终点定义与随访时点，确保 TFL 的派生逻辑与审评预期一致，减少发补阶段的重分析。",
+   "source": "国家药监局药品审评中心（CDE）",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/28aaf6bbcbd62d745dec44b517b994ec",
+   "tags": [
+    "CDE",
+    "皮肤科",
+    "终点定义",
+    "试验设计"
+   ],
+   "published": "2026-10-20",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "FDA 新增 eCTD 高严重度验证：2027-01-16 起不合规申报将被拒收",
+   "category": "FDA与法规",
+   "importance": "高",
+   "summary": "FDA 于 10 月 16 日在《联邦公报》发布通告（91 FR 65749，Docket FDA-2018-D-1216），明确自 2027 年 1 月 16 日起，对未通过新增高严重度验证的 eCTD 电子申报直接拒收。涉及 eCTD v3.2.2 的 2024、2025 两条规则，以及 eCTD v4.0 的 eCTD4-084/085 与 US-eCTD4-561 至 564 共六条规则。同日另发配套通告（2026-21197），自 10 月 16 日起支持 NDA/BLA/ANDA/IND/DMF 的 v3.2.2→v4.0 前向兼容。",
+   "impact": "拒收从“提示”变成“硬门槛”，且时点早于多数 2027 年申报项目的数据截止。建议在递交流水线中把 eCTD 验证前置为发布前必过项，并逐条核对 2024/2025 与 eCTD4-084/085、US-eCTD4-561~564 的触发条件（STF 文件标签、TS 域、数据集命名与版本声明），把责任落到数据标准负责人而非递交专员。",
+   "source": "U.S. FDA / Federal Register",
+   "url": "https://www.federalregister.gov/documents/2026/10/16/2026-21195/electronic-common-technical-document-data-standards-center-for-drug-evaluation-and-research-and",
+   "tags": [
+    "eCTD",
+    "eCTD v4.0",
+    "validation",
+    "technical rejection",
+    "FDA",
+    "递交"
+   ],
+   "published": "2026-10-16",
+   "deadline": "2027-01-16",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "FDA 启动罕见病药物开发框架倡议（Rare Disease Framework Initiative），10/28 举行公众会议",
+   "category": "FDA与法规",
+   "importance": "高",
+   "summary": "FDA 于 10 月 14 日发布《A New Framework for Rare Disease Review》白皮书并启动罕见病框架倡议，目标是建立 fit-for-purpose 的审评框架，按疾病特点与“小人群里现实可产生的证据”匹配要求；10 月 28 日在 White Oak 园区召开公众会议收集意见，由 Reagan-Udall 基金会主持。FDA 明确把“拥抱前沿科学与创新统计方法”列为承诺之一，后续还将开展分领域圆桌与 RFI。",
+   "impact": "小样本设计（贝叶斯、外部对照、单臂+历史数据）会从个案协商走向有成文依据的路径，交付物随之变化：需能产出先验设定与敏感性分析、外部对照数据可追溯映射、以及模拟研究报告。建议现在就为罕见病项目准备一套“小样本证据包”模板，而不是等项目启动再补。",
+   "source": "U.S. FDA（Rare Disease Innovation Hub）",
+   "url": "https://www.fda.gov/news-events/press-announcements/fda-launches-rare-disease-framework-initiative-develop-holistic-fit-purpose-framework-rare-disease",
+   "tags": [
+    "FDA",
+    "罕见病",
+    "小样本",
+    "创新统计方法",
+    "fit-for-purpose"
+   ],
+   "published": "2026-10-14",
+   "deadline": "",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "ADaM 与 ADaMIG v3.0 进入公开征求意见（窗口至 11/30）",
+   "category": "CDISC与标准",
+   "importance": "高",
+   "summary": "CDISC 标准路线图显示，ADaM 与 ADaMIG v3.0 已于 2026-10-01 进入公开征求意见阶段，窗口开放至 2026-11-30，目标发布时间为 2026-12-01 至 12-18。这是 ADaM 模型自 v2.1 以来的一次大版本跃迁，ADaMIG 版本号也将从 1.3 直接对齐到 3.0。",
+   "impact": "建议本月内组织一次内部评审：梳理现有 ADSL / BDS 派生宏、define.xml 与 ARM 生成链路对新版结构的依赖，把差异点整理成意见在 11/30 前提交；同时评估 2027 年申报项目是否直接按 v3.0 立项。",
+   "source": "CDISC Standards Development Roadmap",
+   "url": "https://www.cdisc.org/standards/timeline",
+   "tags": [
+    "ADaM",
+    "ADaMIG",
+    "public review"
+   ],
+   "published": "2026-10-01",
+   "deadline": "2026-11-30",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "NCI EVS：SDTM 受控术语 2026-09-25 版",
+   "url": "https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html",
+   "published": "2026-09-25",
+   "summary": "NCI EVS 的 SDTM 发布文件列出了 2026-09-25 版术语及 codelist。",
+   "impact": "将项目锁定的 CT 版本与该发布文件对照，核查实际使用的代码值后再决定是否升级。",
+   "directSource": "NCI EVS",
+   "source": "NCI EVS",
+   "category": "CDISC与标准",
+   "importance": "中",
+   "tags": [
+    "CDISC",
+    "受控术语"
+   ],
+   "collected": "2026-11-04"
+  },
+  {
+   "title": "NCI EVS：ADaM 受控术语 2026-09-25 版",
+   "url": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/ADaM%20Terminology.html",
+   "published": "2026-09-25",
+   "summary": "NCI EVS 的 ADaM 发布文件列出了 2026-09-25 版术语及 codelist。",
+   "impact": "将项目锁定的 CT 版本与该发布文件对照，核查实际使用的代码值后再决定是否升级。",
+   "directSource": "NCI EVS",
+   "source": "NCI EVS",
+   "category": "CDISC与标准",
+   "importance": "中",
+   "tags": [
+    "CDISC",
+    "受控术语"
+   ],
+   "collected": "2026-11-04"
+  },
+  {
+   "title": "ADaM Examples（FMQs / PP）v1.0 征求意见今日截止",
+   "category": "CDISC与标准",
+   "importance": "中",
+   "summary": "ADaM Examples – FMQs v1 与 ADaM Examples – PP v1.0 的公开征求意见窗口为 2026-09-01 至 2026-10-30，目标发布 2026-11-02 至 12-18。两份文件补充常见统计分析方法与安全性分析的 ADaM 实例。",
+   "impact": "今天是窗口内提交意见的最后一天。这两份 examples 会成为写 ADaM spec 时的“标准答案”，建议指定一名标准负责人快速过一遍 PP（安全性分析）部分，把与现行做法的差异记下来。",
+   "source": "CDISC Standards Development Roadmap",
+   "url": "https://www.cdisc.org/standards/timeline",
+   "tags": [
+    "ADaM",
+    "examples",
+    "安全性分析"
+   ],
+   "published": "2026-09-01",
+   "deadline": "2026-10-30",
+   "collected": "2026-10-30"
+  }
+ ],
+ "upstreamChecked": "2026-11-04T03:13:45.658158+08:00",
+ "directSources": [
+  {
+   "name": "PMDA",
+   "url": "https://www.pmda.go.jp/english/review-services/reviews/0002.html",
+   "checked": "2026-11-04T03:13:45.658369+08:00",
+   "count": 2,
+   "error": ""
+  },
+  {
+   "name": "NCI EVS",
+   "url": "https://evs.nci.nih.gov/ftp1/CDISC/",
+   "checked": "2026-11-04T03:13:45.658369+08:00",
+   "count": 2,
+   "error": ""
+  },
+  {
+   "name": "EMA",
+   "url": "https://www.ema.europa.eu/en/about-us/how-we-work/data-regulation-big-data-other-sources/use-clinical-study-data-medicine-evaluation",
+   "checked": "2026-11-04T03:13:45.658369+08:00",
+   "count": 4,
+   "error": ""
+  }
+ ],
+ "agendaOnly": [
+  {
+   "title": "CDISC 将于 12/2 复盘 360i Phase 2 成果并公布 Phase 3 路线",
+   "category": "CDISC与标准",
+   "importance": "中",
+   "summary": "CDISC 宣布 12 月 2 日 10:30—12:00（EST）举办网络研讨会，由 Julie Smiley、Sam Hume、Bess LeRoy 等 360i 核心成员复盘 Phase 2 已交付内容，并说明 Phase 3 的优先级、待补差距、志愿者机会与 2027 年时间表。360i 的目标是把研究设计到分析全链路的元数据打通（USDM、ODM、ADaM、Define-XML、Biomedical Concepts），用可复用标准与端到端自动化替代手工环节。",
+   "impact": "这是判断“元数据驱动编程”何时可落地的关键窗口：若 Phase 3 把 USDM→ADaM→Define-XML 的自动化链路固化，现有“先写 spec 再写程序”的模式会被压缩。建议派人参会并同步评估本团队 define.xml 生成方式对 360i 产物的兼容性。",
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/cdisc-360i-phase-2-outcomes-and-road-phase-3",
+   "tags": [
+    "CDISC 360i",
+    "USDM",
+    "Define-XML",
+    "元数据自动化"
+   ],
+   "published": "2026-12-02",
+   "deadline": "2026-12-02",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "CDISC 将于 11/10 公开发布 Open Rules / CORE v1.0",
+   "category": "CDISC与标准",
+   "importance": "高",
+   "summary": "CDISC 宣布 11 月 10 日举办 Open Rules / CORE v1.0 公开发布网络研讨会，将说明 SDTMIG v3.2 / 3.3 / 3.4 与 FDA Business Rules（Clinical/SDTMIG）规则包的覆盖范围、CORE v1.0 的能力边界，以及后续机器可读规则模型的方向。会议同时征集社区参与补齐剩余规则包。",
+   "impact": "仍用自建一致性检查或旧版 Validator 的团队，应在 11 月内评估迁移到 CORE v1.0 + Open Rules 规则包，把 SDTM 一致性核查前置到编程交付流水线，而不是留到递交前一次性跑。",
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/cdisc-open-rules-core-v1-0-release-public-webinar",
+   "tags": [
+    "CORE",
+    "Conformance Rules",
+    "SDTMIG",
+    "FDA Business Rules"
+   ],
+   "published": "2026-11-10",
+   "deadline": "2026-11-10",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "2026 CDISC x SCDM 日本互操作大会定档 11/4—11/5（东京）",
+   "category": "行业与会议",
+   "importance": "低",
+   "summary": "CDISC 与 SCDM 联合举办的日本大会将于 11 月 4—5 日在东京 Oracle 青山大厦举行，设会前培训与双轨主会，报名已开放，现场提供日英双向 AI 实时翻译。会后另设 CDISC 官方授权培训场次。",
+   "impact": "对以日本为申报市场（PMDA/JNDA）的团队有直接价值：可低成本获取日方对 CDISC 落地的口径。若年内有日本递交计划，建议至少安排一人线上跟进会后材料，重点看本地化要求与 PMDA 的审评反馈。",
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/interchange/2026-cdisc-x-scdm-japan-interchange",
+   "tags": [
+    "CDISC",
+    "SCDM",
+    "日本",
+    "PMDA",
+    "会议"
+   ],
+   "published": "2026-11-04",
+   "deadline": "2026-11-04",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "SDTMIG v4.0 / SDTM v3.0 公开征求意见持续至 2027-01-29",
+   "category": "CDISC与标准",
+   "importance": "高",
+   "summary": "SDTMIG v4.0 与 SDTM v3.0 自 2026-02-05 起公开征求意见，窗口开放至 2027-01-29，目标发布 2027 年 2—3 月。v4.0 对第 1—4 章做了重构与改写，元数据结构调整，并新增 GI 等专用域。",
+   "impact": "SDTM 是整条递交链路的源头，v4.0 落地会连带影响 ADaM 与 define.xml。建议从明年 Q1 起做一份“SDTMIG 3.4 → 4.0 差异清单”，评估现有 mapping 规范与 P21 规则集的适配成本。",
+   "source": "CDISC Standards Development Roadmap",
+   "url": "https://www.cdisc.org/standards/timeline",
+   "tags": [
+    "SDTM",
+    "SDTMIG v4.0",
+    "路线图"
+   ],
+   "published": "2026-02-05",
+   "deadline": "2027-01-29",
+   "collected": "2026-10-30"
+  },
+  {
+   "title": "SENDIG v4.0 公开征求意见至 11/24",
+   "category": "CDISC与标准",
+   "importance": "中",
+   "summary": "SENDIG v4.0 内部审阅已于 2026-02-04 结束，公开征求意见开放至 2026-11-24，目标发布 2026-11-27 至 2027-01-29。主要变化包括新增附录，并澄清大量 timing 变量（含 --NOMDY / --NOMLBL）的使用。",
+   "impact": "非临床递交团队需重点关注；临床统计编程侧主要留意毒理数据与临床数据对齐时 timing 变量的口径变化，尤其是研究日与名义日的换算规则。",
+   "source": "CDISC Standards Development Roadmap",
+   "url": "https://www.cdisc.org/standards/timeline",
+   "tags": [
+    "SENDIG",
+    "非临床",
+    "timing"
+   ],
+   "published": "2026-02-05",
+   "deadline": "2026-11-24",
+   "collected": "2026-10-30"
+  }
+ ]
+}

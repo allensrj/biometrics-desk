@@ -1,0 +1,285 @@
+{
+  "generatedAt": "2026-09-24T18:21:54.697663+00:00",
+  "windowStart": "2026-09-23",
+  "windowEnd": "2026-09-25",
+  "totalNew": 16,
+  "note": "",
+  "errors": "二级关键词 命中 1002 条，仅取最新 100 条；二级关键词 命中 810 条，仅取最新 100 条；README 拉取达到上限 90，剩余候选跳过",
+  "repos": [
+    {
+      "repo": "RachinnthRavi/SADM",
+      "url": "https://github.com/RachinnthRavi/SADM",
+      "createdAt": "2026-09-24T17:18:26Z",
+      "description": "Exploratory data model for Clinical Statistical Analysis Plans (SAPs) based on CDISC USDM.",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC",
+        "TFL"
+      ],
+      "relevance": "高",
+      "summary": "基于CDISC USDM构建临床试验统计分析计划(SAP)的机器可读数据模型，涉及统计分析方法与CDISC标准。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "zsigmas/dv.papo",
+      "url": "https://github.com/zsigmas/dv.papo",
+      "createdAt": "2026-09-24T16:05:01Z",
+      "description": "",
+      "language": "R",
+      "stars": 0,
+      "matchedKeywords": [
+        "SDTM"
+      ],
+      "relevance": "高",
+      "summary": "DaVinci的R模块，基于SDTM/ADaM数据生成受试者层面的患者档案列表与图表(TLF)。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "amabella-data-standards/mock-cdisc-chocolate-clinical-trial",
+      "url": "https://github.com/amabella-data-standards/mock-cdisc-chocolate-clinical-trial",
+      "createdAt": "2026-09-24T13:06:11Z",
+      "description": "Mock CDISC SDTM + ADaM + SQL Clinical Trial Data Project (Chocolate + Clove + Cinnamon Oils) for Clinical Data Standards & CDM Career Transition.",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC",
+        "SDTM",
+        "ADaM"
+      ],
+      "relevance": "高",
+      "summary": "模拟CDISC SDTM+ADaM+SQL的临床试验数据项目，用于临床数据标准与CDM职业转型练习。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "certara-bmant/p21-dx-compliance",
+      "url": "https://github.com/certara-bmant/p21-dx-compliance",
+      "createdAt": "2026-09-24T10:59:58Z",
+      "description": "",
+      "language": "Java",
+      "stars": 0,
+      "matchedKeywords": [
+        "Pinnacle 21",
+        "P21"
+      ],
+      "relevance": "高",
+      "summary": "Certara 开发的命令行工具，用 Pinnacle 21 API 比对研究 spec 与标准及受控术语包，检查新术语、术语漂移、变量属性和 VLM 差异并输出 Excel 报告，直接服务于 CDISC 递交合规检查。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "Rhutikapatil/clinical-sdtm-r-workflow",
+      "url": "https://github.com/Rhutikapatil/clinical-sdtm-r-workflow",
+      "createdAt": "2026-09-24T02:52:36Z",
+      "description": "Reproducible clinical data engineering and SDTM-style domain programming workflow in R using synthetic data and programmatic validation.",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "SDTM"
+      ],
+      "relevance": "高",
+      "summary": "用R和合成数据实现可复现的SDTM风格域编程与程序化验证工作流。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "Rhutikapatil/clinical-adam-r-validation",
+      "url": "https://github.com/Rhutikapatil/clinical-adam-r-validation",
+      "createdAt": "2026-09-24T02:00:18Z",
+      "description": "Clinical ADaM programming in R demonstrating synthetic dataset creation, treatment and efficacy derivations, XPT export, and programmatic data validation.",
+      "language": "R",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC",
+        "SDTM",
+        "ADaM",
+        "XPT",
+        "SAS"
+      ],
+      "relevance": "高",
+      "summary": "用R进行ADaM编程，生成ADSL/ADAE等分析数据集并导出XPT及程序化验证。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "kalyanipande8/SENDValidationFramework",
+      "url": "https://github.com/kalyanipande8/SENDValidationFramework",
+      "createdAt": "2026-09-24T01:00:13Z",
+      "description": "50-checkpoint automated validation and audit framework for 4 simulated SEND-inspired nonclinical toxicology studies",
+      "language": "Python",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC"
+      ],
+      "relevance": "高",
+      "summary": "针对模拟SEND非临床毒理数据集的50项自动化验证与审计框架，涉及CDISC SEND标准的合规检查。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "shahroznisha02/Clinical-SAS-SDTM-ADaM-Reporting",
+      "url": "https://github.com/shahroznisha02/Clinical-SAS-SDTM-ADaM-Reporting",
+      "createdAt": "2026-09-23T19:15:56Z",
+      "description": "CDISC-compliant Clinical SAS Programming project generating ADSL, ADAE, Table 14.1.1, and Table 14.3.1.",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC",
+        "SDTM",
+        "ADaM",
+        "SAS"
+      ],
+      "relevance": "高",
+      "summary": "基于CDISC SDTM/ADaM标准用SAS生成ADSL、ADAE及人口学与安全性TLF表的临床编程项目。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "manivannan-mathiazhagan/annotateCRF-Studio",
+      "url": "https://github.com/manivannan-mathiazhagan/annotateCRF-Studio",
+      "createdAt": "2026-09-23T10:16:39Z",
+      "description": "",
+      "language": "Python",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC",
+        "aCRF"
+      ],
+      "relevance": "高",
+      "summary": "用于创建和审阅CDISC合规注释CRF（aCRF）的桌面GUI工具，集成CDISC Library API。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "sanjaylingadurai001-wq/Atlas_VIT",
+      "url": "https://github.com/sanjaylingadurai001-wq/Atlas_VIT",
+      "createdAt": "2026-09-24T14:07:43Z",
+      "description": "",
+      "language": "Python",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC"
+      ],
+      "relevance": "中",
+      "summary": "临床试验情报系统，可回答Hy's law等临床查询并给出记录级证据，涉及临床数据推理。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "MarleneScottMPH/MarleneScottMPH",
+      "url": "https://github.com/MarleneScottMPH/MarleneScottMPH",
+      "createdAt": "2026-09-23T14:04:33Z",
+      "description": "Public health data analyst and statistical programmer specializing in SAS, health outcomes, and data science.",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC",
+        "SDTM",
+        "ADaM",
+        "TLF",
+        "SAS"
+      ],
+      "relevance": "中",
+      "summary": "统计程序员个人主页，介绍其CDISC SDTM/ADaM、TLF及SAS临床编程经验，非具体工具或代码。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "vedhav/floaties",
+      "url": "https://github.com/vedhav/floaties",
+      "createdAt": "2026-09-23T08:02:52Z",
+      "description": "A simple R package to showcase R package development with AI. Check the `YOLO` branch for prompts used without careful thought.",
+      "language": "R",
+      "stars": 1,
+      "matchedKeywords": [
+        "SDTM",
+        "pharmaverse",
+        "ADaM"
+      ],
+      "relevance": "中",
+      "summary": "生成瀑布图和泳道图的R包，用于临床数据审阅，不绑定SDTM/ADaM但可配合临床数据使用。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "fmovdrymxz/sdtmwx",
+      "url": "https://github.com/fmovdrymxz/sdtmwx",
+      "createdAt": "2026-09-24T02:14:19Z",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "SDTM"
+      ],
+      "relevance": "低",
+      "summary": "仅有SDTM关键词匹配，无描述与README，无法确认具体内容。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "hudsonjonathan8/sdtmvt",
+      "url": "https://github.com/hudsonjonathan8/sdtmvt",
+      "createdAt": "2026-09-24T00:16:39Z",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "SDTM"
+      ],
+      "relevance": "低",
+      "summary": "仅有仓库名sdtmvt和标题，无描述与内容，无法确认与SDTM标准的具体关系。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "sih2027/AAYUR-SATHI",
+      "url": "https://github.com/sih2027/AAYUR-SATHI",
+      "createdAt": "2026-09-23T17:58:52Z",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "CDISC",
+        "SDTM"
+      ],
+      "relevance": "低",
+      "summary": "面向印度阿育吠陀临床试验的CTMS系统，涉及ADR报告与GCP，但与CDISC统计编程标准关系较弱。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    },
+    {
+      "repo": "rajth-sk/sdtm",
+      "url": "https://github.com/rajth-sk/sdtm",
+      "createdAt": "2026-09-23T11:49:59Z",
+      "description": "content",
+      "language": "",
+      "stars": 0,
+      "matchedKeywords": [
+        "SDTM"
+      ],
+      "relevance": "低",
+      "summary": "仅有仓库名sdtm和占位描述，无实质内容，无法判断与SDTM标准的相关性。",
+      "isOrgWatch": false,
+      "isLookback": false,
+      "isNew": true
+    }
+  ]
+}
