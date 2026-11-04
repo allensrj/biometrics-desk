@@ -544,7 +544,7 @@ aside p,
   display: none;
   position: absolute;
   z-index: 5;
-  top: calc(50% + 26px);
+  top: calc(50% + 5px);
   left: 0;
   transform: translateX(var(--align));
   width: min(280px, 65vw);
