@@ -108,8 +108,9 @@ jobs:
         run: python3 scripts/verify_clinical.py
       - name: Prepare public files
         run: |
-          mkdir site
+          mkdir -p site/assets
           cp index.html style.css app.js clinical.json collection-report.json repositories.json repositories-archive.json refresh-status.json site/
+          cp assets/wechat-allen.png site/assets/
           chmod -R a+rX site
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
