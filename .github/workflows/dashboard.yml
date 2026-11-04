@@ -50,6 +50,53 @@ jobs:
             repositories.json
             refresh-status.json
           key: radar-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Verify interface on GitHub runner
+        run: |
+          node --check app.js
+          python3 -m compileall -q refresh.py collector
+          npm install --prefix "$RUNNER_TEMP/desk-ui" --ignore-scripts --no-audit --no-fund playwright-core@1.64.1
+          python3 -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/desk-ui-server.log" 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID"' EXIT
+          DESK_UI_DIR="$RUNNER_TEMP/desk-ui" node <<'JS'
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const { chromium } = require(process.env.DESK_UI_DIR + '/node_modules/playwright-core');
+          (async () => {
+            const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome', headless: true });
+            try {
+              const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+              const errors = [];
+              page.on('pageerror', error => errors.push(error.message));
+              const data = JSON.parse(fs.readFileSync('clinical.json', 'utf8'));
+              const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Shanghai' }).format(new Date());
+              const fixture = { title: '事项定位检查', category: '行业与会议', importance: '中', summary: '检查页面定位', impact: '检查条目高亮', source: '验证数据', tags: [], published: day, collected: day, deadline: day, url: 'https://example.com/desk-location-check' };
+              data.agendaOnly = [...(data.agendaOnly || []), fixture];
+              await page.route('**/clinical.json', route => route.fulfill({ json: data }));
+              await page.goto('http://127.0.0.1:8765/');
+              await page.locator('#feed article').first().waitFor();
+              assert.equal(await page.title(), '临床统计编程信息看板 · Biometrics Desk');
+              assert.deepEqual(await page.locator('#tabs button').allTextContents(), ['临床情报', '开源仓库']);
+              await page.getByRole('button', { name: /开源仓库，/ }).click();
+              await page.locator('.tick').first().focus();
+              await page.locator('.tick').first().hover();
+              const item = page.locator('.day-item').filter({ hasText: fixture.title });
+              await item.hover();
+              await item.click();
+              assert.equal(await page.locator('#feed .located').count(), 1);
+              assert.equal(await page.locator('#feed .located').getAttribute('data-record-url'), fixture.url);
+              assert.ok(await page.locator('#feed .located').evaluate(element => document.activeElement === element));
+              const sync = await page.locator('#updates .sync').last().innerText();
+              assert.match(sync, /采集范围/);
+              assert.doesNotMatch(sync, /pharmaverse|命中|关键词|采集开始|采集完成/);
+              assert.equal(await page.locator('.wechat-promo strong').innerText(), '药企SP程序员Allen');
+              assert.deepEqual(errors, []);
+              console.log('PASS: title, two tabs, hovered item location, concise source notes, and WeChat recommendation');
+            } finally {
+              await browser.close();
+            }
+          })().catch(error => { console.error(error); process.exitCode = 1; });
+          JS
       - name: Prepare public files
         run: |
           mkdir site

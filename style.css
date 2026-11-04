@@ -560,7 +560,7 @@ aside p,
 .day-tip > b {
   color: var(--accent);
 }
-.day-tip div {
+.day-tip .day-item {
   margin-top: 6px;
   padding-top: 6px;
   border-top: 1px solid var(--line);
@@ -617,4 +617,36 @@ aside p,
 }
 #release-watch ul {
   padding-left: 18px;
+}
+
+.day-item {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 3px;
+}
+.day-item:hover,
+.day-item:focus-visible {
+  background: #edf0f8;
+}
+.entry.located {
+  outline: 2px solid #8898c4;
+  outline-offset: -2px;
+  scroll-margin-block: 20px;
+}
+.wechat-promo {
+  padding-inline: 12px;
+  background: #e9edf5;
+  border-radius: 0 0 8px 8px;
+}
+.wechat-promo > strong {
+  display: block;
+  margin-block: 8px;
+  font-size: 16px;
+  color: var(--blue);
+  user-select: all;
+}
+.hero h1 {
+  font-size: clamp(27px, 3.1vw, 44px);
+  text-wrap: balance;
 }
