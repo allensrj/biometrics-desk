@@ -1,25 +1,150 @@
 {
- "generatedAt": "2026-11-03T18:47:30.313648+00:00",
- "windowStart": "2026-10-31",
- "windowEnd": "2026-11-04",
- "totalNew": 4,
+ "generatedAt": "2026-11-04T18:01:52.883404+00:00",
+ "windowStart": "2026-11-01",
+ "windowEnd": "2026-11-05",
+ "totalNew": 6,
  "note": "",
- "errors": "二级关键词 命中 2301 条，仅取最新 100 条；二级关键词 命中 1232 条，仅取最新 100 条；README 拉取达到上限 90，剩余候选跳过",
+ "errors": "二级关键词 命中 2352 条，仅取最新 100 条；二级关键词 命中 1299 条，仅取最新 100 条；README 拉取达到上限 90，剩余候选跳过",
  "repos": [
   {
-   "repo": "Eniola-Ajayi/ae-safety-explorer",
-   "url": "https://github.com/Eniola-Ajayi/ae-safety-explorer",
-   "createdAt": "2026-11-03T12:38:38Z",
+   "repo": "carolinepearson/dsc541_2027",
+   "url": "https://github.com/carolinepearson/dsc541_2027",
+   "createdAt": "2026-11-04T16:10:16Z",
    "description": "",
+   "language": "Rich Text Format",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "ADaM",
+    "TLF",
+    "XPT",
+    "SAS"
+   ],
+   "relevance": "高",
+   "summary": "基于 CDISC Pilot 的 eTFL 演示包，含 ADSL/ADaM 数据、define.xml、ARMS 元数据与 RTF 表格输出，直接对应 CDISC/ADaM/TLF/Define.xml 递交实践。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "datastep-labs/sas-for-clinical-programmers",
+   "url": "https://github.com/datastep-labs/sas-for-clinical-programmers",
+   "createdAt": "2026-11-04T12:57:13Z",
+   "description": "Learn clinical SAS programming in your browser: the programs of the free book SAS for Clinical Programmers, with DataStep Studio in GitHub Codespaces",
+   "language": "SAS",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "PHUSE",
+    "SAS"
+   ],
+   "relevance": "高",
+   "summary": "配套免费书《SAS for Clinical Programmers》的浏览器实验环境，通过 GitHub Codespaces 逐步调试 DATA step/宏并分析 CDISC pilot 数据，属于临床 SAS 编程教学资源。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "Amith71965/protocol-to-data",
+   "url": "https://github.com/Amith71965/protocol-to-data",
+   "createdAt": "2026-11-04T07:18:01Z",
+   "description": "Protocol-to-Data Compliance Pipeline: CDISC SDTM mapping, conformance validation, LLM eligibility-criteria extraction and protocol-deviation detection on the public CDISC pilot study.",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "Pinnacle 21",
+    "PHUSE",
+    "ADaM",
+    "P21",
+    "XPORT"
+   ],
+   "relevance": "高",
+   "summary": "在公开 CDISC 试点研究数据上构建方案到数据的合规流水线，涵盖 SDTM 映射、一致性校验（Pinnacle 21/define.xml）、LLM 提取入排标准及方案偏离检测，紧扣 CDISC 递交与数据质量领域。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "Lovemore-Gakava/usdm-acdc-quickstart",
+   "url": "https://github.com/Lovemore-Gakava/usdm-acdc-quickstart",
+   "createdAt": "2026-11-03T22:17:20Z",
+   "description": "Run CDISC's Analysis Concepts app yourself and take one endpoint from protocol to an executed result. Pinned versions; about an hour.",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "XPT"
+   ],
+   "relevance": "高",
+   "summary": "指导在本机运行 CDISC Analysis Concepts 应用，用合成肿瘤试验把单个终点从方案定义执行到结果，紧扣 CDISC 分析概念与可追溯统计编程。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "AhmedKhalifa3/vax-trials-analytics",
+   "url": "https://github.com/AhmedKhalifa3/vax-trials-analytics",
+   "createdAt": "2026-11-03T22:13:41Z",
+   "description": "Reproducible Python clinical data pipeline & automated QC framework for vaccine trial safety analysis (CDISC ADaM ADSL/ADAE, regulatory TLFs, 95% Wilson CIs).",
    "language": "Python",
    "stars": 0,
    "matchedKeywords": [
     "CDISC",
     "pharmaverse",
-    "ADaM"
+    "ADaM",
+    "TLF",
+    "SAS"
    ],
    "relevance": "高",
-   "summary": "基于 pharmaverse 合成 CDISC ADaM ADAE 数据的不良事件探索工具，提供 FastAPI 接口与 Streamlit 界面做队列查询、受试者风险评分和自然语言问答，属于临床试验安全性数据分析与 ADaM 应用。",
+   "summary": "面向疫苗安全性分析的 Python 临床数据流水线与自动化 QC 框架，基于 CDISC ADaM ADSL/ADAE 生成监管级 TLF 并使用 Wilson 置信区间，直接对应 ADaM/TLF 领域。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "cran/sas2r",
+   "url": "https://github.com/cran/sas2r",
+   "createdAt": "2026-11-03T21:17:36Z",
+   "description": ":exclamation: This is a read-only mirror of the CRAN R package repository.  sas2r — Translate 'SAS' Programs to R with Dependency-Aware Migration. Homepage: https://github.com/songyue-chen/sas2r  Report bugs for this package: https://github.com/songyue-chen/sas2r/issues",
+   "language": "R",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "ADaM",
+    "TLF",
+    "XPT",
+    "SAS"
+   ],
+   "relevance": "高",
+   "summary": "这是一个 R 包，用于把 SAS 编写的 SDTM/ADaM/TLF 程序翻译并迁移为 R 代码，直接服务于临床统计编程的 SAS 到 R 迁移。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "JohnsonAcharya/synthetic-clinical-data-pipeline",
+   "url": "https://github.com/JohnsonAcharya/synthetic-clinical-data-pipeline",
+   "createdAt": "2026-11-03T20:32:03Z",
+   "description": "Reproducible R pipeline for synthetic ABC101 data, from raw generation through SDTM/ADaM-style datasets, safety displays, QC, and review tools.",
+   "language": "HTML",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "SDRG",
+    "ADRG",
+    "ADaM",
+    "TLF"
+   ],
+   "relevance": "高",
+   "summary": "它用 R 构建全流程的合成临床试验数据流水线，覆盖从原始数据到 SDTM/ADaM、安全性 TLF、QC 校验以及 define/SDRG/ADRG 文档的环节。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -42,7 +167,43 @@
     "admiral"
    ],
    "relevance": "高",
-   "summary": "用 R/Shiny 展示合成 CDISC 数据的人口学、AE 与生存终点，并附 pharmaverse 目录用 sdtm.oak 建 SDTM DS、用 admiral 建 ADSL 及 AE 汇总表/图/列表，是完整的 SDTM-ADaM-TLG 编程实践。",
+   "summary": "这是一个 R Shiny 临床试验数据探索应用，并包含用 pharmaverse 工具生成 SDTM DS、admiral ADSL 和 AE 汇总表、图、列表及独立 QC 的示例程序。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "hrach-gevorgyan/hrach-gevorgyan",
+   "url": "https://github.com/hrach-gevorgyan/hrach-gevorgyan",
+   "createdAt": "2026-11-03T09:17:11Z",
+   "description": "",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM"
+   ],
+   "relevance": "高",
+   "summary": "这是一个个人主页仓库，其中 coreval 包在 R 内按 CDISC 发布的一致性规则校验 SDTM、SEND、USDM 数据，作用类似 Pinnacle 21 的预检。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "Vaishnavi-28481/clinical-trial-sdtm-adam-tlf",
+   "url": "https://github.com/Vaishnavi-28481/clinical-trial-sdtm-adam-tlf",
+   "createdAt": "2026-11-03T04:25:58Z",
+   "description": "",
+   "language": "SAS",
+   "stars": 0,
+   "matchedKeywords": [
+    "SDTM",
+    "ADaM",
+    "TLF",
+    "SAS"
+   ],
+   "relevance": "高",
+   "summary": "用SAS/R对模拟临床试验数据搭建SDTM DM/AE、ADaM ADSL及人口学汇总表和AE列表的迷你练习项目，并含PROC COMPARE与R独立QC。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -63,7 +224,7 @@
     "SAS"
    ],
    "relevance": "高",
-   "summary": "Positron 中的生物统计 Agentic AI 实操工作坊：把遗留 SAS 程序转成 R、用 define.xml 核查 ADSL、用 AI skills 生成 TLF，并配套公司编程标准与代码审查应用，直击统计编程核心环节。",
+   "summary": "Positron工作坊，用AI代理将传统SAS程序转换为R、对照define.xml核查ADSL并生成TLF，直接涉及临床统计编程。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -79,7 +240,7 @@
     "SDTM"
    ],
    "relevance": "高",
-   "summary": "基于公开 TB-PACTS 试验 SDTM 数据集的开放可复现分析代码库，标准化派生分析人群、结局与生存时间指标以形成分析就绪数据，对应 SDTM 到 ADaM 的派生与可复现分析。",
+   "summary": "基于公开SDTM数据集的可复现分析代码库，用于派生分析人群、结局与生存时间等分析就绪数据。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -90,7 +251,7 @@
    "createdAt": "2026-11-02T19:06:55Z",
    "description": "",
    "language": "",
-   "stars": 0,
+   "stars": 1,
    "matchedKeywords": [
     "SDTM",
     "ADaM",
@@ -98,23 +259,7 @@
     "SAS"
    ],
    "relevance": "高",
-   "summary": "构建从方案章节、aCRF、原始元数据、SDTM/ADaM注释到SAP规则和TLF输出壳的端到端可追溯性原型网站，直接对应CDISC递交映射与元数据管理。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "carpetcrawler78/crf-rule-engine",
-   "url": "https://github.com/carpetcrawler78/crf-rule-engine",
-   "createdAt": "2026-11-02T15:25:11Z",
-   "description": "Excel-driven plausibility checks for paper-CRF studies: generated SAS/Python edit checks, per-site query files and a full audit trail. Runs in the browser.",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "SAS"
-   ],
-   "relevance": "高",
-   "summary": "面向纸质 CRF 临床研究的 Excel 驱动逻辑核查引擎，可按规则生成 SAS/Python edit check、发出中心质疑并留存审计轨迹，属临床试验数据管理与数据核查范畴。",
+   "summary": "临床试验元数据可追溯性原型网站，串联方案章节、aCRF、原始元数据、SDTM注释、ADaM变量、SAP规则与输出模板。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -133,7 +278,7 @@
     "SAS"
    ],
    "relevance": "高",
-   "summary": "基于CDISC pilot SDTM数据的治疗期不良事件汇总表、严重事件列表及Fisher检验，并用R与SAS双实现，属安全性TLF与ADaM派生典型工作。",
+   "summary": "基于CDISC pilot SDTM数据用SAS和R构建治疗期AE分析数据集，生成按治疗组/系统器官分类/严重程度的不良事件汇总表与列表并做Fisher检验。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -156,7 +301,7 @@
     "SAS"
    ],
    "relevance": "高",
-   "summary": "将OMOP CDM v5.4映射为SDTMIG 3.4的SDTM表并生成XPT、用Pinnacle 21校验，涉及SDTM映射、define/递交验证全链路。",
+   "summary": "将OMOP CDM映射到CDISC SDTM并生成XPT、用Pinnacle 21验证，直接属于临床数据标准与递交相关工具。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -176,7 +321,7 @@
     "P21"
    ],
    "relevance": "高",
-   "summary": "提供内部 R 包 clinicalUtils，用于 CDISC SDTM/ADaM 衍生、结构化质控校验和基于主键的回归比较，并明确不替代 Pinnacle 21；直接相关 SDTM/ADaM 编程与验证。",
+   "summary": "R包提供临床编程衍生、SDTM/ADaM结构校验和回归比对工具，直接相关于CDISC与统计编程工作。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -194,7 +339,7 @@
     "SAS"
    ],
    "relevance": "高",
-   "summary": "使用 SAS 和虚拟数据创建 SDTM DM、AE、VS 域，涉及 CDISC SDTM 映射与衍生；直接相关 SDTM 编程。",
+   "summary": "用 SAS 在模拟原始数据上映射生成 SDTM DM、AE、VS 域，涉及变量标签与派生，属 CDISC SDTM 建库工作。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -214,28 +359,7 @@
     "P21"
    ],
    "relevance": "高",
-   "summary": "复用型 R 临床编程框架，包含 SDTM/ADaM 衍生、校验、回归测试和可复现临床数据工作流；直接相关统计编程与验证。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "MichaelH117/clinical-data-review",
-   "url": "https://github.com/MichaelH117/clinical-data-review",
-   "createdAt": "2026-11-01T05:19:13Z",
-   "description": "",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "CDISC",
-    "SDTM",
-    "define.xml",
-    "Pinnacle 21",
-    "ADaM",
-    "P21"
-   ],
-   "relevance": "高",
-   "summary": "合成 II 期临床试验的数据审查流水线，生成 SDTM 风格数据、执行编辑检查并产出安全性表格；相关临床数据审查、TLF 与 SDTM/ADaM 流程。",
+   "summary": "R 包形式的临床编程框架，提供通用派生、SDTM/ADaM 结构校验及基于主键的回归比对测试，对标 Pinnacle 21 之外的开发期质控。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -257,7 +381,7 @@
     "admiral"
    ],
    "relevance": "高",
-   "summary": "用R与pharmaverse（pharmaversesdtm、admiral、xportr）从SDTM示例数据派生ADSL/ADAE的入门教学项目，直接对应CDISC SDTM/ADaM编程。",
+   "summary": "使用 pharmaversesdtm 示例数据在 R 中由 SDTM 派生 ADSL/ADAE 的教学项目，直接涉及 SDTM 到 ADaM 的编程流程。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -278,7 +402,7 @@
     "admiral"
    ],
    "relevance": "高",
-   "summary": "基于R与Pharmaverse的模拟临床统计编程练习项目，覆盖SDTM验证、ADaM派生、TLG生成与QC全流程，属典型统计编程工作流。",
+   "summary": "基于 R 与 Pharmaverse（admiral 等）的独立教学项目，完整走通 SDTM 校验、ADaM 派生、TLG 生成与 QC 流程。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -300,8 +424,8 @@
     "admiral"
    ],
    "relevance": "高",
-   "summary": "PHUSE US 2027 的统计编程工作坊仓库，基于 admiral 与 pharmaverse 演示从 SAP 到 TFL 的可溯源流程，并涉及 SDTM/ADaM 与 AI Agent Skill 的实践。",
-   "isOrgWatch": false,
+   "summary": "PHUSE US 2027 面向统计程序员的实操工作坊仓库，用 Agent Skills 在 Positron 中实现从 SAP 到 ADaM（admiral）再到 TFL 的可追溯流程，直接对应 CDISC/SDTM/ADaM/TLF 与 pharmaverse 领域。",
+   "isOrgWatch": true,
    "isLookback": false,
    "isNew": false
   },
@@ -323,7 +447,7 @@
     "admiral"
    ],
    "relevance": "高",
-   "summary": "肿瘤领域的 CDISC ADaM ADTTE 与 Kaplan-Meier 生存分析 TLF 递交级流水线，用 SAS 生产、R admiral 独立双编程 QC，并通过 Pinnacle 21 校验。",
+   "summary": "这是一个在肿瘤领域符合监管要求的 CDISC ADaM ADTTE（PFS）和生存分析 TLF 流水线：用 SAS 9.4 生产、用 R admiral 跨语言双重编程做 QC，并通过 Pinnacle 21 零错误校验。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -342,7 +466,87 @@
     "SAS"
    ],
    "relevance": "高",
-   "summary": "结合 SAS、R 与 Python 的临床编程展示平台，包含 SDTM 与 ADaM 数据集处理、CDISC 研究日推导等宏，并附带流行病学分析仪表板。",
+   "summary": "基于 saspy/Python/R 的临床编程展示平台，包含 SDTM/ADaM 数据集处理、DM/TA 域、ISO 8601 日期与 CDISC 研究日推导等 SAS 宏。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "watilde/StudyStudio",
+   "url": "https://github.com/watilde/StudyStudio",
+   "createdAt": "2026-11-04T13:20:22Z",
+   "description": "A browser-only workspace for running OHDSI network studies. It sits between the study coordinator and participating hospitals.",
+   "language": "TypeScript",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "Pinnacle 21",
+    "ADaM",
+    "P21"
+   ],
+   "relevance": "中",
+   "summary": "面向 OHDSI 网络研究的纯浏览器工作区，可汇总站点结果并导出 CDISC Define-XML/Dataset-JSON 供监管递交，与 Define.xml 及递交环节相关。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "shravani04082005-cmd/clinical-trial-sas-programming",
+   "url": "https://github.com/shravani04082005-cmd/clinical-trial-sas-programming",
+   "createdAt": "2026-11-04T04:49:34Z",
+   "description": "Clinical trial data cleaning and analysis in SAS using synthetic phase II hypertension data.",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "SDTM",
+    "ADaM",
+    "SAS"
+   ],
+   "relevance": "中",
+   "summary": "用合成 II 期高血压数据练习 SAS 临床试验数据清洗与分析，规划包含 SDTM/ADaM/TLF 阶段，属个人作品集性质的临床统计编程项目。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "allensrj/biometrics-desk",
+   "url": "https://github.com/allensrj/biometrics-desk",
+   "createdAt": "2026-11-03T19:19:32Z",
+   "description": "临床统计编程信息看板 · 法规、数据标准与开源项目每日更新",
+   "language": "Python",
+   "stars": 1,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "ADaMIG",
+    "pharmaverse",
+    "PHUSE",
+    "ADaM",
+    "TFL",
+    "SAS"
+   ],
+   "relevance": "中",
+   "summary": "这是一个面向药企统计编程人员的信息看板，每日汇总 CDISC、FDA、ICH、PHUSE 等法规与数据标准动态以及相关开源项目。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "Eniola-Ajayi/ae-safety-explorer",
+   "url": "https://github.com/Eniola-Ajayi/ae-safety-explorer",
+   "createdAt": "2026-11-03T12:38:38Z",
+   "description": "",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "pharmaverse",
+    "ADaM"
+   ],
+   "relevance": "中",
+   "summary": "这是一个基于 CDISC ADaM ADAE 合成数据的不良事件安全探索 API 与 Web 应用，支持队列查询、风险评分和自然语言提问。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -359,26 +563,7 @@
     "SDTM"
    ],
    "relevance": "中",
-   "summary": "模拟 II 期 NSCLC 试验的端到端临床数据管理作品集：DMP、eCRF 与核查规则、350 例模拟数据、query 管理、CDISC SDTM 映射及 Power BI 看板，偏数据管理与 SDTM 转换。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "Vaishnavi-28481/clinical-trial-sdtm-adam-tlf",
-   "url": "https://github.com/Vaishnavi-28481/clinical-trial-sdtm-adam-tlf",
-   "createdAt": "2026-11-03T04:25:58Z",
-   "description": "",
-   "language": "SAS",
-   "stars": 0,
-   "matchedKeywords": [
-    "SDTM",
-    "ADaM",
-    "TLF",
-    "SAS"
-   ],
-   "relevance": "中",
-   "summary": "6 例模拟数据的小型练习项目，用 SAS/R 生成 SDTM DM、AE，ADaM ADSL，人口学表与 AE 列表，并用 PROC COMPARE 与 R 做独立 QC，直接对应 SDTM/ADaM/TLF 编程流程。",
+   "summary": "这是一个模拟 II 期 NSCLC 试验的端到端临床数据管理作品集，包含 DMP、eCRF、质疑管理、CDISC SDTM 映射与 Power BI 看板。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -394,7 +579,7 @@
     "CDISC"
    ],
    "relevance": "中",
-   "summary": "用 LLM 与 PDF 解析把临床试验方案数字化，抽取研究设计、入排、治疗臂、终点与访视计划并输出符合 CDISC USDM v4.0 schema 的 JSON，属于方案标准化与 CDISC 标准建模方向。",
+   "summary": "用LLM和PDF解析把临床试验方案抽取为符合CDISC USDM v4.0的JSON并输出访视-评估表，属方案数字化与CDISC USDM标准相关。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -410,10 +595,26 @@
     "CDISC"
    ],
    "relevance": "中",
-   "summary": "将临床试验方案PDF抽取为模板并转换为CDISC USDM v4 JSON（可双向往返并校验），属于CDISC方案数字化标准方向。",
+   "summary": "Certara的概念验证工具，将方案PDF经Excel模板双向转换为CDISC USDM v4 JSON并按受控术语校验，属CDISC方案标准相关。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
+  },
+  {
+   "repo": "carpetcrawler78/crf-rule-engine",
+   "url": "https://github.com/carpetcrawler78/crf-rule-engine",
+   "createdAt": "2026-11-02T15:25:11Z",
+   "description": "Excel-driven plausibility checks for paper-CRF studies: generated SAS/Python edit checks, per-site query files and a full audit trail. Runs in the browser.",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "SAS"
+   ],
+   "relevance": "中",
+   "summary": "这是一个面向纸质CRF临床试验的核查规则引擎：用Excel维护数据核查计划，自动生成SAS/Python编辑检查程序、按中心输出质疑文件并保留完整稽查轨迹，与临床试验数据清洗和数据管理中的编辑检查相关（但不直接涉及CDISC/SDTM/ADaM/TLF）。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
   },
   {
    "repo": "vandhanachakka-hub/REDCap-Oncology-EDC-Database-Design",
@@ -427,39 +628,7 @@
     "CDASH"
    ],
    "relevance": "中",
-   "summary": "在REDCap中模拟设计NSCLC II期试验EDC数据库，eCRF按CDASH/SDTM域对齐，属临床试验数据管理与CDASH标准应用。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "Morioka-Yutaka/StepTimeScope",
-   "url": "https://github.com/Morioka-Yutaka/StepTimeScope",
-   "createdAt": "2026-11-02T09:30:52Z",
-   "description": "StepTimeScope is a lightweight SAS package for reviewing relative processing time across DATA and PROC steps. It records elapsed-time information with PROC SCAPROC, produces a concise step-level table, and can create a chart to surface potential hotspots. It is designed for quick performance checks ",
-   "language": "SAS",
-   "stars": 0,
-   "matchedKeywords": [
-    "SAS"
-   ],
-   "relevance": "中",
-   "summary": "基于 PROC SCAPROC 的轻量 SAS 宏包，用于统计并可视化各 DATA/PROC 步耗时以排查性能热点，可作为 SAS 编程效率辅助工具，但不涉及 CDISC 标准。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "Boehringer-Ingelheim/dipl_invivo_prediction",
-   "url": "https://github.com/Boehringer-Ingelheim/dipl_invivo_prediction",
-   "createdAt": "2026-11-02T07:44:32Z",
-   "description": "Data preparation and application pipeline for the prediction of drug-induced phospholipidosis (DIPL) in vivo based on routine endpoints from non-clinical studies.",
-   "language": "Jupyter Notebook",
-   "stars": 0,
-   "matchedKeywords": [
-    "CDISC"
-   ],
-   "relevance": "中",
-   "summary": "基于非临床研究SEND格式数据（MI/LB/OM/BW）构建药物诱导磷脂沉积预测模型，涉及CDISC SEND标准数据的准备与整合。",
+   "summary": "用REDCap设计模拟NSCLC二期临床试验EDC数据库，涉及CDASH/SDTM域和临床数据管理，但与统计编程交付物关系间接。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -475,7 +644,28 @@
     "SDTM"
    ],
    "relevance": "中",
-   "summary": "仓库名为 sdtm-pipeline，指向 SDTM 数据构建流水线，但缺少描述和 README，具体实现无法确认；与 SDTM 编程可能相关。",
+   "summary": "仓库名为SDTM pipeline，推测用于SDTM数据处理流程，主题直接相关但缺少README说明细节。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "MichaelH117/clinical-data-review",
+   "url": "https://github.com/MichaelH117/clinical-data-review",
+   "createdAt": "2026-11-01T05:19:13Z",
+   "description": "",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "Pinnacle 21",
+    "ADaM",
+    "P21"
+   ],
+   "relevance": "中",
+   "summary": "用 dbt+DuckDB 构建的合成 II 期试验数据审查流水线，注入数据问题做编辑检查并产出安全性汇总表，与数据核查和 TLF 相关。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -493,7 +683,7 @@
     "SAS"
    ],
    "relevance": "中",
-   "summary": "Python实现的Cochran-Mantel-Haenszel检验库，复现SAS PROC FREQ/CMH并做等价性验证，服务于临床试验疗效分层表格的统计计算。",
+   "summary": "Python 实现 Cochran-Mantel-Haenszel 检验并复现 SAS PROC FREQ/CMH 结果，面向临床试验疗效表常用的分层 R×C 分析。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -509,7 +699,7 @@
     "SDTM"
    ],
    "relevance": "中",
-   "summary": "基于合成KEYNOTE-189风格数据构建的交互式患者剖面（patient profile）可视化，涉及EX/AE/LB/TR/CM等域，对应临床试验数据可视化与患者列表展示。",
+   "summary": "用模拟 KEYNOTE-189 风格的患者数据，可视化 EX、AE、LB、TR、CM 等域的患者画像与事件立方体（通过交互页面展示），属于基于 SDTM 域结构的临床试验数据可视化探索，与递交统计编程不直接相关。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -527,7 +717,221 @@
     "CDASH"
    ],
    "relevance": "中",
-   "summary": "面向研究者发起临床试验的PostgreSQL OLTP数据模型，遵循CDISC CDASH/SDTM命名与受控术语并生成数据字典和映射，属CDISC数据建模而非递交编程。",
+   "summary": "为学术机构发起的临床试验搭建的 PostgreSQL OLTP 操作型数据模型，并遵循 CDISC CDASH、SDTM 的命名与控制术语；同时自动生成 DDL 与文档，数据采集建模与 CDASH、SDTM 相关，但不是 ADaM、TLF 的统计编程。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "Navya-thipp/Clinical-SAS-Practice",
+   "url": "https://github.com/Navya-thipp/Clinical-SAS-Practice",
+   "createdAt": "2026-10-31T13:40:17Z",
+   "description": "SDTM",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "SDTM",
+    "SAS"
+   ],
+   "relevance": "中",
+   "summary": "仓库没有 README，根据名字和标签判断，它是用 SAS 练习临床编程（涉及 SDTM）的个人练手代码集合，与 SDTM 和 SAS 编程相关，但没有实际产品或项目价值。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "jeffskinner01/claude-irt-microsoft",
+   "url": "https://github.com/jeffskinner01/claude-irt-microsoft",
+   "createdAt": "2026-10-30T16:11:02Z",
+   "description": "",
+   "language": "C#",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC"
+   ],
+   "relevance": "中",
+   "summary": "基于 .NET 的临床试验 IRT/RTSM 随机化与药物供应平台，涉及临床试验运营但与 CDISC 数据结构、TLF 和递交编程关系间接。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "Ngarciar24/Ngarciar24",
+   "url": "https://github.com/Ngarciar24/Ngarciar24",
+   "createdAt": "2026-11-04T15:53:49Z",
+   "description": "",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "define.xml",
+    "ADaM",
+    "admiral"
+   ],
+   "relevance": "低",
+   "summary": "个人主页 README，介绍其用 R/admiral 复现 CDISC pilot 的 ADaM 与 define.xml 项目，本身非统计编程工具仓库。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "galarzabalada712-bot/HPV-fixed-ratio-reproducibility",
+   "url": "https://github.com/galarzabalada712-bot/HPV-fixed-ratio-reproducibility",
+   "createdAt": "2026-11-04T09:39:39Z",
+   "description": "",
+   "language": "R",
+   "stars": 0,
+   "matchedKeywords": [
+    "XPT"
+   ],
+   "relevance": "低",
+   "summary": "基于 NHANES 公开 XPT 数据的 HPV 分析复现包（R 脚本与调查加权分析），仅借用 SAS XPT 传输格式，与 CDISC 标准无直接关系。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "HannahTeng/adni-a4-repro",
+   "url": "https://github.com/HannahTeng/adni-a4-repro",
+   "createdAt": "2026-11-04T05:26:51Z",
+   "description": "Scripted reproductions of published A4/LEARN and ADNI analyses from the ATRI R data packages, with injected-error sensitivity checks (code and aggregate reports only)",
+   "language": "R",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC"
+   ],
+   "relevance": "低",
+   "summary": "基于 ATRI 的 ADNIMERGE2/A4LEARN R 数据包复现已发表的 ADNI/A4 阿尔茨海默病分析并做注入错误敏感性检验，属临床研究统计复现，但不涉及 CDISC 标准或递交编程。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "openai202347-a11y/vigilant-adventure",
+   "url": "https://github.com/openai202347-a11y/vigilant-adventure",
+   "createdAt": "2026-11-03T15:16:41Z",
+   "description": "",
+   "language": "R",
+   "stars": 0,
+   "matchedKeywords": [
+    "XPT"
+   ],
+   "relevance": "低",
+   "summary": "使用 NHANES 的 .xpt 数据与 R survey 包的论文复现分析脚本包，属于流行病学可重复性研究，与临床递交标准无关。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "PharmaForest/StepTimeScope",
+   "url": "https://github.com/PharmaForest/StepTimeScope",
+   "createdAt": "2026-11-03T02:04:29Z",
+   "description": "mirror of StepTimeScope",
+   "language": "SAS",
+   "stars": 1,
+   "matchedKeywords": [
+    "SAS"
+   ],
+   "relevance": "低",
+   "summary": "轻量 SAS 宏包，用 PROC SCAPROC 统计 DATA/PROC 步骤耗时并出图，属 SAS 编程性能工具但与 CDISC/TLF 标准无直接关系。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "gorkira28/nhanes-diabetes-ckd-awareness-gap",
+   "url": "https://github.com/gorkira28/nhanes-diabetes-ckd-awareness-gap",
+   "createdAt": "2026-11-02T17:06:58Z",
+   "description": "Survey-weighted NHANES analysis of CKD detection and awareness among adults with diabetes using SAS and Python.",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "XPT",
+    "SAS"
+   ],
+   "relevance": "低",
+   "summary": "用 SAS 与 Python 对 NHANES 数据做复杂抽样加权分析，评估糖尿病人群 CKD 认知差距，属流行病学统计分析而非临床试验数据标准。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "Boehringer-Ingelheim/dipl_invivo_prediction",
+   "url": "https://github.com/Boehringer-Ingelheim/dipl_invivo_prediction",
+   "createdAt": "2026-11-02T07:44:32Z",
+   "description": "Data preparation and application pipeline for the prediction of drug-induced phospholipidosis (DIPL) in vivo based on routine endpoints from non-clinical studies.",
+   "language": "Jupyter Notebook",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC"
+   ],
+   "relevance": "低",
+   "summary": "基于非临床SEND数据预测药物诱导磷脂沉积症的建模流程，涉及CDISC SEND域但非临床统计编程核心。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "mervekasikci/biostatistics-agent-skills",
+   "url": "https://github.com/mervekasikci/biostatistics-agent-skills",
+   "createdAt": "2026-11-02T03:15:27Z",
+   "description": "",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC"
+   ],
+   "relevance": "低",
+   "summary": "面向生物统计分析的模块化Agent技能套件，覆盖研究设计、建模和报告，但与CDISC/ADaM/TLF标准无直接关联。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "doublerobust/patient-profile-lattice",
+   "url": "https://github.com/doublerobust/patient-profile-lattice",
+   "createdAt": "2026-11-01T10:40:39Z",
+   "description": "Synthetic-only patient x domain x time lattice prototype: one record model, four projections, zoom-dependent detail. Not clinical evidence.",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "SDTM"
+   ],
+   "relevance": "低",
+   "summary": "基于合成数据的肿瘤患者时间线/患者-时间格视图可视化原型，声明非 SDTM 合规工具也非临床证据，仅与患者档案展示沾边。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "shubham0698/final-year-project",
+   "url": "https://github.com/shubham0698/final-year-project",
+   "createdAt": "2026-10-31T12:43:39Z",
+   "description": "the collaborative final year project ",
+   "language": "JavaScript",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM"
+   ],
+   "relevance": "低",
+   "summary": "面向阿育吠陀临床试验的 Web 端临床试验管理系统（CTMS），技术栈为 React 和 Spring Boot；主要覆盖受试者招募、随机化、EDC 等运营流程，与 CDISC 统计编程和递交仅有概念上的关联。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "DimitriosThomaidis/Trial-Friction-Sim",
+   "url": "https://github.com/DimitriosThomaidis/Trial-Friction-Sim",
+   "createdAt": "2026-10-31T09:16:24Z",
+   "description": "Local 8GB-VRAM clinical trial Schedule of Assessments (SoA) burden extractor, competing-risks patient dropout simulator & ICH E6(R3) / M11 / CDISC USDM v4.1 optimizer (Validated on 60 ClinicalTrials.gov PDFs & 38,302 trials across 26 languages).",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC"
+   ],
+   "relevance": "低",
+   "summary": "本地运行的工具：它从方案文档中提取访视计划（SoA）负担，并模拟竞争风险下的患者脱落，对齐 ICH E6(R3)、M11 和 CDISC USDM；它讨论试验设计和方案优化，不涉及 SDTM、ADaM、TLF 的递交编程。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -554,220 +958,8 @@
     "SAS",
     "admiral"
    ],
-   "relevance": "中",
-   "summary": "某生物统计咨询公司的 GitHub 主页仓库，介绍其按 CDISC SDTM 与 ADaM 标准、采用 SAS 与 R 双编程、并生成 Define.xml 与 SDRG/ADRG 的递交级统计编程服务。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "openai202347-a11y/vigilant-adventure",
-   "url": "https://github.com/openai202347-a11y/vigilant-adventure",
-   "createdAt": "2026-11-03T15:16:41Z",
-   "description": "",
-   "language": "R",
-   "stars": 0,
-   "matchedKeywords": [
-    "XPT"
-   ],
    "relevance": "低",
-   "summary": "基于 CDC NHANES 的 XPT 数据下载、R survey 分析与结果复现包，涉及 SAS XPT 传输文件但非 CDISC 临床试验统计编程。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "hrach-gevorgyan/hrach-gevorgyan",
-   "url": "https://github.com/hrach-gevorgyan/hrach-gevorgyan",
-   "createdAt": "2026-11-03T09:17:11Z",
-   "description": "",
-   "language": "",
-   "stars": 0,
-   "matchedKeywords": [
-    "CDISC",
-    "SDTM"
-   ],
-   "relevance": "低",
-   "summary": "个人主页型 README 仓库，主体介绍本地任务管理软件 Offlog，仅顺带提及 coreval——一个在 R 中按 CDISC 规则校验 SDTM/SEND/USDM 的工具，仓库本身不含统计编程代码。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "PharmaForest/StepTimeScope",
-   "url": "https://github.com/PharmaForest/StepTimeScope",
-   "createdAt": "2026-11-03T02:04:29Z",
-   "description": "mirror of StepTimeScope",
-   "language": "SAS",
-   "stars": 0,
-   "matchedKeywords": [
-    "SAS"
-   ],
-   "relevance": "低",
-   "summary": "轻量级 SAS 宏包，用 PROC SCAPROC 统计 DATA/PROC 步骤耗时并绘图，属于通用 SAS 性能分析工具，与 CDISC/TLF 无直接关系。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "gorkira28/nhanes-diabetes-ckd-awareness-gap",
-   "url": "https://github.com/gorkira28/nhanes-diabetes-ckd-awareness-gap",
-   "createdAt": "2026-11-02T17:06:58Z",
-   "description": "Survey-weighted NHANES analysis of CKD detection and awareness among adults with diabetes using SAS and Python.",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "XPT",
-    "SAS"
-   ],
-   "relevance": "低",
-   "summary": "用 SAS 与 Python 对 NHANES 数据做加权调查分析，估算糖尿病人群 CKD 检出与知晓差距，属流行病学统计编程，不涉及 CDISC 标准或递交。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "kinshikmalpani/bio-sentinel",
-   "url": "https://github.com/kinshikmalpani/bio-sentinel",
-   "createdAt": "2026-11-02T07:21:44Z",
-   "description": "",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "XPT"
-   ],
-   "relevance": "低",
-   "summary": "基于CDC BRFSS 2021公开数据（SAS XPT传输文件）做慢病风险多标签预测的机器学习研究原型，属流行病学建模，与CDISC/SDTM/ADaM及临床试验递交无直接关系。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": true
-  },
-  {
-   "repo": "Rits19/heart-failure-survival-analysis",
-   "url": "https://github.com/Rits19/heart-failure-survival-analysis",
-   "createdAt": "2026-11-02T06:22:18Z",
-   "description": "Kaplan-Meier, log-rank test and Cox regression on heart-failure clinical records data (R/SAS)",
-   "language": "R",
-   "stars": 0,
-   "matchedKeywords": [
-    "SAS"
-   ],
-   "relevance": "低",
-   "summary": "用R和SAS对UCI心衰临床记录数据做Kaplan-Meier、log-rank与Cox回归的生存分析练习项目，涉及临床统计方法但非CDISC标准数据、也无TLF/Define.xml递交内容。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": true
-  },
-  {
-   "repo": "learningdebunked/scd-social-isolation-ml",
-   "url": "https://github.com/learningdebunked/scd-social-isolation-ml",
-   "createdAt": "2026-11-02T05:48:03Z",
-   "description": "Interpretable ML model screening Subjective Cognitive Decline from social isolation risk factors in 192,567 U.S. adults | BRFSS 2023-2024 | XGBoost | SHAP",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "XPT"
-   ],
-   "relevance": "低",
-   "summary": "利用BRFSS 2023-2024调查数据构建XGBoost+SHAP可解释模型筛查主观认知衰退的论文代码，属公共卫生机器学习，与药企统计编程和CDISC标准无关。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": true
-  },
-  {
-   "repo": "mervekasikci/biostatistics-agent-skills",
-   "url": "https://github.com/mervekasikci/biostatistics-agent-skills",
-   "createdAt": "2026-11-02T03:15:27Z",
-   "description": "",
-   "language": "",
-   "stars": 0,
-   "matchedKeywords": [
-    "CDISC"
-   ],
-   "relevance": "低",
-   "summary": "面向生物统计分析的模块化Agent技能套件，覆盖设计与建模到报告，但未涉及CDISC/SDTM/ADaM/TLF等临床试验数据标准。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "dflores0806/JBHI-Contract-Driven-Assurance",
-   "url": "https://github.com/dflores0806/JBHI-Contract-Driven-Assurance",
-   "createdAt": "2026-11-01T18:17:58Z",
-   "description": "Reproducibility package for \"Contract-Driven Assurance and Runtime Verification of Health Digital Twins\", including cross-implementation evaluation, runtime trace checks, metamorphic tests, release-change experiments, and NHANES spirometry replay.",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "XPT"
-   ],
-   "relevance": "低",
-   "summary": "健康数字孪生契约式保障与运行时验证的可复现包，使用NHANES肺功能XPT数据做外部压力回放，属医学信息学工程验证，不涉及CDISC/SDTM/ADaM或TLF递交流程。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": true
-  },
-  {
-   "repo": "doublerobust/patient-profile-lattice",
-   "url": "https://github.com/doublerobust/patient-profile-lattice",
-   "createdAt": "2026-11-01T10:40:39Z",
-   "description": "Synthetic-only patient x domain x time lattice prototype: one record model, four projections, zoom-dependent detail. Not clinical evidence.",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "SDTM"
-   ],
-   "relevance": "低",
-   "summary": "合成肿瘤患者时间线可视化原型，探索患者、域、时间多维视图，明确声明不是 SDTM 合规工具；仅与临床数据可视化有弱关联。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "Navya-thipp/Clinical-SAS-Practice",
-   "url": "https://github.com/Navya-thipp/Clinical-SAS-Practice",
-   "createdAt": "2026-10-31T13:40:17Z",
-   "description": "SDTM",
-   "language": "",
-   "stars": 0,
-   "matchedKeywords": [
-    "SDTM",
-    "SAS"
-   ],
-   "relevance": "低",
-   "summary": "疑似个人SAS与SDTM练习仓库，仅有标签无实际说明，与统计编程领域仅有间接练习性质关联。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "shubham0698/final-year-project",
-   "url": "https://github.com/shubham0698/final-year-project",
-   "createdAt": "2026-10-31T12:43:39Z",
-   "description": "the collaborative final year project ",
-   "language": "JavaScript",
-   "stars": 0,
-   "matchedKeywords": [
-    "CDISC",
-    "SDTM"
-   ],
-   "relevance": "低",
-   "summary": "面向阿育吠陀临床试验的Web端临床试验管理系统（CTMS），侧重受试者招募、EDC与AE监测等运营管理，与SDTM/ADaM递交编程无直接关系。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "DimitriosThomaidis/Trial-Friction-Sim",
-   "url": "https://github.com/DimitriosThomaidis/Trial-Friction-Sim",
-   "createdAt": "2026-10-31T09:16:24Z",
-   "description": "Local 8GB-VRAM clinical trial Schedule of Assessments (SoA) burden extractor, competing-risks patient dropout simulator & ICH E6(R3) / M11 / CDISC USDM v4.1 optimizer (Validated on 60 ClinicalTrials.gov PDFs & 38,302 trials across 26 languages).",
-   "language": "Python",
-   "stars": 0,
-   "matchedKeywords": [
-    "CDISC"
-   ],
-   "relevance": "低",
-   "summary": "从方案PDF提取访视计划负担并模拟竞争风险脱落率的方案设计工具，仅引用CDISC USDM等标准，与统计编程和数据递交无直接关系。",
+   "summary": "这是生物统计 CRO 的组织主页 README，宣传其 CDISC SDTM、ADaM、define.xml、Pinnacle 21 递交交付能力；主题高度相关，但这只是机构简介，没有实际代码。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
@@ -786,23 +978,7 @@
     "SAS"
    ],
    "relevance": "低",
-   "summary": "个人主页 README，作者自述有临床试验数据格式化以及使用 SAS、R、Python 编程的背景，但仓库本身不含 CDISC 编程内容。",
-   "isOrgWatch": false,
-   "isLookback": false,
-   "isNew": false
-  },
-  {
-   "repo": "jeffskinner01/claude-irt-microsoft",
-   "url": "https://github.com/jeffskinner01/claude-irt-microsoft",
-   "createdAt": "2026-10-30T16:11:02Z",
-   "description": "",
-   "language": "C#",
-   "stars": 0,
-   "matchedKeywords": [
-    "CDISC"
-   ],
-   "relevance": "低",
-   "summary": "面向临床试验随机化与药物供应的 IRT/RTSM 平台（Microsoft 技术栈），属于临床试验运营系统，与 CDISC/SDTM/ADaM/TLF 统计编程无直接关系。",
+   "summary": "个人主页 README，作者自述有临床试验数据格式化与 SAS/R/Python 统计编程背景，但仓库本身无 CDISC 相关代码。",
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false

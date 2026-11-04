@@ -52,7 +52,7 @@ class Independence(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp); (root/'clinical.json').write_text(json.dumps({'items':[{'source':'FDA','published':'2026-10-30','url':'https://www.fda.gov/legacy'}]}))
             specs=[('FDA','https://www.fda.gov/','test',failure),('ICH','https://www.ich.org/','test',good)]
-            with patch('clinical_pipeline.sources.specifications',return_value=specs),patch('clinical_pipeline.analyze',return_value=([],[],[])):
+            with patch('clinical_pipeline.sources.specifications',return_value=specs),patch('clinical_pipeline.analyze',return_value=([],[],[])),patch('clinical_pipeline.write_summary'):
                 result=collect(root,root,date(2026,11,4))
             self.assertEqual(result['items'],[])
             self.assertFalse(result['sources'][0]['ok'])

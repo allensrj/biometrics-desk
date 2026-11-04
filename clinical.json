@@ -1,8 +1,8 @@
 {
  "collectorVersion": "official-direct-v1",
- "updated": "2026-11-04T21:08:35.738925+08:00",
- "windowStart": "2026-08-07",
- "windowEnd": "2026-11-04",
+ "updated": "2026-11-05T02:01:23.119855+08:00",
+ "windowStart": "2026-08-08",
+ "windowEnd": "2026-11-05",
  "items": [
   {
    "source": "FDA",
@@ -28,7 +28,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e14-and-s7b-clinical-and-nonclinical-evaluation-qtqtc-interval-prolongation-and-proarrhythmic",
@@ -60,7 +60,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.federalregister.gov/documents/2026/10/28/2026-21953/electronic-submission-template-for-investigational-device-exemption-ide-applications-draft-guidance",
@@ -92,7 +92,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cde.org.cn/main/news/viewInfoCommon/e50c89621a69b8bffeaf90977d836f17",
@@ -156,7 +156,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/submitting-clinical-trial-data-evaluate-ability-operate-motor-vehicle",
@@ -188,7 +188,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cde.org.cn/main/news/viewInfoCommon/28aaf6bbcbd62d745dec44b517b994ec",
@@ -220,7 +220,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cde.org.cn/main/news/viewInfoCommon/25b67cd7ce808a1fdedc9a51360f0d24",
@@ -252,7 +252,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.federalregister.gov/documents/2026/10/16/2026-21197/electronic-common-technical-document-ectd-data-standards-supporting-forward-compatibility-for-ectd",
@@ -284,7 +284,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.federalregister.gov/documents/2026/10/16/2026-21195/electronic-common-technical-document-data-standards-center-for-drug-evaluation-and-research-and",
@@ -301,22 +301,22 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "title": "PHUSE真实世界数据秋季会议2026要点综述",
-   "summary": "PHUSE RWD秋季会议8个报告摘要，涵盖RWD质量与数据血缘评估、OMOP CDM可复用质量验证框架、ICH M14在碎片化理赔/EMR数据中的实施、CDISC生物医学概念作为eSource语义层等。",
-   "impact": "原文事实：会议展示了OMOP校验框架、ICH M14实施框架及CDISC BC元数据驱动应用；建议统计编程团队参考其可复用验证与可追溯性做法，具体内容需见会议材料。",
+   "title": "PHUSE真实世界数据秋季活动2026综述",
+   "summary": "PHUSE官网综述2026年9月30日至10月1日真实世界数据秋季活动，8场报告涉及RWD质量与数据溯源、面向OMOP CDM的可复用质量校验框架、ICH M14在分散理赔/EMR数据中的实施、USDM与CDISC生物医学概念在eSource中的应用。材料为会议摘要综述。",
+   "impact": "可参考其OMOP CDM校验维度及ICH M14实施的源数据适用性、验证与透明文档化思路；属经验分享，非监管要求。",
    "importance": "中",
    "category": "行业与会议",
-   "evidence": "a reusable OMOP Common Data Model validation framework covering structural, vocabulary, temporal and cross-table checks",
+   "evidence": "Implementing ICH M14 in Fragmented Claims-EMR Settings",
    "tags": [
     "PHUSE",
     "真实世界数据",
-    "OMOP",
-    "CDISC"
+    "ICH M14",
+    "OMOP"
    ],
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://phuse.global/Communications/PHUSE_Blog/phuse-real-world-data-autumn-event-2026-summary",
@@ -348,7 +348,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.ich.org/news/ich-training-library-sees-addition-new-materials-covering-11-harmonised-guidelines",
@@ -380,7 +380,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e2br3-electronic-transmission-individual-case-safety-reports-implementation-guide-data-elements-and",
@@ -397,12 +397,12 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "title": "PHUSE 2026数据透明度秋季活动摘要",
-   "summary": "PHUSE数据透明度2026秋季活动摘要（9月15–17日，477人参加）：议题包括EU CTR商业机密信息保护、EMA Policy 0070与加拿大PRCI下的自动化匿名化工具、盲态维护与定向删减、去标识化方法、EHDS数据二次使用、ClinicalTrials.gov贝叶斯试验报告缺口、患者数据回传及病理全切片图像去标识；幻灯片与录像已公开。",
-   "impact": "原文事实：活动分享了匿名化、去标识化与透明度工具的实践经验。建议：递交匿名化流程与ClinicalTrials.gov结果报告相关工作可参考其公开材料。",
+   "title": "PHUSE 2026数据透明度秋季会议综述",
+   "summary": "PHUSE 2026数据透明度秋季会议综述：27国111家企业477人参会，议题涵盖临床文档与数据集匿名化去标识化、试验盲态保护、患者数据返还、透明度平台验证，以及贝叶斯方法试验在ClinicalTrials.gov的报告差距；幻灯片与录播已发布。信息范围为会议综述。",
+   "impact": "建议关注CIPHER等自动化去标识化工具及贝叶斯试验结果登记报告差距，对递交数据的匿名化与披露流程有参考价值；原文为会议综述，非监管要求。",
    "importance": "中",
    "category": "行业与会议",
-   "evidence": "This Data Transparency Event has been a key date in the PHUSE calendar for more than six years",
+   "evidence": "Their analysis identified gaps between evolving FDA guidance and current reporting capabilities",
    "tags": [
     "PHUSE",
     "数据透明度",
@@ -412,7 +412,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://phuse.global/Communications/PHUSE_Blog/phuse-data-transparency-autumn-event-2026-summary",
@@ -444,7 +444,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html",
@@ -476,7 +476,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/ADaM%20Terminology.html",
@@ -508,7 +508,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/standards/foundational/glossary/cdisc-glossary-v21-0",
@@ -540,7 +540,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/standards/foundational/dataset-json/controlled-terminology-package-62",
@@ -572,7 +572,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.federalregister.gov/documents/2026/09/18/2026-19181/electronic-submission-template-for-medical-device-premarket-approval-applications-pmas-draft",
@@ -604,7 +604,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.ich.org/news/revised-qas-ich-e14-and-ich-s7b-provide-updated-implementation-support",
@@ -636,12 +636,44 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.federalregister.gov/documents/2026/09/15/2026-18805/statistical-considerations-for-the-design-of-rare-disease-clinical-investigations-establishment-of-a",
     "dateEvidence": "publication_date: 2026-09-15",
     "contentBasis": "official-api-abstract"
+   }
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/news/building-foundation-future-pkd-breakthroughs-cdisc-pkd-foundation-and-critical-path-institute",
+   "originalTitle": "Building the Foundation for Future PKD Breakthroughs: CDISC, PKD Foundation, and Critical Path Institute Expand Global Research Standard",
+   "published": "2026-09-04",
+   "dateEvidence": "4 September 2026",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "title": "CDISC与PKD基金会、C-Path扩展多囊肾病治疗领域用户指南至v2.0",
+   "summary": "CDISC官网公告：三方合作开发多囊肾病治疗领域用户指南TAUG-PKD v2.0，首次纳入常染色体隐性多囊肾病，并将以数字化连接生物医学概念的形式提供，便于AI工具读取。材料为公告摘要，发布日期与可用时间尚未公布，指南仍在开发中。",
+   "impact": "建议关注v2.0定稿后对ADPKD/ARPKD研究SDTM映射与数据可重用性的影响；当前仅为开发计划，尚不构成递交要求。",
+   "importance": "中",
+   "category": "CDISC与标准",
+   "evidence": "develop Version 2.0 of the Therapeutic Area User Guide for Polycystic Kidney Disease (TAUG-PKD)",
+   "tags": [
+    "CDISC",
+    "TAUG",
+    "数据标准",
+    "PKD"
+   ],
+   "analysisMethod": "DeepSeek / deepseek-flash",
+   "analysisVersion": "clinical-direct-v1",
+   "collected": "2026-11-05T02:01:23.119855+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
+   "provenance": {
+    "kind": "official-direct-v1",
+    "url": "https://www.cdisc.org/news/building-foundation-future-pkd-breakthroughs-cdisc-pkd-foundation-and-critical-path-institute",
+    "dateEvidence": "4 September 2026",
+    "contentBasis": "official-page"
    }
   },
   {
@@ -668,7 +700,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.federalregister.gov/documents/2026/09/02/2026-17961/pharmacokinetics-in-patients-with-impaired-hepatic-function-study-design-data-analysis-and-impact-on",
@@ -682,8 +714,8 @@
    "originalTitle": "Pharmacokinetics in Patients with Impaired Hepatic Function: Study Design, Data Analysis, and Impact on Dosing and Labeling",
    "published": "2026-09-02",
    "dateEvidence": "FDA guidance Issue Date: 9/2/2026",
-   "deadline": "",
-   "deadlineEvidence": "",
+   "deadline": "2026-12-01",
+   "deadlineEvidence": "Submit Comments by 12/01/2026",
    "contentBasis": "official-page",
    "title": "FDA肝损伤患者药代动力学研究设计、分析与标签影响指南草案",
    "summary": "FDA官方页面显示，该草案指南为拟开展肝损伤对药物PK及必要时PD影响研究的申办者提供建议，涉及研究设计、数据分析及对给药方案与标签的影响，属临床药理学选题，征求意见截止2026-12-01，信息仅来自页面摘要。",
@@ -700,7 +732,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/pharmacokinetics-patients-impaired-hepatic-function-study-design-data-analysis-and-impact-dosing",
@@ -732,7 +764,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.ich.org/news/meddra-version-291-released-english",
@@ -764,12 +796,44 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.federalregister.gov/documents/2026/08/18/2026-16829/testosterone-use-in-menopausal-women-public-workshop-request-for-comments",
     "dateEvidence": "publication_date: 2026-08-18",
     "contentBasis": "official-api-abstract"
+   }
+  },
+  {
+   "source": "PHUSE",
+   "url": "https://phuse.global/Communications/PHUSE_Blog/phuse-dvost-camis-blog-comparison-of-tipping-point-analysis-delta-adjustment",
+   "originalTitle": "PHUSE DVOST CAMIS Blog – Comparison of Tipping Point Analysis (Delta Adjustment)",
+   "published": "2026-08-13",
+   "dateEvidence": "datePublished: 2026-08-13",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "title": "PHUSE CAMIS：R与SAS实现delta调整Tipping Point分析比较",
+   "summary": "PHUSE DVOST CAMIS博文比较R（rbmi包）与SAS（Roger五个宏）实现delta调整tipping point敏感性分析：R灵活性更高，可针对ICE后缺失、间歇性缺失等精确定位，且边际delta调整无需重拟合插补模型；SAS宏仅适用于退出后缺失但计算更快；示例结果基本一致。",
+   "impact": "建议在缺失数据敏感性分析中按缺失类型与算力选择工具，并核对两实现的一致性；原文为PHUSE工作组技术博文，非监管要求。",
+   "importance": "中",
+   "category": "统计方法",
+   "evidence": "Tipping point analysis is a sensitivity analysis that assesses the robustness of clinical trial results when they are based on imputed missing data.",
+   "tags": [
+    "tipping point",
+    "缺失数据",
+    "敏感性分析",
+    "R/SAS"
+   ],
+   "analysisMethod": "DeepSeek / deepseek-flash",
+   "analysisVersion": "clinical-direct-v1",
+   "collected": "2026-11-05T02:01:23.119855+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
+   "provenance": {
+    "kind": "official-direct-v1",
+    "url": "https://phuse.global/Communications/PHUSE_Blog/phuse-dvost-camis-blog-comparison-of-tipping-point-analysis-delta-adjustment",
+    "dateEvidence": "datePublished: 2026-08-13",
+    "contentBasis": "official-page"
    }
   }
  ],
@@ -798,7 +862,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/events/webinar/cdisc-open-rules-core-v1-0-release-public-webinar",
@@ -830,7 +894,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/events/webinar/bc-grouping-launch-and-bc-versioning-update",
@@ -862,7 +926,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/public-review/cdisc-tmf-standard-model-v1-community-review",
@@ -894,7 +958,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/events/webinar/tmf-community-general-meeting-q4-2026",
@@ -926,7 +990,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/events/webinar/cdisc-360i-phase-2-outcomes-and-road-phase-3",
@@ -958,7 +1022,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/events/webinar/cosa-spotlight-q4-2026",
@@ -990,7 +1054,7 @@
    "analysisMethod": "DeepSeek / deepseek-flash",
    "analysisVersion": "clinical-direct-v1",
    "collected": "2026-11-04T21:08:35.738925+08:00",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00",
+   "lastVerified": "2026-11-05T02:01:23.119855+08:00",
    "provenance": {
     "kind": "official-direct-v1",
     "url": "https://www.cdisc.org/public-review/chinese-translations-controlled-terminology",
@@ -1004,7 +1068,7 @@
    "name": "CDISC",
    "url": "https://www.cdisc.org/news/whats-new",
    "scope": "新闻、最新标准、公开征求意见、近期网络研讨会",
-   "checked": "2026-11-04T21:08:38.450201+08:00",
+   "checked": "2026-11-05T02:01:26.816719+08:00",
    "ok": true,
    "discovered": 13,
    "read": 13,
@@ -1013,9 +1077,9 @@
    "error": "",
    "limited": false,
    "pages": 5,
-   "included": 2,
+   "included": 3,
    "agenda": 7,
-   "pendingAnalysis": 1,
+   "pendingAnalysis": 0,
    "latestPublished": "2026-09-25",
    "retained": 0
   },
@@ -1023,7 +1087,7 @@
    "name": "CDE",
    "url": "https://www.cde.org.cn/",
    "scope": "官网首页公告及工作动态目录；目录受限时标注覆盖不完整",
-   "checked": "2026-11-04T21:08:56.976666+08:00",
+   "checked": "2026-11-05T02:01:41.826010+08:00",
    "ok": false,
    "discovered": 5,
    "read": 5,
@@ -1042,7 +1106,7 @@
    "name": "ICH",
    "url": "https://www.ich.org/",
    "scope": "官网新闻 CMS：按 date 字段分页，读取文章正文",
-   "checked": "2026-11-04T21:08:56.976722+08:00",
+   "checked": "2026-11-05T02:01:41.826070+08:00",
    "ok": true,
    "discovered": 10,
    "read": 4,
@@ -1061,7 +1125,7 @@
    "name": "FDA",
    "url": "https://www.fda.gov/drugs/guidances-drugs/newly-added-guidance-documents",
    "scope": "新发布药品指南目录与原文",
-   "checked": "2026-11-04T21:08:56.976739+08:00",
+   "checked": "2026-11-05T02:01:41.826092+08:00",
    "ok": true,
    "discovered": 54,
    "read": 4,
@@ -1080,26 +1144,26 @@
    "name": "PHUSE",
    "url": "https://phuse.global/Communications/PHUSE_Blog",
    "scope": "PHUSE Blog：行业、工作组与会议文章",
-   "checked": "2026-11-04T21:08:56.976767+08:00",
+   "checked": "2026-11-05T02:01:41.826115+08:00",
    "ok": true,
-   "discovered": 4,
-   "read": 4,
-   "eligible": 4,
+   "discovered": 50,
+   "read": 5,
+   "eligible": 5,
    "unknownDate": 0,
    "error": "",
-   "limited": true,
-   "pages": 15,
-   "included": 3,
+   "limited": false,
+   "pages": 1,
+   "included": 4,
    "agenda": 0,
-   "pendingAnalysis": 0,
+   "pendingAnalysis": 1,
    "latestPublished": "2026-10-22",
-   "retained": 0
+   "retained": 1
   },
   {
    "name": "美国联邦公报",
    "url": "https://www.federalregister.gov/agencies/food-and-drug-administration",
    "scope": "FDA 正式公告 API：90 天分页、读取官方摘要",
-   "checked": "2026-11-04T21:08:56.976850+08:00",
+   "checked": "2026-11-05T02:01:41.826192+08:00",
    "ok": true,
    "discovered": 184,
    "read": 70,
@@ -1110,7 +1174,7 @@
    "pages": 2,
    "included": 7,
    "agenda": 0,
-   "pendingAnalysis": 2,
+   "pendingAnalysis": 0,
    "latestPublished": "2026-10-28",
    "retained": 0
   },
@@ -1118,7 +1182,7 @@
    "name": "PMDA",
    "url": "https://www.pmda.go.jp/english/review-services/reviews/0002.html",
    "scope": "电子研究数据标准目录与最新验证规则",
-   "checked": "2026-11-04T21:08:56.976882+08:00",
+   "checked": "2026-11-05T02:01:41.826228+08:00",
    "ok": true,
    "discovered": 2,
    "read": 2,
@@ -1137,7 +1201,7 @@
    "name": "NCI EVS",
    "url": "https://evs.nci.nih.gov/ftp1/CDISC/",
    "scope": "SDTM、ADaM 受控术语最新版本",
-   "checked": "2026-11-04T21:08:56.976905+08:00",
+   "checked": "2026-11-05T02:01:41.826248+08:00",
    "ok": true,
    "discovered": 2,
    "read": 2,
@@ -1156,7 +1220,7 @@
    "name": "EMA",
    "url": "https://www.ema.europa.eu/en/about-us/how-we-work/data-regulation-big-data-other-sources/use-clinical-study-data-medicine-evaluation",
    "scope": "临床研究数据试点资料索引",
-   "checked": "2026-11-04T21:08:56.976929+08:00",
+   "checked": "2026-11-05T02:01:41.826274+08:00",
    "ok": true,
    "discovered": 4,
    "read": 4,
@@ -1174,9 +1238,9 @@
  ],
  "analysis": {
   "method": "DeepSeek 独立分析官网正文、官方摘要或资料索引",
-  "accepted": 31,
-  "irrelevant": 66,
-  "pending": 3
+  "accepted": 32,
+  "irrelevant": 68,
+  "pending": 1
  },
  "excluded": {
   "outsideWindow": 8,
