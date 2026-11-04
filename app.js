@@ -242,19 +242,15 @@ async function start() {
           ),
         )
         .join("") || "<p>未来 30 天暂无已知日程。</p>";
-    const names = {
-      "fda.gov": "FDA",
-      "cdisc.org": "CDISC",
-      "cde.org.cn": "国家药监局药审中心（CDE）",
-      "ich.org": "ICH",
-      "phuse.global": "PHUSE",
-      "federalregister.gov": "美国联邦公报",
-    };
     const stamp = (v) => (v ? bj(v) + "（北京时间）" : "暂无记录");
-    const sources = [
-      ...Object.values(names).map(esc),
-      ...(clinical.directSources || []).map((s) => out(s.url, s.name)),
-    ].join("、");
+    const sources = (clinical.sources || []).map((s) => out(s.url, s.name)).join("、");
+    const sourceIssues = (clinical.sources || []).filter((s) => !s.ok || s.limited || s.pendingAnalysis)
+      .map((s) => esc(s.name) + "：" + esc([
+        s.error ? (s.read ? "部分内容未能采集" : "本轮未能采集") : "",
+        s.limited ? "采集范围不完整" : "",
+        s.pendingAnalysis ? s.pendingAnalysis + " 条分析待重试" : "",
+        s.retained ? "保留本项目此前核实的内容" : ""
+      ].filter(Boolean).join("；"))).join("<br>");
     const releases = (github.releases || [])
       .map(
         (r) => `<li>${out(r.url, r.repo + " " + r.tag)} · ${bj(r.date)}</li>`,
@@ -264,7 +260,7 @@ async function start() {
     panel.hidden = !isRepo || state.archive;
     panel.innerHTML = `<summary>关注账号的正式发布（${github.releases?.length || 0}）</summary><p>近五天有推送的相关公开项目，新仓库另列于下方。</p>${releases ? "<ul>" + releases + "</ul>" : "<p>当前窗口未收录正式发布。</p>"}${github.releaseErrors?.length ? "<p>检查未完成：" + esc(github.releaseErrors.join("、")) + "</p>" : ""}`;
     el("updates").innerHTML =
-      `<div class="sync"><b>临床情报</b>采集完成　${stamp(status.clinical?.checked)}<p>${esc(clinical.upstreamError || "")}来源：${sources}</p></div><div class="sync"><b>开源仓库</b><p>采集范围　${esc(github.windowStart)} 至 ${esc(github.windowEnd)}（北京时间）</p></div>`;
+      `<div class="sync"><b>临床情报</b>采集完成　${stamp(status.clinical?.checked)}<p>${"来源：" + sources}</p><p>独立采集官网 · 近 90 个北京时间自然日</p>${sourceIssues ? "<p class=\"source-warning\">" + sourceIssues + "</p>" : ""}<p><a href="collection-report.json" target="_blank" rel="noopener">查看本轮采集记录 ↗</a></p></div><div class="sync"><b>开源仓库</b><p>采集范围　${esc(github.windowStart)} 至 ${esc(github.windowEnd)}（北京时间）</p></div>`;
   }
   document.addEventListener("click", (e) => {
     const b = e.target.closest("[data-action]");
@@ -341,5 +337,5 @@ async function start() {
 start().catch(
   () =>
     (el("feed").textContent =
-      "数据加载失败，请通过项目启动脚本打开看板后重试。"),
+      "数据加载失败，请稍后刷新页面重试。"),
 );

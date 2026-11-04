@@ -30,11 +30,17 @@ jobs:
         with:
           path: |
             ${{ env.RADAR_STATE_DIR }}/seen_repos.json
+            ${{ env.RADAR_STATE_DIR }}/clinical_analysis.json
             clinical.json
+            collection-report.json
             repositories.json
             refresh-status.json
-          key: radar-v1-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: radar-v1-
+          key: radar-direct-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: radar-direct-v2-
+      - name: Install collector dependencies and verify data rules
+        run: |
+          python3 -m pip install -r requirements.txt
+          python3 -m unittest discover -s tests -v
       - name: Collect public sources
         if: github.event_name == 'schedule' || inputs.refresh
         env:
@@ -46,10 +52,12 @@ jobs:
         with:
           path: |
             ${{ env.RADAR_STATE_DIR }}/seen_repos.json
+            ${{ env.RADAR_STATE_DIR }}/clinical_analysis.json
             clinical.json
+            collection-report.json
             repositories.json
             refresh-status.json
-          key: radar-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          key: radar-direct-v2-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Verify interface on GitHub runner
         run: |
           node --check app.js
@@ -96,10 +104,12 @@ jobs:
             }
           })().catch(error => { console.error(error); process.exitCode = 1; });
           JS
+      - name: Validate independent clinical publication
+        run: python3 scripts/verify_clinical.py
       - name: Prepare public files
         run: |
           mkdir site
-          cp index.html style.css app.js clinical.json repositories.json repositories-archive.json refresh-status.json site/
+          cp index.html style.css app.js clinical.json collection-report.json repositories.json repositories-archive.json refresh-status.json site/
           chmod -R a+rX site
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:

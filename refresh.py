@@ -5,74 +5,19 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-from datetime import datetime, timedelta, date
+from datetime import datetime
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent
 PRIVATE = Path(os.environ.get("RADAR_STATE_DIR", Path.home() / "Library/Application Support/ClinicalRadar"))
 sys.path.insert(0, str(ROOT / "collector"))
 from automation import atomic_write_json, run
-from official_sources import collect
+from clinical_pipeline import collect as collect_clinical
 from release_watch import collect as collect_releases
 
 
-def upstream_clinical():
-    from urllib.request import urlopen
-    with urlopen("https://raw.githubusercontent.com/EmilyLiu312/clinical-biometrics-radar/main/data.json", timeout=60) as response:
-        data = json.load(response)
-    fields = ("title", "url", "category", "importance", "summary", "impact", "source")
-    if (
-        not isinstance(data.get("items"), list)
-        or not data["items"]
-        or not data.get("updated")
-        or any(
-            not isinstance(item, dict)
-            or not all(isinstance(item.get(k), str) and item[k] for k in fields)
-            or not isinstance(item.get("tags", []), list)
-            for item in data["items"]
-        )
-    ):
-        raise ValueError("临床源未提供有效快照")
-    return data
-
-
 def clinical():
-    path = ROOT / "clinical.json"
-    saved = json.loads(path.read_text()) if path.exists() else {}
-    previous = saved.get("items", []) + saved.get("agendaOnly", [])
-    try:
-        data = upstream_clinical()
-    except (OSError, ValueError, subprocess.SubprocessError):
-        data = dict(saved)
-        data["items"] = [item for item in previous if not item.get("directSource")]
-        data["upstreamError"] = "汇总源本轮同步失败。"
-    else:
-        data["upstreamChecked"] = datetime.now(ZoneInfo("Asia/Shanghai")).isoformat()
-    direct, data["directSources"] = collect(previous)
-    select_news(data, direct + data["items"])
-    atomic_write_json(str(path), data)
-
-
-def select_news(data, candidates, today=None):
-    today = today or datetime.now(ZoneInfo("Asia/Shanghai")).date()
-    start = today - timedelta(days=89)
-    news, agenda = [], []
-    for item in candidates:
-        try:
-            published = date.fromisoformat(item.get("published") or "")
-        except ValueError:
-            published = None
-        # Some upstream notices put a scheduled meeting date in the publication field.
-        event_date = item.get("deadline") == item.get("published") and (
-            item.get("collected") or "9999"
-        ) < (item.get("published") or "")
-        if published and start <= published <= today and not event_date:
-            news.append(item)
-        elif (item.get("deadline") or "") >= today.isoformat():
-            agenda.append(item)
-    data["items"] = sorted(news, key=lambda item: item["published"], reverse=True)
-    data["agendaOnly"] = agenda
-    data.pop("sourceChecks", None)
+    return collect_clinical(ROOT, PRIVATE)
 
 
 def repositories():
@@ -130,7 +75,9 @@ def main():
     for key, action in [("clinical", clinical), ("github", repositories)]:
         entry = status.setdefault(key, {})
         try:
-            action()
+            result = action()
+            if key == "clinical":
+                entry["degraded"] = any(not s["ok"] or s["limited"] or s["pendingAnalysis"] for s in result["sources"])
             entry.update(
                 ok=True, checked=datetime.now(ZoneInfo("Asia/Shanghai")).isoformat()
             )

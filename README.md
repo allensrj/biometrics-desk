@@ -8,16 +8,29 @@
 
 ## 临床情报
 
-收录最近 **90 个北京时间自然日（含当天）**发布或由官网修订的内容，按发布日期从新到旧排序。首次采集日期与文件发布日期分别记录。较早发布但仍有未来截止日的通知保留在近期事项中。
+**本项目独立访问官方网站、独立筛选并调用 DeepSeek 分析，不再读取任何第三方看板的汇总 JSON。** 参考项目只用于开发思路与历史代码署名，其是否更新不影响本项目采集。
 
-| 来源 | 关注内容 | 获取方式 |
+收录最近 **90 个北京时间自然日（含当天）**的新闻，按官网发布日期从新到旧排序。官网提供带时区时间戳时转为北京时间；只提供日期时保留官方日期。文件索引采用文件自身的明确版本日期，不采用首页更新时间、HTTP Last-Modified 或本次抓取时间。没有可靠发布日期的内容不进入新闻列表；有官方明确未来截止日的通知可以仅进入近期事项。
+
+| 官方来源 | 直接读取范围 | 日期和内容依据 |
 | --- | --- | --- |
-| CDISC、CDE、ICH、FDA、PHUSE、美国联邦公报 | 法规指南、临床数据标准、统计编程行业动态、会议和征求意见 | 同步 [Clinical Biometrics Radar](https://github.com/EmilyLiu312/clinical-biometrics-radar) 的已发布汇总，再按日期窗口筛选 |
-| [PMDA](https://www.pmda.go.jp/english/review-services/reviews/0002.html) | 日本电子研究数据标准目录、验证规则 | 直接解析官方资料索引的版本和日期 |
-| [NCI EVS](https://evs.nci.nih.gov/ftp1/CDISC/) | CDISC SDTM、ADaM 受控术语 | 直接读取术语发布文件的版本日期 |
-| [EMA](https://www.ema.europa.eu/en/about-us/how-we-work/data-regulation-big-data-other-sources/use-clinical-study-data-medicine-evaluation) | 临床研究数据试点说明、申请人问答和配套资料 | 直接解析官方索引的文件日期与链接 |
+| [CDISC](https://www.cdisc.org/news/whats-new) | What's New、Newsroom、公开征求意见、近期网络研讨会目录与文章 | 新闻目录日期、正文 Published Date；截止日单独记录 |
+| [CDE](https://www.cde.org.cn/) | 药审中心首页公告、工作动态目录及公告原文 | 公告目录/正文发布日期。栏目或正文受限时明确标注；仅取得目录的条目不推断指南内容 |
+| [ICH](https://www.ich.org/) | ICH 官网使用的官方 CMS 新闻接口，分页读取文章正文 | 官网新闻 `date` 字段，不用 CMS 编辑时间冒充新发布 |
+| [FDA](https://www.fda.gov/drugs/guidances-drugs/newly-added-guidance-documents) | Newly Added Guidance Documents 目录及对应指南页面 | 指南目录 Issue Date；读取失败会显示在来源状态中 |
+| [PHUSE](https://phuse.global/Communications/PHUSE_Blog) | Blog 的行业、工作组与会议文章 | 文章列表的明确日期与原文 |
+| [美国联邦公报](https://www.federalregister.gov/agencies/food-and-drug-administration) | 官方 API 的 FDA 公告，按 90 天日期条件分页检索 | `publication_date` 和官方摘要；不声称读过全文 |
+| [PMDA](https://www.pmda.go.jp/english/review-services/reviews/0002.html) | 电子研究数据标准目录与最新验证规则 | 资料索引的明确文件/版本日期 |
+| [NCI EVS](https://evs.nci.nih.gov/ftp1/CDISC/) | SDTM、ADaM 受控术语发布文件 | 文件内标注的术语版本日期 |
+| [EMA](https://www.ema.europa.eu/en/about-us/how-we-work/data-regulation-big-data-other-sources/use-clinical-study-data-medicine-evaluation) | 临床研究数据试点说明、问答和配套文件索引 | 各文件自身发布日期或修订日期 |
 
-官网索引提供的是特定资料范围。每日检查可以发现该范围内的新版本，实际收录量取决于来源是否有近期发布。来源失败时会保留最近成功的数据。情报的重要度、摘要和对统计编程的影响随条目展示，阅读原文可核对内容和适用范围。
+抓取后先按日期和领域词筛选候选，再将**实际取得的正文、官方摘要或资料索引**交给 DeepSeek 判断相关性、生成中文标题/摘要/影响说明，并标记高、中、低重要度。模型不能更改原文链接、发布日期或截止日；通过原文证据片段校验后才收录。高重要度强调对研究设计、分析、标准或递交有实质影响，中重要度强调实际工作价值，低重要度保留相关背景信息。纯药物审批、招聘、商业宣传等不会因为来源权威而自动收录。
+
+每站独立采集，**“没有近期内容”和“采集失败”分开记录**。失败时只允许保留本项目此前独立核实、仍在日期窗口内的内容，首次迁移不会把旧的第三方汇总当作兜底数据。分析失败的候选留待下次重试，不伪装成已完成情报。相同内容的分析结果按内容摘要缓存；每轮最多分析 160 个新候选，按来源轮流分配，积压数量公开记录。
+
+90 天是**收录窗口，不是全网完整覆盖保证**。各站范围限于上表的官方入口；滚动目录、分页上限、访问限制和缺少发布日期都会影响覆盖。达到上限或读取不完整时会在网页来源说明中标注，不用旧文件补足来源数量。[本轮采集记录](https://allensrj.github.io/biometrics-desk/collection-report.json) 提供各站读取/收录数、日期证据、待重试项与最新收录日期；Actions 运行摘要也列出逐站结果。
+
+实现入口：[采集适配器](collector/clinical_sources.py)、[独立分析](collector/clinical_analysis.py)、[日期筛选与数据来源记录](collector/clinical_pipeline.py)。
 
 ## 开源仓库
 
@@ -31,9 +44,9 @@
 
 GitHub Actions 每天 **北京时间早上 08:00**（UTC 00:00）计划启动采集，流程为读取最近状态、采集数据、验证页面、保存状态、部署 GitHub Pages。Actions 排队和来源响应速度会影响实际完成时间。
 
-工作流在 [.github/workflows/dashboard.yml](.github/workflows/dashboard.yml)。维护者可以在 Actions 页面手动运行 **Refresh and publish dashboard**，默认勾选 `Collect fresh data before publishing`。取消勾选会直接发布仓库随代码保存的快照。采集步骤失败时，本轮不会替换现有站点。
+工作流在 [.github/workflows/dashboard.yml](.github/workflows/dashboard.yml)。维护者可以在 Actions 页面手动运行 **Refresh and publish dashboard**，默认勾选 `Collect fresh data before publishing`。取消勾选仅用于已有当日独立快照的发布；日期与来源验证不通过时不会部署。采集程序整体失败时，本轮不会替换现有站点；单站失败允许其他站继续更新，并在页面显示失败状态。
 
-跨运行的去重状态和最近数据保存在 Actions 缓存中。缓存失效时从仓库快照重新采集。Pages 发布文件使用明确清单，仅包含页面与展示用 JSON。
+跨运行的去重状态、独立分析缓存和最近数据保存在 Actions 缓存中。缓存失效时重新访问官网采集，不恢复第三方汇总。Pages 发布文件使用明确清单，仅包含页面与展示用 JSON。
 
 ## 配置
 
@@ -46,11 +59,12 @@ DeepSeek Key 通过环境变量传给 `refresh.py`，仅在云端采集步骤中
 
 ## 本地运行
 
-要求 macOS 或 Linux、Python 3.10+。页面和采集脚本使用 Python 标准库。GitHub CLI 可用于本地凭据读取。
+要求 macOS 或 Linux、Python 3.10+。页面不依赖构建工具；采集的 HTML 解析依赖在 requirements.txt 中固定。GitHub CLI 可用于本地凭据读取。
 
 ```bash
 git clone https://github.com/allensrj/biometrics-desk.git
 cd biometrics-desk
+python3 -m pip install -r requirements.txt
 python3 serve.py
 ```
 
@@ -66,7 +80,7 @@ python3 refresh.py
 
 ## 项目来源与许可
 
-本项目基于 [EmilyLiu312/clinical-biometrics-radar](https://github.com/EmilyLiu312/clinical-biometrics-radar) 的临床情报看板改造，并融合了原有药企开源仓库雷达的采集逻辑，重新整理了页面布局、筛选、事项定位和自动部署流程。
+本项目参考 [EmilyLiu312/clinical-biometrics-radar](https://github.com/EmilyLiu312/clinical-biometrics-radar) 的看板思路与来源选择，并融合原有药企开源仓库雷达。临床采集与分析已改为本项目独立实现，运行时不依赖参考仓库的数据或更新。历史改造所涉及的原始版权声明继续保留。
 
 本项目采用 [MIT License](LICENSE)。上游 MIT 许可及版权声明保留在 [UPSTREAM-LICENSE](UPSTREAM-LICENSE)。法规、标准文件和第三方项目内容的权利归各自来源所有。
 
