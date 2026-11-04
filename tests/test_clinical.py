@@ -7,7 +7,7 @@ from unittest.mock import patch
 from datetime import date
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'collector'))
 from bs4 import BeautifulSoup
-from clinical_sources import parse_date,page_dates,deadline_from,candidate,Result,ich,federalregister,nearby_date
+from clinical_sources import parse_date,page_dates,deadline_from,candidate,Result,ich,federalregister,nearby_date,phuse,cdisc_event_date
 from clinical_pipeline import eligible,independent_previous,collect,VERSION
 from clinical_analysis import validate
 
@@ -25,6 +25,11 @@ class Dates(unittest.TestCase):
     def test_labeled_publication(self):
         doc=BeautifulSoup('<main>Published Date : 25 September 2026</main>','html.parser')
         self.assertEqual(page_dates(doc)[0],'2026-09-25')
+    def test_fda_comment_deadline_and_event_timezone(self):
+        doc=BeautifulSoup('<main>Submit Comments by 12/01/2026</main>','html.parser')
+        self.assertEqual(deadline_from(doc)[0],'2026-12-01')
+        self.assertEqual(page_dates(doc),('',''))
+        self.assertEqual(cdisc_event_date('17 November 2026 11:30am - 1:00pm EST'),'2026-11-18')
     def test_exact_90_inclusive_days(self):
         start='2026-08-07'; end='2026-11-04'
         self.assertEqual(eligible({'published':start},start,end),'news')
@@ -69,6 +74,16 @@ class Independence(unittest.TestCase):
         self.assertTrue(fetch.call_args.args[0].startswith('https://admin.ich.org/'))
         self.assertEqual(rows[0]['published'],'2026-10-06')
         self.assertIn('New statistical guidance',rows[0]['content'])
+    def test_phuse_uses_real_cms_pagination(self):
+        def payload(page,day):
+            return {'data':{'blogPosts':{'data':[{'attributes':{'title':'Clinical statistical programming','slug':f'article-{page}','date_published':day}}],
+                    'meta':{'pagination':{'page':page,'pageCount':3,'total':3}}}}}
+        with patch('clinical_sources.post_json',side_effect=[payload(1,'2026-10-22'),payload(2,'2026-08-13'),payload(3,'2026-08-05')]) as fetch,patch.object(Result,'fetch_detail') as detail:
+            result=phuse('2026-08-07','2026-11-04')
+        self.assertEqual(fetch.call_count,3)
+        self.assertEqual(detail.call_count,2)
+        self.assertFalse(result.limited)
+        self.assertEqual(fetch.call_args_list[1].args[1]['variables']['pagination']['page'],2)
     def test_fr_paginates_official_results(self):
         def item(n): return {'title':'Statistical analysis in clinical trials','html_url':f'https://www.federalregister.gov/documents/{n}','publication_date':'2026-10-30','abstract':'Clinical trial design and statistical analysis.'}
         payloads=[{'results':[item(1)],'next_page_url':'https://www.federalregister.gov/api/v1/documents?page=2'},{'results':[item(2)]}]

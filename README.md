@@ -18,7 +18,7 @@
 | [CDE](https://www.cde.org.cn/) | 药审中心首页公告、工作动态目录及公告原文 | 公告目录/正文发布日期。栏目或正文受限时明确标注；仅取得目录的条目不推断指南内容 |
 | [ICH](https://www.ich.org/) | ICH 官网使用的官方 CMS 新闻接口，分页读取文章正文 | 官网新闻 `date` 字段，不用 CMS 编辑时间冒充新发布 |
 | [FDA](https://www.fda.gov/drugs/guidances-drugs/newly-added-guidance-documents) | Newly Added Guidance Documents 目录及对应指南页面 | 指南目录 Issue Date；读取失败会显示在来源状态中 |
-| [PHUSE](https://phuse.global/Communications/PHUSE_Blog) | Blog 的行业、工作组与会议文章 | 文章列表的明确日期与原文 |
+| [PHUSE](https://phuse.global/Communications/PHUSE_Blog) | 官网 CMS 分页读取 Blog 的行业、工作组与会议文章 | 官网 CMS `date_published` 字段与文章原文 |
 | [美国联邦公报](https://www.federalregister.gov/agencies/food-and-drug-administration) | 官方 API 的 FDA 公告，按 90 天日期条件分页检索 | `publication_date` 和官方摘要；不声称读过全文 |
 | [PMDA](https://www.pmda.go.jp/english/review-services/reviews/0002.html) | 电子研究数据标准目录与最新验证规则 | 资料索引的明确文件/版本日期 |
 | [NCI EVS](https://evs.nci.nih.gov/ftp1/CDISC/) | SDTM、ADaM 受控术语发布文件 | 文件内标注的术语版本日期 |

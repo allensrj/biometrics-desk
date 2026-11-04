@@ -108,8 +108,8 @@ def analyze(candidates, private, model='deepseek-flash', max_new=160):
                 for fp,row in batch:
                     try:
                         cache[fp]=validate(raw.get(fp),row)
-                    except (ValueError,TypeError):
-                        pending[fp]='分析失败或证据校验未通过，下次重试'
+                    except (ValueError,TypeError) as exc:
+                        pending[fp]='分析未通过（'+str(exc)+'），下次重试'
     else:
         pending.update((fp,'未配置分析凭据') for fp,_ in queue[:max_new])
     for fp,_ in queue[max_new:]:

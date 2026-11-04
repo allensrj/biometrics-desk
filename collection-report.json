@@ -1,0 +1,950 @@
+{
+ "collectorVersion": "official-direct-v1",
+ "updated": "2026-11-04T21:08:35.738925+08:00",
+ "windowStart": "2026-08-07",
+ "windowEnd": "2026-11-04",
+ "sources": [
+  {
+   "name": "CDISC",
+   "url": "https://www.cdisc.org/news/whats-new",
+   "scope": "新闻、最新标准、公开征求意见、近期网络研讨会",
+   "checked": "2026-11-04T21:08:38.450201+08:00",
+   "ok": true,
+   "discovered": 13,
+   "read": 13,
+   "eligible": 11,
+   "unknownDate": 0,
+   "error": "",
+   "limited": false,
+   "pages": 5,
+   "included": 2,
+   "agenda": 7,
+   "pendingAnalysis": 1,
+   "latestPublished": "2026-09-25",
+   "retained": 0
+  },
+  {
+   "name": "CDE",
+   "url": "https://www.cde.org.cn/",
+   "scope": "官网首页公告及工作动态目录；目录受限时标注覆盖不完整",
+   "checked": "2026-11-04T21:08:56.976666+08:00",
+   "ok": false,
+   "discovered": 5,
+   "read": 5,
+   "eligible": 5,
+   "unknownDate": 0,
+   "error": "栏目读取受限（ValueError）；正文读取受限（ValueError），部分条目仅依据官网公告目录",
+   "limited": true,
+   "pages": 1,
+   "included": 3,
+   "agenda": 0,
+   "pendingAnalysis": 0,
+   "latestPublished": "2026-10-23",
+   "retained": 0
+  },
+  {
+   "name": "ICH",
+   "url": "https://www.ich.org/",
+   "scope": "官网新闻 CMS：按 date 字段分页，读取文章正文",
+   "checked": "2026-11-04T21:08:56.976722+08:00",
+   "ok": true,
+   "discovered": 10,
+   "read": 4,
+   "eligible": 4,
+   "unknownDate": 0,
+   "error": "",
+   "limited": false,
+   "pages": 1,
+   "included": 3,
+   "agenda": 0,
+   "pendingAnalysis": 0,
+   "latestPublished": "2026-10-06",
+   "retained": 0
+  },
+  {
+   "name": "FDA",
+   "url": "https://www.fda.gov/drugs/guidances-drugs/newly-added-guidance-documents",
+   "scope": "新发布药品指南目录与原文",
+   "checked": "2026-11-04T21:08:56.976739+08:00",
+   "ok": true,
+   "discovered": 54,
+   "read": 4,
+   "eligible": 4,
+   "unknownDate": 0,
+   "error": "",
+   "limited": false,
+   "pages": 1,
+   "included": 4,
+   "agenda": 0,
+   "pendingAnalysis": 0,
+   "latestPublished": "2026-10-30",
+   "retained": 0
+  },
+  {
+   "name": "PHUSE",
+   "url": "https://phuse.global/Communications/PHUSE_Blog",
+   "scope": "PHUSE Blog：行业、工作组与会议文章",
+   "checked": "2026-11-04T21:08:56.976767+08:00",
+   "ok": true,
+   "discovered": 4,
+   "read": 4,
+   "eligible": 4,
+   "unknownDate": 0,
+   "error": "",
+   "limited": true,
+   "pages": 15,
+   "included": 3,
+   "agenda": 0,
+   "pendingAnalysis": 0,
+   "latestPublished": "2026-10-22",
+   "retained": 0
+  },
+  {
+   "name": "美国联邦公报",
+   "url": "https://www.federalregister.gov/agencies/food-and-drug-administration",
+   "scope": "FDA 正式公告 API：90 天分页、读取官方摘要",
+   "checked": "2026-11-04T21:08:56.976850+08:00",
+   "ok": true,
+   "discovered": 184,
+   "read": 70,
+   "eligible": 70,
+   "unknownDate": 0,
+   "error": "",
+   "limited": false,
+   "pages": 2,
+   "included": 7,
+   "agenda": 0,
+   "pendingAnalysis": 2,
+   "latestPublished": "2026-10-28",
+   "retained": 0
+  },
+  {
+   "name": "PMDA",
+   "url": "https://www.pmda.go.jp/english/review-services/reviews/0002.html",
+   "scope": "电子研究数据标准目录与最新验证规则",
+   "checked": "2026-11-04T21:08:56.976882+08:00",
+   "ok": true,
+   "discovered": 2,
+   "read": 2,
+   "eligible": 0,
+   "unknownDate": 0,
+   "error": "",
+   "limited": false,
+   "pages": 1,
+   "included": 0,
+   "agenda": 0,
+   "pendingAnalysis": 0,
+   "latestPublished": "",
+   "retained": 0
+  },
+  {
+   "name": "NCI EVS",
+   "url": "https://evs.nci.nih.gov/ftp1/CDISC/",
+   "scope": "SDTM、ADaM 受控术语最新版本",
+   "checked": "2026-11-04T21:08:56.976905+08:00",
+   "ok": true,
+   "discovered": 2,
+   "read": 2,
+   "eligible": 2,
+   "unknownDate": 0,
+   "error": "",
+   "limited": false,
+   "pages": 1,
+   "included": 2,
+   "agenda": 0,
+   "pendingAnalysis": 0,
+   "latestPublished": "2026-09-25",
+   "retained": 0
+  },
+  {
+   "name": "EMA",
+   "url": "https://www.ema.europa.eu/en/about-us/how-we-work/data-regulation-big-data-other-sources/use-clinical-study-data-medicine-evaluation",
+   "scope": "临床研究数据试点资料索引",
+   "checked": "2026-11-04T21:08:56.976929+08:00",
+   "ok": true,
+   "discovered": 4,
+   "read": 4,
+   "eligible": 0,
+   "unknownDate": 0,
+   "error": "",
+   "limited": false,
+   "pages": 1,
+   "included": 0,
+   "agenda": 0,
+   "pendingAnalysis": 0,
+   "latestPublished": "",
+   "retained": 0
+  }
+ ],
+ "analysis": {
+  "method": "DeepSeek 独立分析官网正文、官方摘要或资料索引",
+  "accepted": 31,
+  "irrelevant": 66,
+  "pending": 3
+ },
+ "excluded": {
+  "outsideWindow": 8,
+  "unknownPublicationDate": 0
+ },
+ "pending": [
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/news/building-foundation-future-pkd-breakthroughs-cdisc-pkd-foundation-and-critical-path-institute",
+   "title": "Building the Foundation for Future PKD Breakthroughs: CDISC, PKD Foundation, and Critical Path Institute Expand Global Research Standard",
+   "reason": "分析失败或证据校验未通过，下次重试"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/06/2026-20427/design-and-safety-considerations-for-clinical-trials-involving-ibogaine-drug-products-request-for",
+   "title": "Design and Safety Considerations for Clinical Trials Involving Ibogaine Drug Products; Request for Information",
+   "reason": "分析失败或证据校验未通过，下次重试"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/20/2026-16959/frequently-asked-questions-developing-potential-cellular-and-gene-therapy-products-final-guidance",
+   "title": "Frequently Asked Questions-Developing Potential Cellular and Gene Therapy Products; Final Guidance for Industry; Availability",
+   "reason": "分析失败或证据校验未通过，下次重试"
+  }
+ ],
+ "rejected": [
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/tmf-community-general-meeting-q4-2026-japanasia-pacific",
+   "title": "TMF Community General Meeting Q4 2026 (Japan/Asia Pacific)",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "CDE",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/a7120fa784bd1ebad49c97ab4f0697e9",
+   "title": "关于公开征求《〈放射性体内诊断药物非临床研究技术指导原则〉问答文件（征求意见稿）》《〈放射性治疗药物非临床研究技术指导原则〉问答文件（征求意见稿）》意见的通知",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "CDE",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/d137181805c8f92805d588ed630de33f",
+   "title": "关于举办ICH S系列指导原则培训的通知",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "ICH",
+   "url": "https://www.ich.org/news/ich-and-isop-sign-mou-advance-global-awareness-and-adoption-harmonised-pharmacovigilance",
+   "title": "ICH and ISoP Sign MOU to Advance Global Awareness and Adoption of Harmonised Pharmacovigilance Requirements",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "PHUSE",
+   "url": "https://phuse.global/Communications/PHUSE_Blog/the-benefits-of-interactive-learning",
+   "title": "The Benefits of Interactive Learning",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/11/03/2026-22427/potency-assurance-for-cellular-and-gene-therapy-products-guidance-for-industry-availability",
+   "title": "Potency Assurance for Cellular and Gene Therapy Products; Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/11/02/2026-22273/infant-formula-nutrient-requirements",
+   "title": "Infant Formula Nutrient Requirements",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/28/2026-21954/individualized-human-genome-editing-products-considerations-for-bla-submission-and-postapproval",
+   "title": "Individualized Human Genome Editing Products: Considerations for BLA Submission and Postapproval Management; Draft Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/28/2026-21913/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Color Additive Certification",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21712/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Accreditation Scheme for Conformity Assessment Program",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21711/determination-of-regulatory-review-period-for-purposes-of-patent-extension-correction-of",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; Correction of Notices-ANDEMBRY; ANZUPGO; ANKTIVA; BIZENGRI; BRINSUPRI; DAYVIGO",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/23/2026-21669/hazard-analysis-and-risk-based-preventive-controls-for-human-food-draft-guidance-for-industry",
+   "title": "Hazard Analysis and Risk-Based Preventive Controls for Human Food; Draft Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/15/2026-21084/authorization-of-emergency-use-for-four-animal-drugs-for-the-prevention-and-treatment-of-new-world",
+   "title": "Authorization of Emergency Use for Four Animal Drugs for the Prevention and Treatment of New World Screwworm; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/14/2026-20990/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Requirements for Cosmetic Products",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/14/2026-20981/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Voluntary National Retail Food Regulatory Program Standards",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/14/2026-20980/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Infant Formula Requirements",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/09/2026-20768/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Biologics License Applications, Procedures and Requirements",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/09/2026-20766/determination-of-regulatory-review-period-for-purposes-of-patent-extension-monoferric",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; MONOFERRIC",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/09/2026-20765/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Expanded Access to Investigational Drugs for Treatment Use",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/09/2026-20725/medical-devices-immunology-and-microbiology-devices-classification-of-the-hematopoietic-cell",
+   "title": "Medical Devices; Immunology and Microbiology Devices; Classification of the Hematopoietic Cell Enrichment Kit",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/08/2026-20663/agency-information-collection-activities-proposed-collection-comment-request-channels-of-trade",
+   "title": "Agency Information Collection Activities; Proposed Collection; Comment Request; Channels of Trade Policy for Commodities With Residues of Pesticide Chemicals, for Which Tolerances Have Been Revoked, Suspended, or Modified by the Environmental Protection Agency Pursuant to Dietary Risk Considerations",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/08/2026-20661/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Adverse Event Program for Medical Devices: (Medical Product Safety Network (MedSun))",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/07/2026-20503/determination-that-oxandrin-oxandrolone-tablets-25-milligrams-and-10-milligrams-were-withdrawn-from",
+   "title": "Determination That Oxandrin (Oxandrolone) Tablets, 2.5 Milligrams and 10 Milligrams, Were Withdrawn From Sale for Reasons of Safety or Effectiveness; Correction",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/06/2026-20448/medical-devices-exemptions-from-premarket-notification-class-ii-devices-certain-clinical-toxicology",
+   "title": "Medical Devices; Exemptions From Premarket Notification: Class II Devices; Certain Clinical Toxicology Test Systems",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/01/2026-20085/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Voluntary Improvement Program",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/01/2026-20065/request-for-nominations-for-individuals-and-consumer-organizations-for-advisory-committees",
+   "title": "Request for Nominations for Individuals and Consumer Organizations for Advisory Committees",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/01/2026-20063/request-for-nominations-for-voting-members-of-food-and-drug-administration-advisory-committees",
+   "title": "Request for Nominations for Voting Members of Food and Drug Administration Advisory Committees",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/29/2026-19850/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Submission of Petitions: Food Additive, Color Additive (Including Labeling), Submission of Information to a Master File in Support of Petitions; and Electronic Submission Using Food and Drug Administration Form 3503",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19660/reauthorization-of-the-biosimilar-user-fee-act-public-meeting-request-for-comments",
+   "title": "Reauthorization of the Biosimilar User Fee Act; Public Meeting; Request for Comments",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/24/2026-19563/improving-patient-access-to-deceased-donor-islet-cells-and-cell-products-request-for-information",
+   "title": "Improving Patient Access to Deceased Donor Islet Cells and Cell Products; Request for Information",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/22/2026-19350/nonclinical-testing-terminology",
+   "title": "Nonclinical Testing Terminology",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/22/2026-19349/nonclinical-testing-terminology",
+   "title": "Nonclinical Testing Terminology",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/21/2026-19284/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Orphan Drugs",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/21/2026-19277/chemistry-manufacturing-and-controls-development-and-readiness-pilot-program-program-announcement",
+   "title": "Chemistry, Manufacturing, and Controls Development and Readiness Pilot Program; Program Announcement",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/18/2026-19141/target-animal-safety-evaluation-for-veterinary-monoclonal-antibody-products-draft-guidance-for",
+   "title": "Target Animal Safety Evaluation for Veterinary Monoclonal Antibody Products; Draft Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/16/2026-18946/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Biological Products: Reporting of Biological Product Deviations and Human Cells, Tissues, and Cellular and Tissue-Based Product Deviations in Manufacturing",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/16/2026-18920/microbiology-devices-panel-of-the-medical-devices-advisory-committee-notice-of-meeting-establishment",
+   "title": "Microbiology Devices Panel of the Medical Devices Advisory Committee; Notice of Meeting; Establishment of a Public Docket; Request for Comments-Pathogen-Agnostic Sequencing",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/14/2026-18691/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Customer/Partner Customer Service Satisfaction Surveys",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/11/2026-18528/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Generic Clearance for Qualitative Data To Support Social and Behavioral Research for Food, Dietary Supplements, Cosmetics, and Animal Food and Feed",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18464/fee-rate-for-using-a-priority-review-voucher-in-fiscal-year-2027",
+   "title": "Fee Rate for Using a Priority Review Voucher in Fiscal Year 2027",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18430/medical-devices-clinical-chemistry-and-clinical-toxicology-devices-classification-of-the-anti-tumor",
+   "title": "Medical Devices; Clinical Chemistry and Clinical Toxicology Devices; Classification of the Anti-Tumor Necrosis Factor Alpha Monoclonal Antibody Test System for Inflammatory Bowel Disease",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/09/2026-18300/determination-of-regulatory-review-period-for-purposes-of-patent-extension-andembry",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; ANDEMBRY",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/09/2026-18298/determination-of-regulatory-review-period-for-purposes-of-patent-extension-anzupgo",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; ANZUPGO",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/09/2026-18297/determination-of-regulatory-review-period-for-purposes-of-patent-extension-anktiva",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; ANKTIVA",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/02/2026-17928/international-cooperation-on-harmonisation-of-technical-requirements-for-registration-of-veterinary",
+   "title": "International Cooperation on Harmonisation of Technical Requirements for Registration of Veterinary Medicinal Products; Studies To Evaluate the Safety of Residues of Veterinary Drugs in Human Food: Genotoxicity Testing (Revision 2); Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/02/2026-17927/international-cooperation-on-harmonisation-of-technical-requirements-for-registration-of-veterinary",
+   "title": "International Cooperation on Harmonisation of Technical Requirements for Registration of Veterinary Medicinal Products; Studies To Evaluate the Safety of Residues of Veterinary Drugs in Human Food: Reproduction Testing (Revision 1); Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/31/2026-17719/authorization-of-emergency-use-for-three-animal-drugs-for-the-prevention-and-treatment-of-new-world",
+   "title": "Authorization of Emergency Use for Three Animal Drugs for the Prevention and Treatment of New World Screwworm; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/31/2026-17677/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Potential Tobacco Product Violations Reporting Form",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/31/2026-17659/rahim-shafa-denial-of-hearing-final-debarment-order",
+   "title": "Rahim Shafa; Denial of Hearing; Final Debarment Order",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/28/2026-17605/agency-information-collection-activities-proposed-collection-comment-request-qualitative-feedback-on",
+   "title": "Agency Information Collection Activities; Proposed Collection; Comment Request; Qualitative Feedback on Agency Service Delivery",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/28/2026-17603/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Importation of Prescription Drugs",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/28/2026-17601/agency-information-collection-activities-submission-for-office-of-management-and-budget-review",
+   "title": "Agency Information Collection Activities; Submission for Office of Management and Budget Review; Comment Request; Reporting Associated With Animal Drug and Animal Generic Drug User Fees",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/28/2026-17580/compounding-animal-drugs-from-bulk-drug-substances-compounding-under-cgmp-in-federally-registered",
+   "title": "Compounding Animal Drugs From Bulk Drug Substances: Compounding Under CGMP in Federally-Registered Facilities; Draft Guidance for Industry; Availability; Agency Information Collection Activities; Proposed Collection; Comment Request",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/27/2026-17498/drugs-for-human-use-drug-efficacy-study-implementation-estrogen-androgen-fixed-combination-drug",
+   "title": "Drugs for Human Use; Drug Efficacy Study Implementation: Estrogen-Androgen Fixed-Combination Drug Products; Second Extension of Effective Date of Final Resolution of Drug Efficacy Study Implementation 7661",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/18/2026-16837/determining-whether-to-submit-an-anda-or-a-505b2-application-draft-guidance-for-industry",
+   "title": "Determining Whether To Submit an ANDA or a 505(b)(2) Application; Draft Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/17/2026-16729/medical-devices-classification-of-accessories-distinct-from-other-devices-proposed-list-of",
+   "title": "Medical Devices; Classification of Accessories Distinct From Other Devices; Proposed List of Accessories Suitable for Class I; Request for Comments",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/17/2026-16728/gastroenterology-urology-devices-reclassification-of-diagnostic-endoscopic-light-source-systems-to",
+   "title": "Gastroenterology-Urology Devices; Reclassification of Diagnostic Endoscopic Light Source Systems To Be Renamed Cystoscopic Systems Intended as an Aid for Detection of Bladder Cancer",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/17/2026-16713/determination-of-regulatory-review-period-for-purposes-of-patent-extension-bizengri",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; BIZENGRI",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/14/2026-16650/reauthorization-of-the-prescription-drug-user-fee-act-public-meeting-request-for-comments",
+   "title": "Reauthorization of the Prescription Drug User Fee Act; Public Meeting; Request for Comments",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/12/2026-16420/guide-to-minimize-biological-hazards-in-ready-to-eat-fresh-cut-produce-guidance-for-industry",
+   "title": "Guide To Minimize Biological Hazards in Ready-to-Eat Fresh-Cut Produce; Guidance for Industry; Availability",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/11/2026-16353/reauthorization-of-the-generic-drug-user-fee-amendments-public-meeting-request-for-comments",
+   "title": "Reauthorization of the Generic Drug User Fee Amendments; Public Meeting; Request for Comments",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/11/2026-16296/substances-generally-recognized-as-safe",
+   "title": "Substances Generally Recognized as Safe",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/10/2026-16247/determination-of-regulatory-review-period-for-purposes-of-patent-extension-brinsupri",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; BRINSUPRI",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/10/2026-16246/determination-of-regulatory-review-period-for-purposes-of-patent-extension-dayvigo",
+   "title": "Determination of Regulatory Review Period for Purposes of Patent Extension; DAYVIGO",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/10/2026-16245/molecular-and-clinical-genetics-panel-of-the-medical-devices-advisory-committee-notice-of-meeting",
+   "title": "Molecular and Clinical Genetics Panel of the Medical Devices Advisory Committee; Notice of Meeting; Establishment of a Public Docket; Request for Comments-GRAIL, Inc. Galleri",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/10/2026-16209/radiology-devices-reclassification-of-digital-breast-tomosynthesis-system",
+   "title": "Radiology Devices; Reclassification of Digital Breast Tomosynthesis System",
+   "reason": "与临床统计编程的直接相关性不足"
+  }
+ ],
+ "records": [
+  {
+   "source": "FDA",
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e14-and-s7b-clinical-and-nonclinical-evaluation-qtqtc-interval-prolongation-and-proarrhythmic",
+   "originalTitle": "E14 and S7B Clinical and Nonclinical Evaluation of QT/QTc Interval Prolongation and Proarrhythmic Potential--Questions and Answers (R1)",
+   "published": "2026-10-30",
+   "dateEvidence": "FDA guidance Issue Date: 10/30/2026",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/28/2026-21953/electronic-submission-template-for-investigational-device-exemption-ide-applications-draft-guidance",
+   "originalTitle": "Electronic Submission Template for Investigational Device Exemption (IDE) Applications; Draft Guidance for Sponsors and Food and Drug Administration Staff; Availability",
+   "published": "2026-10-28",
+   "dateEvidence": "publication_date: 2026-10-28",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-api-abstract",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDE",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/e50c89621a69b8bffeaf90977d836f17",
+   "originalTitle": "国家药监局药审中心关于发布《抗肿瘤药物基于后线研究数据开展前线适应症临床试验技术指导原则》的通告（2026年第48号）",
+   "published": "2026-10-23",
+   "dateEvidence": "官网公告目录: 20261023",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-index-only",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "PHUSE",
+   "url": "https://phuse.global/Communications/PHUSE_Blog/human-review-still-matters-responsible-use-of-generative-ai-in-regulated-clinical-programming",
+   "originalTitle": "Human Review Still Matters: Responsible Use of Generative AI in Regulated Clinical Programming",
+   "published": "2026-10-22",
+   "dateEvidence": "datePublished: 2026-10-22",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "FDA",
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/submitting-clinical-trial-data-evaluate-ability-operate-motor-vehicle",
+   "originalTitle": "Submitting Clinical Trial Data to Evaluate the Ability to Operate a Motor Vehicle",
+   "published": "2026-10-20",
+   "dateEvidence": "FDA guidance Issue Date: 10/20/2026",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDE",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/28aaf6bbcbd62d745dec44b517b994ec",
+   "originalTitle": "国家药监局药审中心关于发布《斑秃治疗药物临床试验技术指导原则》的通告（2026年第49号）",
+   "published": "2026-10-20",
+   "dateEvidence": "官网公告目录: 20261020",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-index-only",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDE",
+   "url": "https://www.cde.org.cn/main/news/viewInfoCommon/25b67cd7ce808a1fdedc9a51360f0d24",
+   "originalTitle": "国家药监局药审中心关于发布《青少年体重管理适应症临床试验设计指导原则》的通告（2026年第50号）",
+   "published": "2026-10-20",
+   "dateEvidence": "官网公告目录: 20261020",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-index-only",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/16/2026-21197/electronic-common-technical-document-ectd-data-standards-supporting-forward-compatibility-for-ectd",
+   "originalTitle": "Electronic Common Technical Document (eCTD); Data Standards; Supporting Forward Compatibility for eCTD 4.0",
+   "published": "2026-10-16",
+   "dateEvidence": "publication_date: 2026-10-16",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-api-abstract",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/10/16/2026-21195/electronic-common-technical-document-data-standards-center-for-drug-evaluation-and-research-and",
+   "originalTitle": "Electronic Common Technical Document; Data Standards; Center for Drug Evaluation and Research and Center for Biologics Evaluation and Research Supporting Electronic Common Technical Document Version 3.2.2 and Version 4.0",
+   "published": "2026-10-16",
+   "dateEvidence": "publication_date: 2026-10-16",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-api-abstract",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "PHUSE",
+   "url": "https://phuse.global/Communications/PHUSE_Blog/phuse-real-world-data-autumn-event-2026-summary",
+   "originalTitle": "PHUSE Real World Data Autumn Event 2026 Summary",
+   "published": "2026-10-07",
+   "dateEvidence": "datePublished: 2026-10-07",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "ICH",
+   "url": "https://www.ich.org/news/ich-training-library-sees-addition-new-materials-covering-11-harmonised-guidelines",
+   "originalTitle": "ICH Training Library Sees Addition of New Materials Covering 11 Harmonised Guidelines",
+   "published": "2026-10-06",
+   "dateEvidence": "官网新闻 date: 2026-10-06T12:00:00+0200",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-cms-article",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "FDA",
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e2br3-electronic-transmission-individual-case-safety-reports-implementation-guide-data-elements-and",
+   "originalTitle": "E2B(R3) Electronic Transmission of Individual Case Safety Reports Implementation Guide — Data Elements and Message Specification; and Appendix to the Implementation Guide — Backwards and Forwards Compatibility",
+   "published": "2026-10-01",
+   "dateEvidence": "FDA guidance Issue Date: 10/1/2026",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "PHUSE",
+   "url": "https://phuse.global/Communications/PHUSE_Blog/phuse-data-transparency-autumn-event-2026-summary",
+   "originalTitle": "PHUSE Data Transparency Autumn Event 2026 Summary",
+   "published": "2026-09-25",
+   "dateEvidence": "datePublished: 2026-09-25",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "NCI EVS",
+   "url": "https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html",
+   "originalTitle": "NCI EVS：SDTM 受控术语 2026-09-25 版",
+   "published": "2026-09-25",
+   "dateEvidence": "官方资料索引的版本/文件日期: 2026-09-25",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-version-index",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "NCI EVS",
+   "url": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/ADaM%20Terminology.html",
+   "originalTitle": "NCI EVS：ADaM 受控术语 2026-09-25 版",
+   "published": "2026-09-25",
+   "dateEvidence": "官方资料索引的版本/文件日期: 2026-09-25",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-version-index",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/standards/foundational/glossary/cdisc-glossary-v21-0",
+   "originalTitle": "CDISC Glossary v21.0",
+   "published": "2026-09-25",
+   "dateEvidence": "Published Date: 25 September 2026",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/standards/foundational/dataset-json/controlled-terminology-package-62",
+   "originalTitle": "Controlled Terminology Package 62",
+   "published": "2026-09-25",
+   "dateEvidence": "Published Date: 25 September 2026",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/18/2026-19181/electronic-submission-template-for-medical-device-premarket-approval-applications-pmas-draft",
+   "originalTitle": "Electronic Submission Template for Medical Device Premarket Approval Applications (PMAs); Draft Guidance for Industry and Food and Drug Administration Staff; Availability",
+   "published": "2026-09-18",
+   "dateEvidence": "publication_date: 2026-09-18",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-api-abstract",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "ICH",
+   "url": "https://www.ich.org/news/revised-qas-ich-e14-and-ich-s7b-provide-updated-implementation-support",
+   "originalTitle": "Revised Q&As for ICH E14 and ICH S7B provide updated implementation support",
+   "published": "2026-09-18",
+   "dateEvidence": "官网新闻 date: 2026-09-18T10:45:00+0200",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-cms-article",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/15/2026-18805/statistical-considerations-for-the-design-of-rare-disease-clinical-investigations-establishment-of-a",
+   "originalTitle": "Statistical Considerations for the Design of Rare Disease Clinical Investigations; Establishment of a Public Docket; Request for Information and Comments",
+   "published": "2026-09-15",
+   "dateEvidence": "publication_date: 2026-09-15",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-api-abstract",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/09/02/2026-17961/pharmacokinetics-in-patients-with-impaired-hepatic-function-study-design-data-analysis-and-impact-on",
+   "originalTitle": "Pharmacokinetics in Patients With Impaired Hepatic Function: Study Design, Data Analysis, and Impact on Dosage; Draft Guidance for Industry; Availability",
+   "published": "2026-09-02",
+   "dateEvidence": "publication_date: 2026-09-02",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-api-abstract",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "FDA",
+   "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/pharmacokinetics-patients-impaired-hepatic-function-study-design-data-analysis-and-impact-dosing",
+   "originalTitle": "Pharmacokinetics in Patients with Impaired Hepatic Function: Study Design, Data Analysis, and Impact on Dosing and Labeling",
+   "published": "2026-09-02",
+   "dateEvidence": "FDA guidance Issue Date: 9/2/2026",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "ICH",
+   "url": "https://www.ich.org/news/meddra-version-291-released-english",
+   "originalTitle": "MedDRA Version 29.1 released in English",
+   "published": "2026-09-01",
+   "dateEvidence": "官网新闻 date: 2026-09-01T13:00:00+0200",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-cms-article",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "美国联邦公报",
+   "url": "https://www.federalregister.gov/documents/2026/08/18/2026-16829/testosterone-use-in-menopausal-women-public-workshop-request-for-comments",
+   "originalTitle": "Testosterone Use in Menopausal Women; Public Workshop; Request for Comments",
+   "published": "2026-08-18",
+   "dateEvidence": "publication_date: 2026-08-18",
+   "deadline": "",
+   "deadlineEvidence": "",
+   "contentBasis": "official-api-abstract",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/cdisc-open-rules-core-v1-0-release-public-webinar",
+   "originalTitle": "CDISC Open Rules / CORE v1.0 Release Public Webinar",
+   "published": "",
+   "dateEvidence": "",
+   "deadline": "2026-11-10",
+   "deadlineEvidence": "10 November 2026 10:00am - 11:00am EST",
+   "contentBasis": "official-event-index",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/bc-grouping-launch-and-bc-versioning-update",
+   "originalTitle": "BC Grouping Launch and BC Versioning Update",
+   "published": "",
+   "dateEvidence": "",
+   "deadline": "2026-11-18",
+   "deadlineEvidence": "17 November 2026 11:30am - 1:00pm EST",
+   "contentBasis": "official-event-index",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/public-review/cdisc-tmf-standard-model-v1-community-review",
+   "originalTitle": "CDISC TMF Standard Model v1 - Community Review",
+   "published": "",
+   "dateEvidence": "",
+   "deadline": "2026-11-20",
+   "deadlineEvidence": "Comments Due By 20 November 2026",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/tmf-community-general-meeting-q4-2026",
+   "originalTitle": "TMF Community General Meeting Q4 2026",
+   "published": "",
+   "dateEvidence": "",
+   "deadline": "2026-12-02",
+   "deadlineEvidence": "1 December 2026 11:00am - 12:30pm EST",
+   "contentBasis": "official-event-index",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/cdisc-360i-phase-2-outcomes-and-road-phase-3",
+   "originalTitle": "CDISC 360i: Phase 2 Outcomes and the Road to Phase 3",
+   "published": "",
+   "dateEvidence": "",
+   "deadline": "2026-12-02",
+   "deadlineEvidence": "2 December 2026 10:30am - 12:00pm EST",
+   "contentBasis": "official-event-index",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/events/webinar/cosa-spotlight-q4-2026",
+   "originalTitle": "COSA Spotlight Q4 2026",
+   "published": "",
+   "dateEvidence": "",
+   "deadline": "2026-12-08",
+   "deadlineEvidence": "8 December 2026 10:00am - 11:30am EST",
+   "contentBasis": "official-event-index",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  },
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/public-review/chinese-translations-controlled-terminology",
+   "originalTitle": "Chinese Translations of Controlled Terminology",
+   "published": "",
+   "dateEvidence": "",
+   "deadline": "2026-12-31",
+   "deadlineEvidence": "Comments Due By 31 December 2026",
+   "contentBasis": "official-page",
+   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+  }
+ ]
+}

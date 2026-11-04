@@ -74,7 +74,7 @@ def soup(url):
 
 
 def body_text(doc):
-    root = doc.select_one('main, article, #main-content, .main-content') or doc
+    root = doc.select_one('main, article, #main-content, .main-content') or doc.body or doc
     root = BeautifulSoup(str(root), 'html.parser')
     for x in root.select('script,style,nav,header,footer,form,.breadcrumb,.breadcrumbs'):
         x.decompose()
@@ -117,6 +117,9 @@ def page_dates(doc):
 
 def deadline_from(doc):
     text = body_text(doc)
+    us=re.search(r'(?:Submit Comments by|Comment Closing Date)\s*[:：]?\s*(\d{1,2}/\d{1,2}/20\d{2})',text,re.I)
+    if us:
+        return us_date(us[1]),us[0]
     for pattern in [r'Comments Due By\s*[:：]?\s*', r'(?:comments? (?:must be received|due|by)|deadline|截止日期|截止时间)\s*(?:on|by|is|为|至|:|：)?\s*']:
         m = re.search(pattern + '(' + DATE_RE.pattern + ')', text, re.I)
         if m:
@@ -241,47 +244,56 @@ def cdisc(start, today):
     return result
 
 
+def post_json(url,payload):
+    req=Request(url,data=json.dumps(payload).encode(),headers={'User-Agent':USER_AGENT,'Content-Type':'application/json'})
+    with urlopen(req,timeout=40) as response:
+        return json.load(response)
+
+
 def phuse(start,today):
-    result = Result()
-    url = 'https://phuse.global/Communications/PHUSE_Blog'
-    seen = set()
-    for page in range(15):
+    # PHUSE's HTML ignores page=N on server rendering. Use the very same public
+    # GraphQL request its Next Page button makes, then read the official article.
+    result=Result()
+    query='''query getblogPosts($filter: BlogPostFiltersInput, $pagination: PaginationArg) {
+      blogPosts(sort: "date_published:DESC", pagination: $pagination, filters: $filter) {
+        data { id attributes { title category discription slug date_published } }
+        meta { pagination { pageCount page pageSize total } }
+      }
+    }'''
+    for page in range(1,11):
+        payload={'query':query,'operationName':'getblogPosts',
+                 'variables':{'filter':{'date_published':{'lte':today},'published':{'eq':True}},
+                              'pagination':{'page':page,'pageSize':50}}}
         try:
-            doc = soup(url)
+            data=post_json('https://cms.phuse.global/graphql',payload)
+            if data.get('errors'):
+                raise ValueError('PHUSE official CMS rejected request')
+            posts=data['data']['blogPosts']
+            items=posts['data']
+            pagination=posts['meta']['pagination']
+            if not isinstance(items,list) or pagination['page']!=page:
+                raise ValueError('PHUSE pagination schema changed')
         except Exception as exc:
             if not result.pages:
                 raise
             result.errors.append('后续分页读取失败（'+safe_error(exc)+'）')
             break
-        result.pages += 1
-        dates = []
-        links = {}
-        for a in doc.select('a[href]'):
-            target = urljoin(url,a['href'])
-            title = clean(a.get_text(' ',strip=True))
-            if '/Communications/PHUSE_Blog/' not in target or urlsplit(target).hostname != 'phuse.global' or len(title)<15:
-                continue
-            published,evidence=nearby_date(a)
-            if target not in links or len(title)>len(links[target][0]):
-                links[target]=(title,published,evidence)
-        for target,(title,published,evidence) in links.items():
-            if target in seen:
-                continue
-            seen.add(target)
-            result.discovered += 1
+        result.pages+=1
+        dates=[]
+        for item in items:
+            row=item['attributes']
+            result.discovered+=1
+            published=parse_date(row['date_published'])
             dates.append(published)
-            if published and published < start:
+            if published and published<start:
                 continue
-            result.fetch_detail('PHUSE',target,title,published,evidence,specialist=True)
-        nxt=next((a for a in doc.select('a[href]') if clean(a.get_text(' ',strip=True)).lower() in ('next page','next','›','»')),None)
-        next_button=doc.select_one('button.pagination-body__button__next')
-        if (not nxt and not next_button) or (dates and all(d and d<start for d in dates)):
+            target='https://phuse.global/Communications/PHUSE_Blog/'+row['slug']
+            result.fetch_detail('PHUSE',target,row['title'],published,
+                                'PHUSE 官方 CMS date_published: '+row['date_published'],specialist=True)
+        if page>=pagination['pageCount'] or any(d and d<start for d in dates):
             break
-        url=urljoin(url,nxt['href']) if nxt else 'https://phuse.global/Communications/PHUSE_Blog?page='+str(page+2)
     else:
         result.limited=True
-    if not result.discovered:
-        raise ValueError('PHUSE index returned no recognizable articles')
     return result
 
 
