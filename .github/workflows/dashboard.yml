@@ -78,7 +78,6 @@ jobs:
               assert.equal(await page.title(), '临床统计编程信息看板 · Biometrics Desk');
               assert.deepEqual(await page.locator('#tabs button').allTextContents(), ['临床情报', '开源仓库']);
               await page.getByRole('button', { name: /开源仓库，/ }).click();
-              await page.locator('.tick').first().focus();
               await page.locator('.tick').first().hover();
               const item = page.locator('.day-item').filter({ hasText: fixture.title });
               await item.hover();
