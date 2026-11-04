@@ -1,0 +1,50 @@
+name: Diagnose official sources
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Inspect official indexes from GitHub
+        run: |
+          pip -q install beautifulsoup4 playwright
+          python -u <<'PY'
+          import concurrent.futures,json,re,urllib.request
+          from bs4 import BeautifulSoup
+          urls = [
+            'https://www.cdisc.org/news/whats-new', 'https://www.cdisc.org/news',
+            'https://www.ich.org/',
+            'https://www.cde.org.cn/',
+            'https://www.cde.org.cn/main/news/listpage/3cc45b396497b598341ce3af000490e5',
+            'https://www.fda.gov/regulatory-information/search-fda-guidance-documents',
+            'https://phuse.global/Communications/PHUSE_Blog',
+            'https://www.federalregister.gov/api/v1/documents.json?conditions[agencies][]=food-and-drug-administration&per_page=5&order=newest',
+          ]
+          def inspect(url):
+            try:
+              req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; BiometricsDesk/1.0)'})
+              raw=urllib.request.urlopen(req,timeout=35).read().decode('utf-8','replace')
+              soup=BeautifulSoup(raw,'html.parser')
+              result={'url':url,'length':len(raw),'scripts':[(s.get('src') or s.get_text()[:1000]) for s in soup.select('script')][-15:], 'anchors':[(a.get('href'),a.get_text(' ',strip=True)[:150]) for a in soup.select('a[href]') if len(a.get_text(strip=True))>10][-100:], 'dateTags':[str(x)[:500] for x in soup.select('time,meta[property*=time]')][:15]}
+              if 'federalregister' in url: result={'url':url,'body':raw[:5000]}
+              if 'cde.org.cn/main' in url: result['tail']=raw[-16000:]
+              return result
+            except Exception as e: return {'url':url,'error':str(e)}
+          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as ex:
+            for r in ex.map(inspect,urls): print(json.dumps(r,ensure_ascii=False))
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+            browser=p.chromium.launch(executable_path='/usr/bin/google-chrome',headless=True)
+            for url in ['https://www.ich.org/','https://www.cde.org.cn/main/news/listpage/3cc45b396497b598341ce3af000490e5']:
+              page=browser.new_page()
+              responses=[]
+              page.on('response',lambda r: responses.append((r.url,r.status)) if r.request.resource_type in ('xhr','fetch') else None)
+              try:
+                page.goto(url,wait_until='networkidle',timeout=60000)
+                print(json.dumps({'browser':url,'requests':responses,'text':page.locator('body').inner_text()[:14000],'links':page.locator('a').evaluate_all('(aa)=>aa.map(a=>[a.href,a.textContent.trim()]).filter(a=>a[1].length>15)')},ensure_ascii=False))
+              except Exception as e: print(json.dumps({'browser':url,'requests':responses,'error':str(e)}))
+              page.close()
+            browser.close()
+          PY
