@@ -8,37 +8,13 @@ on:
         description: Collect fresh data before publishing
         type: boolean
         default: true
-      daily_refresh:
-        description: Skip if both modules were already published after 08:00 Beijing today
-        type: boolean
-        default: false
 permissions: {}
 concurrency:
   group: dashboard-pages
   cancel-in-progress: false
 jobs:
-  daily-check:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    timeout-minutes: 3
-    permissions:
-      contents: read
-    outputs:
-      proceed: ${{ steps.daily.outputs.proceed }}
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          persist-credentials: false
-      - name: Verify daily refresh safety
-        run: python3 -m unittest discover -s tests -p test_refresh_gate.py -v
-      - name: Check published daily data
-        id: daily
-        env:
-          DAILY_REFRESH: ${{ github.event_name == 'schedule' || (inputs.refresh && inputs.daily_refresh) }}
-        run: python3 scripts/refresh_gate.py
   build:
-    needs: daily-check
-    if: needs.daily-check.outputs.proceed == 'true'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     permissions:
