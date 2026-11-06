@@ -34,6 +34,7 @@ class OfficialEvents(unittest.TestCase):
         self.assertEqual(event_day('10 November 2026 11:00–12:30 (EST)'), '2026-11-11')
         self.assertEqual(event_day('10 November 2026 16:00–17:30 (GMT)'), '2026-11-11')
         self.assertEqual(event_day('15 November 2026'), '2026-11-15')
+        self.assertEqual(event_day('15–18 November 2026'), '2026-11-15')
         self.assertEqual(event_day('November 2026'), '')
 
     def test_card_discovery_not_limited_to_blog_and_no_external_destinations(self):

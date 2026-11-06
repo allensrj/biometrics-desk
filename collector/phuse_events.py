@@ -12,7 +12,9 @@ MAX_EVENTS = 40
 
 
 def event_day(text):
-    day = parse_date(text)
+    # A multi-day event belongs on its start day, not the last date in a printed range.
+    normalized = re.sub(r'\b(\d{1,2})(?:st|nd|rd|th)?\s*[–—-]\s*\d{1,2}(?:st|nd|rd|th)?\s+([A-Za-z]+)\s+(20\d{2})', r'\1 \2 \3', text)
+    day = parse_date(normalized)
     if not day:
         return ''
     # Official pages often give parallel time zones. Prefer an explicit UTC/GMT time.
