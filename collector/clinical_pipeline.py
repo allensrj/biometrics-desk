@@ -81,6 +81,8 @@ def collect(root,private,today=None):
         raise RuntimeError('All official sources failed; keeping published snapshot')
     accepted,rejected,pending=analyze(candidates,private)
     rejected_urls={row['url'] for row in rejected}
+    superseded_urls={row['url'] for row in screening if row['stage']=='canonical-url' and row.get('canonicalUrl')!=row['url']}
+    rejected_urls.update(superseded_urls)
     # No legacy aggregated rows survive this migration. Only our own verified history is reusable.
     merged={row['url']:row for row in previous if eligible(row,start,end) and row['url'] not in rejected_urls}
     old_by_url={row['url']:row for row in previous}

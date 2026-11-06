@@ -22,13 +22,32 @@ class OfficialEvents(unittest.TestCase):
         <p>Scientific Evaluation of Safety Data – Safety Estimands</p>
         <p>10 November 2026 11:00–12:30 (EST) / 16:00–17:30 (GMT)</p>
         <p>ICH E9(R1) safety estimands, AE incidence and competing risks.</p>''')
-        with patch('phuse_events.soup', return_value=doc):
+        with patch('phuse_events.event_document', return_value=(doc, 'https://events.phuse.global/event/WorkingGroupEvents/ASA-Webinar')):
             row = read_event('https://events.phuse.global/event/WorkingGroupEvents/ASA-Webinar', '', '', '')
         self.assertEqual(row['published'], '')
         self.assertEqual(row['deadline'], '2026-11-11')
         self.assertIn('10 November', row['deadlineEvidence'])
         self.assertIn('Safety Estimands', row['originalTitle'])
         self.assertIn('competing risks', row['content'])
+
+    def test_year_from_official_series_title_and_redirect_canonical_url(self):
+        doc = html('<title>logrx - Working Group Events 2026</title><p>pharmaverse Hackathon series featuring the logrx package</p><p>Wrap-up · Friday 6 November</p><p>09:00 EST | 14:00 GMT | 15:00 CET</p><p>Traceable clinical programming workflows.</p>')
+        url = 'https://events.phuse.global/event/WorkingGroupEvents/logrx-package'
+        with patch('phuse_events.event_document', return_value=(doc, url)):
+            row = read_event('https://events.phuse.global/short', '', '', '')
+        self.assertEqual(row['url'], url)
+        self.assertEqual(row['deadline'], '2026-11-06')
+        self.assertEqual(row['published'], '')
+        self.assertIn('年份依据', row['deadlineEvidence'])
+
+    def test_redirect_aliases_merge_into_one_event(self):
+        canonical = 'https://events.phuse.global/event/EUConnect26/summary'
+        alias = 'https://events.phuse.global/EUConnect26'
+        row = {'source': 'PHUSE', 'url': canonical, 'originalTitle': 'EU Connect 2026', 'published': '', 'deadline': '2026-11-15'}
+        with patch('phuse_events.soup', return_value=html('<main>Index</main>')), patch('phuse_events.discover', return_value={alias: ('EU Connect', '2026-11-15', '15 November 2026'), canonical: ('EU Connect', '2026-11-15', '15 November 2026')}), patch('phuse_events.read_event', return_value=row):
+            result = collect_events('2026-08-09', '2026-11-06')
+        self.assertEqual(len(result.rows), 1)
+        self.assertTrue(any(x['stage']=='canonical-url' and x['url']==alias for x in result.screening))
 
     def test_event_timezone_and_date_only(self):
         self.assertEqual(event_day('10 November 2026 11:00–12:30 (EST)'), '2026-11-11')

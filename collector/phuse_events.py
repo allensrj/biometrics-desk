@@ -3,7 +3,9 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 import re
 from urllib.parse import urljoin, urlsplit
-from clinical_sources import Result, soup, body_text, clean, parse_date, candidate, safe_error, TZ, DATE_RE
+from urllib.request import Request, urlopen
+from bs4 import BeautifulSoup
+from clinical_sources import Result, soup, body_text, clean, parse_date, candidate, safe_error, TZ, DATE_RE, USER_AGENT, MONTHS
 
 HOME = 'https://phuse.global/'
 CALENDAR = 'https://phuse.global/Events_Calendar'
@@ -68,8 +70,21 @@ def discover(doc, url):
     return found
 
 
+def event_document(url):
+    request = Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'text/html'})
+    with urlopen(request, timeout=35) as response:
+        final_url = event_url(response.geturl(), url)
+        raw = response.read(16_000_001)
+        if not final_url or len(raw)>16_000_000:
+            raise ValueError('invalid official event response')
+        doc = BeautifulSoup(raw.decode(response.headers.get_content_charset() or 'utf-8', 'replace'), 'html.parser')
+    if len(doc.get_text(strip=True))<120:
+        raise ValueError('empty official event page')
+    return doc, final_url
+
+
 def read_event(url, title, index_day, index_evidence):
-    doc = soup(url)
+    doc, final_url = event_document(url)
     content = body_text(doc)
     # Cvent's JSON-LD may describe the year-long umbrella event. Use the specific visible page.
     lines = []
@@ -80,16 +95,27 @@ def read_event(url, title, index_day, index_evidence):
         if text and text not in lines:
             lines.append(text)
     evidence = next((line for line in lines[:40] if len(line) <= 240 and DATE_RE.search(line)), '')
+    visible_date_line = evidence
+    if not evidence:
+        # The year must come from the official page's named series, never today's year.
+        year = re.search(r'Working Group Events\s+(20\d{2})', clean(doc.title.get_text()) if doc.title else '')
+        if year:
+            partial = next((line for line in lines[:40] if len(line)<=160 and re.search(r'\b\d{1,2}(?:st|nd|rd|th)?(?:[–—-]\d{1,2})?\s+(?:' + MONTHS + r')\b',line,re.I)), '')
+            if partial:
+                visible_date_line = partial
+                position = lines.index(partial)
+                following = lines[position+1] if position+1<len(lines) and re.search(r'\d{1,2}:\d{2}',lines[position+1]) else ''
+                evidence = partial + ' ' + year[1] + ' ' + following + ' [年份依据: ' + clean(doc.title.get_text()) + ']'
     day = event_day(evidence) if evidence else index_day
     if not evidence:
         evidence = '官方活动目录日期: ' + index_evidence if index_day else ''
     if not title:
-        date_pos = lines.index(evidence) if evidence in lines else 0
+        date_pos = lines.index(visible_date_line) if visible_date_line in lines else 0
         candidates = [line for line in lines[:date_pos] if 20 <= len(line) <= 250 and 'sponsor' not in line.lower()]
         title = candidates[-1] if candidates else clean(doc.title.get_text() if doc.title else '')
     if not day or not title:
         raise ValueError('event page has no verifiable event date or title')
-    return candidate('PHUSE', url, title, text=content, deadline=day,
+    return candidate('PHUSE', final_url, title, text=content, deadline=day,
                      deadline_evidence=evidence, basis='official-event-page')
 
 
@@ -136,5 +162,10 @@ def collect_events(start, today):
             elif row['deadline'] < today:
                 result.note('PHUSE', url, row['originalTitle'], '', 'event-date', '过去事项', deadline=row['deadline'])
             else:
+                if row['url'] != url:
+                    result.note('PHUSE', url, row['originalTitle'], '', 'canonical-url', '官网重定向至同一活动的正式链接', canonicalUrl=row['url'])
+                if any(existing['url']==row['url'] for existing in result.rows):
+                    result.note('PHUSE', url, row['originalTitle'], '', 'duplicate', '同一活动已通过其他入口读取', canonicalUrl=row['url'])
+                    continue
                 result.rows.append(row)
     return result
