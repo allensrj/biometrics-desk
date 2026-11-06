@@ -66,7 +66,8 @@ def discover(doc, url):
         for a in doc.select('a[href]'):
             target = event_url(a['href'], url)
             if target and '/event/WorkingGroupEvents/' in urlsplit(target).path and target != GROUPS:
-                found.setdefault(target, ('', '', ''))
+                past = a.find_previous(string=lambda text: bool(re.fullmatch(r'20\d{2}\s+Past Events', clean(text))))
+                found.setdefault(target, ('', '', 'past-event-index' if past else ''))
     return found
 
 
@@ -135,9 +136,19 @@ def collect_events(start, today):
             result.errors.append('PHUSE 活动目录读取失败（' + safe_error(exc) + '）')
             result.limited = True
     result.discovered = len(discovered)
+    # These aliases are published together by the same official index. Prefer the explicit
+    # event summary even if the short route refuses redirects for automated clients.
+    for alias in list(discovered):
+        path = urlsplit(alias).path.strip('/')
+        canonical = 'https://events.phuse.global/event/' + path + '/summary'
+        if '/' not in path and canonical in discovered:
+            title, day, evidence = discovered.pop(alias)
+            result.note('PHUSE', alias, title, '', 'canonical-url', '同一官方目录同时提供的活动短链接与完整链接', canonicalUrl=canonical)
     pending = []
     for url, (title, day, evidence) in discovered.items():
-        if day and day < today:
+        if evidence == 'past-event-index':
+            result.note('PHUSE', url, title, '', 'event-date', '官网已明确列在 Past Events（历史活动）栏目')
+        elif day and day < today:
             result.note('PHUSE', url, title, '', 'event-date', '过去事项', deadline=day)
         else:
             pending.append((url, title, day, evidence))

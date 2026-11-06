@@ -44,9 +44,10 @@ class OfficialEvents(unittest.TestCase):
         canonical = 'https://events.phuse.global/event/EUConnect26/summary'
         alias = 'https://events.phuse.global/EUConnect26'
         row = {'source': 'PHUSE', 'url': canonical, 'originalTitle': 'EU Connect 2026', 'published': '', 'deadline': '2026-11-15'}
-        with patch('phuse_events.soup', return_value=html('<main>Index</main>')), patch('phuse_events.discover', return_value={alias: ('EU Connect', '2026-11-15', '15 November 2026'), canonical: ('EU Connect', '2026-11-15', '15 November 2026')}), patch('phuse_events.read_event', return_value=row):
+        with patch('phuse_events.soup', return_value=html('<main>Index</main>')), patch('phuse_events.discover', return_value={alias: ('EU Connect', '2026-11-15', '15 November 2026'), canonical: ('EU Connect', '2026-11-15', '15 November 2026')}), patch('phuse_events.read_event', return_value=row) as fetch:
             result = collect_events('2026-08-09', '2026-11-06')
         self.assertEqual(len(result.rows), 1)
+        self.assertEqual(fetch.call_count, 1)
         self.assertTrue(any(x['stage']=='canonical-url' and x['url']==alias for x in result.screening))
 
     def test_event_timezone_and_date_only(self):
@@ -71,6 +72,17 @@ class OfficialEvents(unittest.TestCase):
     def test_working_group_generic_registration_link_is_discovered(self):
         doc = html('<a href="/event/WorkingGroupEvents/ASA-Webinar">Register now</a><a href="https://www.eventbrite.com/register">Register</a>')
         self.assertIn('https://events.phuse.global/event/WorkingGroupEvents/ASA-Webinar', discover(doc, GROUPS))
+
+    def test_explicit_past_events_section_not_recrawled_as_future_notice(self):
+        url = 'https://events.phuse.global/event/WorkingGroupEvents/old'
+        doc = html('<h2>2026 Past Events</h2><a href="' + url + '">Visit the Event</a>')
+        rows = discover(doc, GROUPS)
+        self.assertEqual(rows[url][2], 'past-event-index')
+        with patch('phuse_events.soup', return_value=doc), patch('phuse_events.discover', return_value=rows), patch('phuse_events.read_event') as fetch:
+            result = collect_events('2026-08-09', '2026-11-06')
+        fetch.assert_not_called()
+        self.assertEqual(result.rows, [])
+        self.assertEqual(result.screening[0]['stage'], 'event-date')
 
     def test_index_and_detail_failures_recorded_not_zero_success(self):
         url = 'https://events.phuse.global/event/WorkingGroupEvents/test'
