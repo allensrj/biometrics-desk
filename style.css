@@ -668,3 +668,14 @@ aside p,
   outline: 2px solid var(--blue);
   outline-offset: 4px;
 }
+
+#active-notices { margin: 0 0 20px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: #fafbfe; }
+#active-notices[hidden] { display: none; }
+.notice-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.notice-head h3 { margin: 0; font-size: 15px; }
+.notice-head h3 span { margin-left: 6px; color: var(--muted); font-size: 12px; font-weight: 400; }
+#active-notices p, .feed-caption { color: var(--muted); font-size: 12px; margin: 8px 0 12px; }
+.notice-list a { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: baseline; gap: 12px; padding: 9px 0; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 13px; }
+.notice-list a:hover { color: var(--blue); background: #f0f2fa; }
+.notice-list time, .notice-list small { color: var(--muted); font-size: 11px; }
+@media (max-width: 600px) { #active-notices { padding: 14px; } .notice-list a { grid-template-columns: 40px minmax(0, 1fr); gap: 8px; } .notice-list small { display: none; } }

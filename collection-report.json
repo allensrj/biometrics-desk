@@ -1,18 +1,18 @@
 {
  "collectorVersion": "official-direct-v1",
- "updated": "2026-11-05T02:01:23.119855+08:00",
- "windowStart": "2026-08-08",
- "windowEnd": "2026-11-05",
+ "updated": "2026-11-06T13:12:35.443878+08:00",
+ "windowStart": "2026-08-09",
+ "windowEnd": "2026-11-06",
  "sources": [
   {
    "name": "CDISC",
    "url": "https://www.cdisc.org/news/whats-new",
    "scope": "新闻、最新标准、公开征求意见、近期网络研讨会",
-   "checked": "2026-11-05T02:01:26.816719+08:00",
+   "checked": "2026-11-06T13:12:39.190272+08:00",
    "ok": true,
-   "discovered": 13,
-   "read": 13,
-   "eligible": 11,
+   "discovered": 14,
+   "read": 14,
+   "eligible": 12,
    "unknownDate": 0,
    "error": "",
    "limited": false,
@@ -27,7 +27,7 @@
    "name": "CDE",
    "url": "https://www.cde.org.cn/",
    "scope": "官网首页公告及工作动态目录；目录受限时标注覆盖不完整",
-   "checked": "2026-11-05T02:01:41.826010+08:00",
+   "checked": "2026-11-06T13:12:58.527091+08:00",
    "ok": false,
    "discovered": 5,
    "read": 5,
@@ -46,7 +46,7 @@
    "name": "ICH",
    "url": "https://www.ich.org/",
    "scope": "官网新闻 CMS：按 date 字段分页，读取文章正文",
-   "checked": "2026-11-05T02:01:41.826070+08:00",
+   "checked": "2026-11-06T13:12:58.527146+08:00",
    "ok": true,
    "discovered": 10,
    "read": 4,
@@ -65,7 +65,7 @@
    "name": "FDA",
    "url": "https://www.fda.gov/drugs/guidances-drugs/newly-added-guidance-documents",
    "scope": "新发布药品指南目录与原文",
-   "checked": "2026-11-05T02:01:41.826092+08:00",
+   "checked": "2026-11-06T13:12:58.527161+08:00",
    "ok": true,
    "discovered": 54,
    "read": 4,
@@ -84,7 +84,7 @@
    "name": "PHUSE",
    "url": "https://phuse.global/Communications/PHUSE_Blog",
    "scope": "PHUSE Blog：行业、工作组与会议文章",
-   "checked": "2026-11-05T02:01:41.826115+08:00",
+   "checked": "2026-11-06T13:12:58.527176+08:00",
    "ok": true,
    "discovered": 50,
    "read": 5,
@@ -95,17 +95,17 @@
    "pages": 1,
    "included": 4,
    "agenda": 0,
-   "pendingAnalysis": 1,
+   "pendingAnalysis": 0,
    "latestPublished": "2026-10-22",
-   "retained": 1
+   "retained": 0
   },
   {
    "name": "美国联邦公报",
    "url": "https://www.federalregister.gov/agencies/food-and-drug-administration",
    "scope": "FDA 正式公告 API：90 天分页、读取官方摘要",
-   "checked": "2026-11-05T02:01:41.826192+08:00",
+   "checked": "2026-11-06T13:12:58.527236+08:00",
    "ok": true,
-   "discovered": 184,
+   "discovered": 187,
    "read": 70,
    "eligible": 70,
    "unknownDate": 0,
@@ -122,7 +122,7 @@
    "name": "PMDA",
    "url": "https://www.pmda.go.jp/english/review-services/reviews/0002.html",
    "scope": "电子研究数据标准目录与最新验证规则",
-   "checked": "2026-11-05T02:01:41.826228+08:00",
+   "checked": "2026-11-06T13:12:58.527254+08:00",
    "ok": true,
    "discovered": 2,
    "read": 2,
@@ -141,7 +141,7 @@
    "name": "NCI EVS",
    "url": "https://evs.nci.nih.gov/ftp1/CDISC/",
    "scope": "SDTM、ADaM 受控术语最新版本",
-   "checked": "2026-11-05T02:01:41.826248+08:00",
+   "checked": "2026-11-06T13:12:58.527267+08:00",
    "ok": true,
    "discovered": 2,
    "read": 2,
@@ -160,7 +160,7 @@
    "name": "EMA",
    "url": "https://www.ema.europa.eu/en/about-us/how-we-work/data-regulation-big-data-other-sources/use-clinical-study-data-medicine-evaluation",
    "scope": "临床研究数据试点资料索引",
-   "checked": "2026-11-05T02:01:41.826274+08:00",
+   "checked": "2026-11-06T13:12:58.527297+08:00",
    "ok": true,
    "discovered": 4,
    "read": 4,
@@ -178,23 +178,22 @@
  ],
  "analysis": {
   "method": "DeepSeek 独立分析官网正文、官方摘要或资料索引",
-  "accepted": 32,
-  "irrelevant": 68,
-  "pending": 1
+  "accepted": 33,
+  "irrelevant": 69,
+  "pending": 0
  },
  "excluded": {
   "outsideWindow": 8,
   "unknownPublicationDate": 0
  },
- "pending": [
-  {
-   "source": "PHUSE",
-   "url": "https://phuse.global/Communications/PHUSE_Blog/human-review-still-matters-responsible-use-of-generative-ai-in-regulated-clinical-programming",
-   "title": "Human Review Still Matters: Responsible Use of Generative AI in Regulated Clinical Programming",
-   "reason": "分析未通过（unsupported relevance evidence），下次重试"
-  }
- ],
+ "pending": [],
  "rejected": [
+  {
+   "source": "CDISC",
+   "url": "https://www.cdisc.org/public-review/cdisc-tmf-standard-model-v1-community-review",
+   "title": "CDISC TMF Standard Model v1 - Community Review",
+   "reason": "与临床统计编程的直接相关性不足"
+  },
   {
    "source": "CDISC",
    "url": "https://www.cdisc.org/events/webinar/tmf-community-general-meeting-q4-2026-japanasia-pacific",
@@ -614,7 +613,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "美国联邦公报",
@@ -625,7 +624,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-api-abstract",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDE",
@@ -636,7 +635,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-index-only",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "PHUSE",
@@ -647,7 +646,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-04T21:08:35.738925+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "FDA",
@@ -658,7 +657,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDE",
@@ -669,7 +668,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-index-only",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDE",
@@ -680,7 +679,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-index-only",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "美国联邦公报",
@@ -691,7 +690,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-api-abstract",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "美国联邦公报",
@@ -702,7 +701,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-api-abstract",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "PHUSE",
@@ -713,7 +712,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "ICH",
@@ -724,7 +723,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-cms-article",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "FDA",
@@ -735,7 +734,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "PHUSE",
@@ -746,7 +745,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "NCI EVS",
@@ -757,7 +756,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-version-index",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "NCI EVS",
@@ -768,7 +767,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-version-index",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -779,7 +778,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -790,7 +789,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "美国联邦公报",
@@ -801,7 +800,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-api-abstract",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "ICH",
@@ -812,7 +811,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-cms-article",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "美国联邦公报",
@@ -823,7 +822,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-api-abstract",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -834,7 +833,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "美国联邦公报",
@@ -845,7 +844,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-api-abstract",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "FDA",
@@ -856,7 +855,7 @@
    "deadline": "2026-12-01",
    "deadlineEvidence": "Submit Comments by 12/01/2026",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "ICH",
@@ -867,7 +866,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-cms-article",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "美国联邦公报",
@@ -878,7 +877,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-api-abstract",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "PHUSE",
@@ -889,7 +888,7 @@
    "deadline": "",
    "deadlineEvidence": "",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -900,7 +899,7 @@
    "deadline": "2026-11-10",
    "deadlineEvidence": "10 November 2026 10:00am - 11:00am EST",
    "contentBasis": "official-event-index",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -911,18 +910,18 @@
    "deadline": "2026-11-18",
    "deadlineEvidence": "17 November 2026 11:30am - 1:00pm EST",
    "contentBasis": "official-event-index",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
-   "url": "https://www.cdisc.org/public-review/cdisc-tmf-standard-model-v1-community-review",
-   "originalTitle": "CDISC TMF Standard Model v1 - Community Review",
+   "url": "https://www.cdisc.org/events/webinar/ars-v2-0-launch-survey-results-proposed-scope-and-how-get-involved",
+   "originalTitle": "ARS v2.0 Launch: Survey Results, Proposed Scope and How to Get Involved",
    "published": "",
    "dateEvidence": "",
-   "deadline": "2026-11-20",
-   "deadlineEvidence": "Comments Due By 20 November 2026",
-   "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "deadline": "2026-11-30",
+   "deadlineEvidence": "30 November 2026 10:00am - 11:00am EST",
+   "contentBasis": "official-event-index",
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -933,7 +932,7 @@
    "deadline": "2026-12-02",
    "deadlineEvidence": "1 December 2026 11:00am - 12:30pm EST",
    "contentBasis": "official-event-index",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -944,7 +943,7 @@
    "deadline": "2026-12-02",
    "deadlineEvidence": "2 December 2026 10:30am - 12:00pm EST",
    "contentBasis": "official-event-index",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -955,7 +954,7 @@
    "deadline": "2026-12-08",
    "deadlineEvidence": "8 December 2026 10:00am - 11:30am EST",
    "contentBasis": "official-event-index",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   },
   {
    "source": "CDISC",
@@ -966,7 +965,7 @@
    "deadline": "2026-12-31",
    "deadlineEvidence": "Comments Due By 31 December 2026",
    "contentBasis": "official-page",
-   "lastVerified": "2026-11-05T02:01:23.119855+08:00"
+   "lastVerified": "2026-11-06T13:12:35.443878+08:00"
   }
  ]
 }

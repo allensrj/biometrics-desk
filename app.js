@@ -45,6 +45,7 @@ async function start() {
     category: "",
     day: "",
     due: false,
+    active: false,
     archive: false,
   };
   let state = { ...defaults };
@@ -99,7 +100,7 @@ async function start() {
         ? bj(i.createdAt).split(" ")[0] + " 创建"
         : ""
       : i.agendaOnly
-        ? "事项日期 " + i.deadline
+        ? (i.published ? "公告发布 " + i.published : "发布日期未注明") + " · " + (i.url.includes("/public-review/") ? "截止 " : "事项日期 ") + i.deadline
         : i.published + " 发布";
     const meta = repo ? i.repo.split("/")[0] : i.category;
     return `<article class="entry ${repo ? "repo" : ""}" data-record-url="${esc(i.url)}" tabindex="-1"><div class="meta"><span class="badge ${{ 高: "rank-high", 中: "rank-medium", 低: "rank-low" }[i.rank] || ""}">${esc(rank)}</span><span>${esc(meta)}</span><time>${esc(date)}</time></div><h3>${repo ? out(i.url, i.repo.split("/").slice(1).join("/")) : esc(i.title)}</h3><p>${esc(i.summary || i.description)}</p>${i.impact ? "<details><summary>对统计编程的影响</summary><p>" + esc(i.impact) + "</p></details>" : ""}<div class="tags">${tags.map((t) => btn("tag", t, esc(t), 'class="tag" title="搜索此关键词"')).join("")}</div><footer><span>${esc(repo ? [i.language, "☆ " + (i.stars || 0), i.isOrgWatch ? "关注账号" : "", i.isLookback ? "回看补录" : "", i.isNew ? "本期收录" : ""].filter(Boolean).join("　") : i.source)}</span>${i.deadline ? btn("date", i.deadline, esc(i.deadline), 'class="tag" title="查看同日事项"') : ""}${out(i.url, repo ? "访问仓库" : "阅读原文")}</footer></article>`;
@@ -108,23 +109,25 @@ async function start() {
     const news = clinicalRows(),
       repos = repoRows(),
       isRepo = state.tab === repoTab;
-    const calendar = news.concat(
-      clinicalRows(clinical.agendaOnly || []).map((i) => ({
-        ...i,
-        agendaOnly: true,
-      })),
-    );
-    const all = state.due || state.day ? calendar : isRepo ? repos : news;
+    const activeNotices = clinicalRows(clinical.agendaOnly || [])
+      .filter((i) => i.deadline && daysUntil(i.deadline) >= 0)
+      .map((i) => ({ ...i, agendaOnly: true }))
+      .sort((a, b) => a.deadline.localeCompare(b.deadline));
+    const calendar = news.concat(activeNotices);
+    const all = isRepo && !state.due && !state.day ? repos : calendar;
     const query = el("query").value.trim().toLowerCase();
     const visible = all.filter(
       (i) =>
+        (!state.active || i.agendaOnly) &&
         (!state.rank || i.rank === state.rank) &&
         (!state.category || i.category === state.category) &&
         (!state.day || i.deadline === state.day) &&
         (!state.due || upcoming(i)) &&
-        (!query ||
+        (!query || query.split(/\s+/).every((term) =>
           [
             i.title,
+            i.originalTitle,
+            /受控术语|controlled terminology/i.test([i.title, i.originalTitle, i.summary].join(" ")) ? "CT" : "",
             i.summary,
             i.impact,
             i.source,
@@ -134,21 +137,21 @@ async function start() {
           ]
             .join(" ")
             .toLowerCase()
-            .includes(query)),
+            .includes(term))),
     );
-    if (state.due || state.day)
+    if (state.due || state.day || state.active)
       visible.sort((a, b) => a.deadline.localeCompare(b.deadline));
     const soon = calendar
       .filter(upcoming)
       .sort((a, b) => a.deadline.localeCompare(b.deadline));
-    const groups = [...new Set(news.map((i) => i.category))].sort(
+    const groups = [...new Set(calendar.map((i) => i.category))].sort(
       (a, b) =>
-        news.filter((i) => i.category === b).length -
-        news.filter((i) => i.category === a).length,
+        calendar.filter((i) => i.category === b).length -
+        calendar.filter((i) => i.category === a).length,
     );
     const metrics = [
-      ["clinical", "临床情报", news.length],
-      ["high", "高重要度情报", news.filter((i) => i.rank === "高").length],
+      ["clinical", "临床情报", calendar.length],
+      ["high", "高重要度情报", calendar.filter((i) => i.rank === "高").length],
       ["due", "30 天内事项", soon.length],
       ["repo", "开源仓库", github.repos.length],
     ];
@@ -159,6 +162,7 @@ async function start() {
           !state.category &&
           !state.day &&
           !state.archive &&
+          !state.active &&
           (key === "repo"
             ? isRepo && !state.rank
             : state.tab === "临床情报" &&
@@ -195,7 +199,7 @@ async function start() {
       .map((t) => btn("tab", t, t, pressed(t === state.tab)))
       .join("");
     el("context").innerHTML =
-      `<b>${visible.length} 条结果</b> ${state.tab === "临床情报" && !state.due && !state.day ? "近 90 天 · 按发布日期倒序" : ""} ${state.due ? "未来 30 天 " : ""}${esc(state.day)} ${select("rank", isRepo ? "所有相关性" : "所有重要度", isRepo ? ["高", "中", "低", "待确认"] : ["高", "中", "低"], state.rank)}${state.tab === "临床情报" ? select("category", "所有主题", groups, state.category) : ""}${isRepo ? select("edition", "本期简报", ["历史简报"], state.archive ? "历史简报" : "") : ""}`;
+      `<b>${visible.length} 条结果</b> ${state.tab === "临床情报" && !state.due && !state.day ? (state.active ? "进行中事项 · 按事项日期排序" : "近 90 天新闻 + 进行中事项") : ""} ${state.due ? "未来 30 天 " : ""}${esc(state.day)} ${select("rank", isRepo ? "所有相关性" : "所有重要度", isRepo ? ["高", "中", "低", "待确认"] : ["高", "中", "低"], state.rank)}${state.tab === "临床情报" ? select("category", "所有主题", groups, state.category) : ""}${isRepo ? select("edition", "本期简报", ["历史简报"], state.archive ? "历史简报" : "") : ""}`;
     if (isRepo)
       el("context").insertAdjacentHTML(
         "beforeend",
@@ -206,22 +210,29 @@ async function start() {
       state.category ||
       state.day ||
       state.due ||
+      state.active ||
       state.archive ||
       query
     );
+    const overview = !isRepo && !query && !state.rank && !state.category && !state.day && !state.due && !state.active;
+    const noticePanel = el("active-notices");
+    noticePanel.hidden = !overview || !activeNotices.length;
+    noticePanel.innerHTML = noticePanel.hidden ? "" :
+      `<div class="notice-head"><h3>进行中的征求意见与后续事项 <span>${activeNotices.length}</span></h3>${btn("active", "", "查看事项详情 ↗", 'class="tag"')}</div><p>尚未结束的已收录事项，不限未来 30 天；未注明的公告发布日期不作推断。</p><div class="notice-list">${activeNotices.map((i) => `<a href="#results" data-action="item" data-value="${esc(i.url)}"><time>${esc(i.deadline.slice(5).replace("-", "/"))}</time><span>${esc(i.title)}</span><small>${esc(i.source)} ↗</small></a>`).join("")}</div>`;
+    const feedRows = overview ? visible.filter((i) => !i.agendaOnly) : visible;
     el("feed").className = isRepo ? "repo-grid" : "";
     el("feed").innerHTML =
-      visible.map(record).join("") ||
+      (overview && feedRows.length ? '<p class="feed-caption">近 90 天新闻 · 按发布日期倒序</p>' : "") + feedRows.map(record).join("") ||
       '<div class="empty">没有符合当前条件的记录。 ' +
         btn("clear", "", "清除筛选", 'class="tag"') +
         "</div>";
     el("categories").innerHTML = groups
       .map((g) => {
-        const n = news.filter((i) => i.category === g).length;
+        const n = calendar.filter((i) => i.category === g).length;
         return btn(
           "group",
           g,
-          `<span>${esc(g)}</span><i style="--pct:${(100 * n) / news.length}%"></i><b>${n}</b>`,
+          `<span>${esc(g)}</span><i style="--pct:${(100 * n) / calendar.length}%"></i><b>${n}</b>`,
           'class="bar" ' + pressed(state.category === g),
         );
       })
@@ -260,7 +271,7 @@ async function start() {
     panel.hidden = !isRepo || state.archive;
     panel.innerHTML = `<summary>关注账号的正式发布（${github.releases?.length || 0}）</summary><p>近五天有推送的相关公开项目，新仓库另列于下方。</p>${releases ? "<ul>" + releases + "</ul>" : "<p>当前窗口未收录正式发布。</p>"}${github.releaseErrors?.length ? "<p>检查未完成：" + esc(github.releaseErrors.join("、")) + "</p>" : ""}`;
     el("updates").innerHTML =
-      `<div class="sync"><b>临床情报</b>采集完成　${stamp(status.clinical?.checked)}<p>${"来源：" + sources}</p><p>独立采集官网 · 近 90 个北京时间自然日</p>${sourceIssues ? "<p class=\"source-warning\">" + sourceIssues + "</p>" : ""}<p><a href="collection-report.json" target="_blank" rel="noopener">查看本轮采集记录 ↗</a></p></div><div class="sync"><b>开源仓库</b><p>采集范围　${esc(github.windowStart)} 至 ${esc(github.windowEnd)}（北京时间）</p></div>`;
+      `<div class="sync"><b>临床情报</b>采集完成　${stamp(status.clinical?.checked)}<p>${"来源：" + sources}</p><p>独立采集官网 · 新闻近 90 个北京时间自然日；未结束事项另列，发布日期缺失时明确标注。</p>${sourceIssues ? "<p class=\"source-warning\">" + sourceIssues + "</p>" : ""}<p><a href="collection-report.json" target="_blank" rel="noopener">查看本轮采集记录 ↗</a></p></div><div class="sync"><b>开源仓库</b><p>采集范围　${esc(github.windowStart)} 至 ${esc(github.windowEnd)}（北京时间）</p></div>`;
   }
   document.addEventListener("click", (e) => {
     const b = e.target.closest("[data-action]");
@@ -291,6 +302,7 @@ async function start() {
         target.scrollIntoView({ block: "center" });
       }
     }
+    if (action === "active") navigate({ active: true });
     if (action === "date") navigate({ day: value });
     if (action === "group") navigate({ category: value });
     if (action === "tab") navigate({ tab: value }, el("query").value);

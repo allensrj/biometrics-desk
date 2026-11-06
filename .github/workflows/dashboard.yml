@@ -79,12 +79,35 @@ jobs:
               const data = JSON.parse(fs.readFileSync('clinical.json', 'utf8'));
               const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Shanghai' }).format(new Date());
               const fixture = { title: '事项定位检查', category: '行业与会议', importance: '中', summary: '检查页面定位', impact: '检查条目高亮', source: '验证数据', tags: [], published: day, collected: day, deadline: day, url: 'https://example.com/desk-location-check' };
-              data.agendaOnly = [...(data.agendaOnly || []), fixture];
+              const distant = new Date(day + 'T00:00:00Z');
+              distant.setUTCDate(distant.getUTCDate() + 60);
+              const distantDay = distant.toISOString().slice(0, 10);
+              const distantReview = { ...fixture, title: '中文受控术语检索验证', originalTitle: 'Chinese Controlled Terminology review', published: '', deadline: distantDay, url: 'https://www.cdisc.org/public-review/desk-ui-fixture' };
+              const expiredReview = { ...distantReview, title: '过期事项验证', deadline: '2000-01-01', url: 'https://example.com/expired-fixture' };
+              data.agendaOnly = [...(data.agendaOnly || []), fixture, distantReview, expiredReview];
               await page.route('**/clinical.json', route => route.fulfill({ json: data }));
               await page.goto('http://127.0.0.1:8765/');
               await page.locator('#feed article').first().waitFor();
               assert.equal(await page.title(), '临床统计编程信息看板 · Biometrics Desk');
               assert.deepEqual(await page.locator('#tabs button').allTextContents(), ['临床情报', '开源仓库']);
+              const noticeLink = page.locator('#active-notices a').filter({ hasText: distantReview.title });
+              assert.equal(await noticeLink.count(), 1);
+              assert.equal(await page.locator('#active-notices').getByText(expiredReview.title).count(), 0);
+              assert.equal(await page.locator('.day-item').filter({ hasText: distantReview.title }).count(), 0);
+              await noticeLink.click();
+              assert.equal(await page.locator('#feed .located').getAttribute('data-record-url'), distantReview.url);
+              assert.match(await page.locator('#feed .located .meta').innerText(), /发布日期未注明/);
+              await page.locator('#reset').click();
+              await page.locator('#query').fill('中文 CT');
+              assert.equal(await page.locator('#feed article').filter({ hasText: distantReview.title }).count(), 1);
+              assert.equal(await page.locator('#active-notices').isVisible(), false);
+              await page.locator('#query').fill('');
+              await page.locator('[data-action="active"]').click();
+              assert.equal(await page.locator('#feed article').filter({ hasText: distantReview.title }).count(), 1);
+              await page.locator('#reset').click();
+              await page.setViewportSize({ width: 390, height: 844 });
+              assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
+              await page.setViewportSize({ width: 1280, height: 900 });
               await page.getByRole('button', { name: /开源仓库，/ }).click();
               await page.locator('.tick').first().hover();
               const item = page.locator('.day-item').filter({ hasText: fixture.title });
@@ -98,7 +121,7 @@ jobs:
               assert.doesNotMatch(sync, /pharmaverse|命中|关键词|采集开始|采集完成/);
               assert.equal(await page.locator('.wechat-promo strong').innerText(), '药企SP程序员Allen');
               assert.deepEqual(errors, []);
-              console.log('PASS: title, two tabs, hovered item location, concise source notes, and WeChat recommendation');
+              console.log('PASS: distant undated reviews visible, searchable with CT alias, clickable, expired hidden, mobile width, title, two tabs, hovered item location, concise source notes, and WeChat recommendation');
             } finally {
               await browser.close();
             }

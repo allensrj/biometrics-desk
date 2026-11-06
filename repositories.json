@@ -1,11 +1,120 @@
 {
- "generatedAt": "2026-11-04T18:01:52.883404+00:00",
- "windowStart": "2026-11-01",
- "windowEnd": "2026-11-05",
- "totalNew": 6,
+ "generatedAt": "2026-11-06T05:13:03.178241+00:00",
+ "windowStart": "2026-11-02",
+ "windowEnd": "2026-11-06",
+ "totalNew": 9,
  "note": "",
- "errors": "二级关键词 命中 2352 条，仅取最新 100 条；二级关键词 命中 1299 条，仅取最新 100 条；README 拉取达到上限 90，剩余候选跳过",
+ "errors": "二级关键词 命中 2685 条，仅取最新 100 条；二级关键词 命中 1410 条，仅取最新 100 条；README 拉取达到上限 90，剩余候选跳过",
  "repos": [
+  {
+   "repo": "rickyemi/Alzheimer_Disease_Models_CDISC_ADaM_TLF",
+   "url": "https://github.com/rickyemi/Alzheimer_Disease_Models_CDISC_ADaM_TLF",
+   "createdAt": "2026-11-06T00:37:21Z",
+   "description": "",
+   "language": "Jupyter Notebook",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "SDTMIG",
+    "ADaMIG",
+    "define.xml",
+    "Pinnacle 21",
+    "pharmaverse",
+    "ADaM",
+    "P21",
+    "XPT",
+    "SAS",
+    "admiral"
+   ],
+   "relevance": "高",
+   "summary": "用 R 从原始 EDC/IXRS/中心实验室数据构建 CDISC SDTM 17 个域并派生 ADaM、生成 TLF 与患者档案查看器的端到端阿尔茨海默病虚拟项目，直接对应 SDTM/ADaM/TLF 递交链路。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "lhfudataiku/demo-cdisc-automation",
+   "url": "https://github.com/lhfudataiku/demo-cdisc-automation",
+   "createdAt": "2026-11-05T16:45:53Z",
+   "description": "",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "ADaM",
+    "TLF",
+    "XPT",
+    "SAS"
+   ],
+   "relevance": "高",
+   "summary": "Dataiku 上的 FLU2026 演示项目文档，展示受治理的 SDTM→ADaM→TLF 流水线及 define/P21 递交概念，属于 CDISC 递交与 SAS 替代方案的统计编程演示。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "cran/definecore",
+   "url": "https://github.com/cran/definecore",
+   "createdAt": "2026-11-04T23:47:33Z",
+   "description": ":exclamation: This is a read-only mirror of the CRAN R package repository.  definecore — Generate CDISC Define-XML from Metacore Objects. Homepage: https://github.com/shekharchalwadigrepo-hub/definecore  Report bugs for this package: https://github.com/shekharchalwadigrepo-hub/definecore/issues",
+   "language": "R",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "define.xml",
+    "pharmaverse",
+    "ADaM"
+   ],
+   "relevance": "高",
+   "summary": "CRAN R 包，从 metacore 对象生成符合递交要求的 CDISC Define-XML 2.0/2.1 文档，直接服务于 ADaM/SDTM 递交包制作。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "t-a-m-i/dsx_data_scientist_coding_assessment",
+   "url": "https://github.com/t-a-m-i/dsx_data_scientist_coding_assessment",
+   "createdAt": "2026-11-04T19:16:33Z",
+   "description": "",
+   "language": "HTML",
+   "stars": 0,
+   "matchedKeywords": [
+    "SDTM",
+    "pharmaverse",
+    "ADaM",
+    "admiral"
+   ],
+   "relevance": "高",
+   "summary": "罗氏统计编程考核项目，含用 sdtm.oak 生成 SDTM DS、用 admiral 推导 ADSL、TEAE 汇总与图表清单等 TLF 任务，与 CDISC 全流程高度吻合。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "qdongtd/adamdefine",
+   "url": "https://github.com/qdongtd/adamdefine",
+   "createdAt": "2026-11-04T18:18:00Z",
+   "description": "Draft ADaM define",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "ADaMIG",
+    "define.xml",
+    "Pinnacle 21",
+    "ADaM",
+    "P21"
+   ],
+   "relevance": "高",
+   "summary": "用于起草和质控 CDISC ADaM Define-XML 2.1 规格工作簿（Pinnacle 21 Excel 格式）的 Claude Code 技能脚本，直接对应 define.xml 与 P21 递交环节。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
   {
    "repo": "carolinepearson/dsc541_2027",
    "url": "https://github.com/carolinepearson/dsc541_2027",
@@ -26,7 +135,7 @@
    "summary": "基于 CDISC Pilot 的 eTFL 演示包，含 ADSL/ADaM 数据、define.xml、ARMS 元数据与 RTF 表格输出，直接对应 CDISC/ADaM/TLF/Define.xml 递交实践。",
    "isOrgWatch": false,
    "isLookback": false,
-   "isNew": true
+   "isNew": false
   },
   {
    "repo": "datastep-labs/sas-for-clinical-programmers",
@@ -472,6 +581,27 @@
    "isNew": false
   },
   {
+   "repo": "OHDSI/StudyStudio",
+   "url": "https://github.com/OHDSI/StudyStudio",
+   "createdAt": "2026-11-05T18:49:55Z",
+   "description": "[under development] Offline, browser-only workspace for OHDSI Strategus network studies: distribute pinned protocols, audit small cells at each site, seal and verify StudyPacks, and record site dispositions.",
+   "language": "TypeScript",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "Pinnacle 21",
+    "ADaM",
+    "P21"
+   ],
+   "relevance": "中",
+   "summary": "OHDSI Strategus 网络研究的离线浏览器工作区，负责分发方案、小单元格审计与 StudyPack 校验，并可导出 CDISC Define-XML/Dataset-JSON，与递交标准规范有关但主战场是 OMOP 观察性研究。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
    "repo": "watilde/StudyStudio",
    "url": "https://github.com/watilde/StudyStudio",
    "createdAt": "2026-11-04T13:20:22Z",
@@ -490,7 +620,7 @@
    "summary": "面向 OHDSI 网络研究的纯浏览器工作区，可汇总站点结果并导出 CDISC Define-XML/Dataset-JSON 供监管递交，与 Define.xml 及递交环节相关。",
    "isOrgWatch": false,
    "isLookback": false,
-   "isNew": true
+   "isNew": false
   },
   {
    "repo": "shravani04082005-cmd/clinical-trial-sas-programming",
@@ -614,7 +744,7 @@
    "summary": "这是一个面向纸质CRF临床试验的核查规则引擎：用Excel维护数据核查计划，自动生成SAS/Python编辑检查程序、按中心输出质疑文件并保留完整稽查轨迹，与临床试验数据清洗和数据管理中的编辑检查相关（但不直接涉及CDISC/SDTM/ADaM/TLF）。",
    "isOrgWatch": false,
    "isLookback": false,
-   "isNew": true
+   "isNew": false
   },
   {
    "repo": "vandhanachakka-hub/REDCap-Oncology-EDC-Database-Design",
@@ -756,6 +886,140 @@
    "isNew": false
   },
   {
+   "repo": "xxxisuuu/xxxisuuu",
+   "url": "https://github.com/xxxisuuu/xxxisuuu",
+   "createdAt": "2026-11-05T23:57:30Z",
+   "description": "",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "ADaM"
+   ],
+   "relevance": "低",
+   "summary": "一位生物统计学家的个人主页与项目组合介绍（含样本量、生存分析、CDISC ADaM 数据经验），本身不是统计编程工具或标准实现。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "sambhajithakar/jamia-calibration-drift-obsolescence",
+   "url": "https://github.com/sambhajithakar/jamia-calibration-drift-obsolescence",
+   "createdAt": "2026-11-05T19:57:14Z",
+   "description": "Analysis code and hash-stamped pre-specifications for a 20-year study of whether model monitoring signals track loss of clinical usefulness (NHANES 1999-2023)",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "XPT"
+   ],
+   "relevance": "低",
+   "summary": "基于NHANES（SAS XPT）对36个临床预测模型做20年校准漂移与过时性分析的研究代码，属临床预测模型方法学研究，不涉及CDISC/SDTM/ADaM或递交。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "Christopher-Hereau/NHANES_Helpy",
+   "url": "https://github.com/Christopher-Hereau/NHANES_Helpy",
+   "createdAt": "2026-11-05T18:58:17Z",
+   "description": "Comprehensive analysis tool for NHANES data for python with pandas. Allows for automatic data aggregation, decoding columns and rows, and quick reference for column names and categorical values",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "XPT",
+    "SAS"
+   ],
+   "relevance": "低",
+   "summary": "Python工具包，用于加载、合并、解码NHANES的XPT/CSV数据（SAS变量名与编码标签映射），仅与SAS传输文件读取相关，不涉及CDISC标准或TLF流程。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "likithakl357-dev/TrialTrack-AI",
+   "url": "https://github.com/likithakl357-dev/TrialTrack-AI",
+   "createdAt": "2026-11-05T15:59:30Z",
+   "description": "An AI-powered Clinical Trial Management System for Ayurveda research, featuring trial lifecycle management, role-based dashboards, ethics and regulatory tracking, pharmacovigilance, and TrialGuard intelligent risk monitoring.",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SDTM",
+    "define.xml",
+    "ADaM"
+   ],
+   "relevance": "低",
+   "summary": "面向阿育吠陀研究的 AI 临床试验运营管理系统（生命周期、伦理与药物警戒看板），属 CTMS 运营工具，不涉及 CDISC 数据集或统计编程，关键词为误命中。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "abhinav2016-tech/specheck",
+   "url": "https://github.com/abhinav2016-tech/specheck",
+   "createdAt": "2026-11-05T14:45:23Z",
+   "description": "",
+   "language": "Python",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC"
+   ],
+   "relevance": "低",
+   "summary": "按机器可读规范规则校验 FDA SPL 药品标签 XML 的小工具，属法规文档合规检查，与 CDISC SDTM/ADaM/TLF 编程只是外围相关。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
+  },
+  {
+   "repo": "jackaI1/clinical-data-sdtm-pipeline",
+   "url": "https://github.com/jackaI1/clinical-data-sdtm-pipeline",
+   "createdAt": "2026-11-05T05:08:16Z",
+   "description": "Project by Jack Lai",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "SDTM"
+   ],
+   "relevance": "低",
+   "summary": "仅有标题和作者的空白仓库，名称指向 SDTM 数据流水线，但没有任何实际内容或代码可供判断。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "jtasnimjahan/asian-bmi-birth-outcomes",
+   "url": "https://github.com/jtasnimjahan/asian-bmi-birth-outcomes",
+   "createdAt": "2026-11-05T04:00:21Z",
+   "description": "Analytic code (SAS 9.4 and R) for a study of prepregnancy BMI 23.0–24.9 kg/m² and adverse birth outcomes among Asian mothers, NVSS 2016–2023.",
+   "language": "SAS",
+   "stars": 0,
+   "matchedKeywords": [
+    "SAS"
+   ],
+   "relevance": "低",
+   "summary": "一项关于亚裔母亲孕前 BMI 与不良出生结局的流行病学研究分析代码（SAS 9.4 与 R），属于使用 SAS 的统计建模，与 CDISC 标准及临床试验递交无直接关系。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
+   "repo": "REMESHA/REMESHA",
+   "url": "https://github.com/REMESHA/REMESHA",
+   "createdAt": "2026-11-04T19:42:07Z",
+   "description": "",
+   "language": "",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC",
+    "SAS"
+   ],
+   "relevance": "低",
+   "summary": "个人 GitHub 主页，作者为生物统计/生物信息背景，自述正在学习 SAS、CDISC 标准与临床数据管理，本身不含相关工具或代码。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": false
+  },
+  {
    "repo": "Ngarciar24/Ngarciar24",
    "url": "https://github.com/Ngarciar24/Ngarciar24",
    "createdAt": "2026-11-04T15:53:49Z",
@@ -772,7 +1036,7 @@
    "summary": "个人主页 README，介绍其用 R/admiral 复现 CDISC pilot 的 ADaM 与 define.xml 项目，本身非统计编程工具仓库。",
    "isOrgWatch": false,
    "isLookback": false,
-   "isNew": true
+   "isNew": false
   },
   {
    "repo": "galarzabalada712-bot/HPV-fixed-ratio-reproducibility",
@@ -789,6 +1053,22 @@
    "isOrgWatch": false,
    "isLookback": false,
    "isNew": false
+  },
+  {
+   "repo": "mokhfur/shaficonsultancy_website",
+   "url": "https://github.com/mokhfur/shaficonsultancy_website",
+   "createdAt": "2026-11-04T08:58:47Z",
+   "description": "This is the new company website",
+   "language": "HTML",
+   "stars": 0,
+   "matchedKeywords": [
+    "CDISC"
+   ],
+   "relevance": "低",
+   "summary": "一家统计编程 CRO 的静态官网（含 CDISC、NONMEM 页面），仅是宣传站点，不含任何临床数据标准或编程实现。",
+   "isOrgWatch": false,
+   "isLookback": false,
+   "isNew": true
   },
   {
    "repo": "HannahTeng/adni-a4-repro",
@@ -836,7 +1116,7 @@
    "summary": "轻量 SAS 宏包，用 PROC SCAPROC 统计 DATA/PROC 步骤耗时并出图，属 SAS 编程性能工具但与 CDISC/TLF 标准无直接关系。",
    "isOrgWatch": false,
    "isLookback": false,
-   "isNew": true
+   "isNew": false
   },
   {
    "repo": "gorkira28/nhanes-diabetes-ckd-awareness-gap",
@@ -853,7 +1133,7 @@
    "summary": "用 SAS 与 Python 对 NHANES 数据做复杂抽样加权分析，评估糖尿病人群 CKD 认知差距，属流行病学统计分析而非临床试验数据标准。",
    "isOrgWatch": false,
    "isLookback": false,
-   "isNew": true
+   "isNew": false
   },
   {
    "repo": "Boehringer-Ingelheim/dipl_invivo_prediction",
@@ -997,6 +1277,12 @@
   "openpharma"
  ],
  "releases": [
+  {
+   "repo": "atorus-research/clinify",
+   "tag": "v0.4.1",
+   "url": "https://github.com/atorus-research/clinify/releases/tag/v0.4.1",
+   "date": "2026-11-04T19:54:58Z"
+  },
   {
    "repo": "cdisc-org/cdisc-rules-engine",
    "tag": "v1.0.0",
