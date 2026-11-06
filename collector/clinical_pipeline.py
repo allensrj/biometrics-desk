@@ -39,6 +39,7 @@ def collect(root,private,today=None):
     specs=sources.specifications()
     statuses=[]
     candidates=[]
+    screening=[]
     excluded={'outsideWindow':0,'unknownPublicationDate':0}
     successful=0
     with ThreadPoolExecutor(max_workers=5) as pool:
@@ -51,6 +52,10 @@ def collect(root,private,today=None):
                 successful+=1
                 status.update(ok=not result.errors,discovered=result.discovered,read=len(result.rows),pages=result.pages,
                               limited=result.limited,error='；'.join(sorted(set(result.errors))))
+                screening.extend(result.screening)
+                discovered_dates=[row.get('published','') for row in result.rows+result.screening if row.get('published')]
+                status['latestDiscoveredPublished']=max(discovered_dates,default='')
+                status['screenedOutOrLimited']=len(result.screening)
                 seen=set()
                 for row in result.rows:
                     key=(row['url'],row['published'])
@@ -63,8 +68,10 @@ def collect(root,private,today=None):
                     elif not row['published']:
                         status['unknownDate']+=1
                         excluded['unknownPublicationDate']+=1
+                        screening.append(dict(source=name,url=row['url'],title=row['originalTitle'],published='',stage='publication-date',reason='无可靠发布日期，也无未结束事项日期'))
                     else:
                         excluded['outsideWindow']+=1
+                        screening.append(dict(source=name,url=row['url'],title=row['originalTitle'],published=row['published'],stage='publication-date',reason='不在新闻日期窗口且无未结束事项'))
             except Exception as exc:
                 status['error']=sources.safe_error(exc)
             status['checked']=datetime.now(TZ).isoformat()
@@ -100,6 +107,7 @@ def collect(root,private,today=None):
         status['pendingAnalysis']=sum(row['source']==name for row in pending)
         dates=[row['published'] for row in news if row['source']==name]
         status['latestPublished']=max(dates,default='')
+        status['latestIncludedPublished']=status['latestPublished']
         status['retained']=sum(row['source']==name and row.get('lastVerified')!=now.isoformat() for row in news+agenda)
         if not status['ok'] and not status['error']:
             status['error']='读取未完成'
@@ -108,7 +116,10 @@ def collect(root,private,today=None):
           'analysis':{'method':'DeepSeek 独立分析官网正文、官方摘要或资料索引','accepted':len(accepted),
                       'irrelevant':len(rejected),'pending':len(pending)},'excluded':excluded}
     report={k:v for k,v in data.items() if k not in ('items','agendaOnly')}
-    report.update(pending=pending,rejected=rejected,
+    report.update(pending=pending,rejected=rejected,screening=screening,
+                  auditNotes={'latestPublished':'已收录新闻的最新发布日期，不代表官网最新日期',
+                              'latestDiscoveredPublished':'本轮适配器发现并记录的明确发布日期，不代表全站完整覆盖',
+                              'screening':'初筛跳过、窗口排除和逐条读取限制；rejected 单列模型判为不相关的候选'},
                   records=[{k:row.get(k,'') for k in ('source','url','originalTitle','published','dateEvidence','deadline','deadlineEvidence','contentBasis','lastVerified')} for row in news+agenda])
     atomic_write_json(str(path),data)
     atomic_write_json(str(Path(root)/'collection-report.json'),report)

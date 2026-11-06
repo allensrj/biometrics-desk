@@ -18,17 +18,19 @@
 | [CDE](https://www.cde.org.cn/) | 药审中心首页公告、工作动态目录及公告原文 | 公告目录/正文发布日期。栏目或正文受限时明确标注；仅取得目录的条目不推断指南内容 |
 | [ICH](https://www.ich.org/) | ICH 官网使用的官方 CMS 新闻接口，分页读取文章正文 | 官网新闻 `date` 字段，不用 CMS 编辑时间冒充新发布 |
 | [FDA](https://www.fda.gov/drugs/guidances-drugs/newly-added-guidance-documents) | Newly Added Guidance Documents 目录及对应指南页面 | 指南目录 Issue Date；读取失败会显示在来源状态中 |
-| [PHUSE](https://phuse.global/Communications/PHUSE_Blog) | 官网 CMS 分页读取 Blog 的行业、工作组与会议文章 | 官网 CMS `date_published` 字段与文章原文 |
+| [PHUSE](https://phuse.global/) | 官网 CMS 分页读取 Blog，并从首页活动卡片、Events Calendar、Working Group Events 发现活动、读取官方详情 | 博客使用 `date_published`；活动使用详情/目录中的活动日期，带明确时区的时间转为北京时间，不伪造公告发布日期 |
 | [美国联邦公报](https://www.federalregister.gov/agencies/food-and-drug-administration) | 官方 API 的 FDA 公告，按 90 天日期条件分页检索 | `publication_date` 和官方摘要；不声称读过全文 |
 | [PMDA](https://www.pmda.go.jp/english/review-services/reviews/0002.html) | 电子研究数据标准目录与最新验证规则 | 资料索引的明确文件/版本日期 |
 | [NCI EVS](https://evs.nci.nih.gov/ftp1/CDISC/) | SDTM、ADaM 受控术语发布文件 | 文件内标注的术语版本日期 |
 | [EMA](https://www.ema.europa.eu/en/about-us/how-we-work/data-regulation-big-data-other-sources/use-clinical-study-data-medicine-evaluation) | 临床研究数据试点说明、问答和配套文件索引 | 各文件自身发布日期或修订日期 |
 
-抓取后先按日期和领域词筛选候选，再将**实际取得的正文、官方摘要或资料索引**交给 DeepSeek 判断相关性、生成中文标题/摘要/影响说明，并标记高、中、低重要度。模型不能更改原文链接、发布日期或截止日；通过原文证据片段校验后才收录。高重要度强调对研究设计、分析、标准或递交有实质影响，中重要度强调实际工作价值，低重要度保留相关背景信息。纯药物审批、招聘、商业宣传等不会因为来源权威而自动收录。
+FDA、CDE 的近期官方目录内容不再因标题未命中领域词就跳过，读取正文（正文受限时明确标注官方目录信息）后交给模型判断。其他入口先按日期和领域词筛选候选，再将**实际取得的正文、官方摘要或资料索引**交给 DeepSeek 判断相关性、生成中文标题/摘要/影响说明，并标记高、中、低重要度。模型不能更改原文链接、发布日期或截止日；通过原文证据片段校验后才收录。高重要度强调对研究设计、分析、标准或递交有实质影响，中重要度强调实际工作价值，低重要度保留相关背景信息。纯药物审批、招聘、商业宣传等不会因为来源权威而自动收录。
+
+PHUSE 活动每轮最多读取 40 个详情页，优先处理明确的未来活动；达到上限或部分活动读取失败会记录覆盖限制。只读官方页面，不调用报名接口。博客失败不阻断活动采集，反之亦然。
 
 每站独立采集，**“没有近期内容”和“采集失败”分开记录**。失败时只允许保留本项目此前独立核实、仍在日期窗口内的内容，首次迁移不会把旧的第三方汇总当作兜底数据。分析失败的候选留待下次重试，不伪装成已完成情报。相同内容的分析结果按内容摘要缓存；每轮最多分析 160 个新候选，按来源轮流分配，积压数量公开记录。
 
-90 天是**收录窗口，不是全网完整覆盖保证**。各站范围限于上表的官方入口；滚动目录、分页上限、访问限制和缺少发布日期都会影响覆盖。达到上限或读取不完整时会在网页来源说明中标注，不用旧文件补足来源数量。[本轮采集记录](https://allensrj.github.io/biometrics-desk/collection-report.json) 提供各站读取/收录数、日期证据、待重试项与最新收录日期；Actions 运行摘要也列出逐站结果。
+90 天是**收录窗口，不是全网完整覆盖保证**。各站范围限于上表的官方入口；滚动目录、分页上限、访问限制和缺少发布日期都会影响覆盖。达到上限或读取不完整时会在网页来源说明中标注，不用旧文件补足来源数量。[本轮采集记录](https://allensrj.github.io/biometrics-desk/collection-report.json) 提供各站读取/收录数、日期证据、待重试项与最新收录日期；`screening` 记录初筛跳过、窗口排除和逐条读取限制，`rejected` 单列模型判为不相关的候选。`latestIncludedPublished`（兼容字段 `latestPublished`）仅代表已收录新闻的最新日期，`latestDiscoveredPublished` 为适配器本轮发现并记录的最新明确日期，都不表示全站完整覆盖；Actions 运行摘要也列出逐站结果。
 
 实现入口：[采集适配器](collector/clinical_sources.py)、[独立分析](collector/clinical_analysis.py)、[日期筛选与数据来源记录](collector/clinical_pipeline.py)。
 

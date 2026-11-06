@@ -7,7 +7,7 @@ from unittest.mock import patch
 from datetime import date
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'collector'))
 from bs4 import BeautifulSoup
-from clinical_sources import parse_date,page_dates,deadline_from,candidate,Result,ich,federalregister,nearby_date,phuse,cdisc_event_date
+from clinical_sources import parse_date,page_dates,deadline_from,candidate,Result,ich,federalregister,nearby_date,phuse_blog as phuse,cdisc_event_date
 from clinical_pipeline import eligible,independent_previous,collect,VERSION
 from clinical_analysis import validate
 

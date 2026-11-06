@@ -164,14 +164,23 @@ class Result:
         self.pages = 0
         self.undated = 0
         self.limited = False
+        self.screening = []
+
+    def note(self, source, url, title, published, stage, reason, **extra):
+        self.screening.append(dict(source=source, url=url, title=clean(title), published=published,
+                                   stage=stage, reason=reason, **extra))
 
     def fetch_detail(self, *args, **kwargs):
         try:
             row = detail(*args, **kwargs)
             if row:
                 self.rows.append(row)
+            else:
+                self.note(args[0], args[1], args[2], args[3] if len(args)>3 else '', 'relevance', '正文初筛未命中领域词')
         except Exception as exc:
             self.errors.append(safe_error(exc))
+            self.limited = True
+            self.note(args[0], args[1], args[2], args[3] if len(args)>3 else '', 'fetch', safe_error(exc))
 
 
 def safe_error(exc):
@@ -212,12 +221,13 @@ def cdisc(start, today):
                     continue
                 if not any(x in urlsplit(target).path for x in ['/news/','/public-review/','/standards/','/events/webinar/']):
                     continue
-                if target in indexes or '/news/link/' in target:
+                if target in indexes:
                     continue
                 seen.add(target)
                 published, evidence = nearby_date(a) if base.endswith("/news") else ("", "")
                 dates.append(published)
                 if published and published < start and '/news' in base:
+                    result.note('CDISC', target, title, published, 'publication-date', '早于新闻日期窗口')
                     continue
                 links.append((target,title,published,evidence))
             result.discovered += len(links)
@@ -250,7 +260,7 @@ def post_json(url,payload):
         return json.load(response)
 
 
-def phuse(start,today):
+def phuse_blog(start,today):
     # PHUSE's HTML ignores page=N on server rendering. Use the very same public
     # GraphQL request its Next Page button makes, then read the official article.
     result=Result()
@@ -297,6 +307,26 @@ def phuse(start,today):
     return result
 
 
+def phuse(start,today):
+    from phuse_events import collect_events
+    combined = Result()
+    for collect_part in (phuse_blog, collect_events):
+        try:
+            part = collect_part(start,today)
+            combined.rows.extend(part.rows)
+            combined.screening.extend(part.screening)
+            combined.errors.extend(part.errors)
+            combined.pages += part.pages
+            combined.discovered += part.discovered
+            combined.limited = combined.limited or part.limited
+        except Exception as exc:
+            combined.errors.append(collect_part.__name__ + ': ' + safe_error(exc))
+            combined.limited = True
+    if not combined.pages:
+        raise ValueError('PHUSE blog and event indexes unavailable')
+    return combined
+
+
 def federalregister(start,today):
     result=Result()
     query={'conditions[agencies][]':'food-and-drug-administration','conditions[publication_date][gte]':start,
@@ -312,6 +342,7 @@ def federalregister(start,today):
             title=item['title']
             abstract=item.get('abstract') or ''
             if not relevant(title,abstract):
+                result.note('美国联邦公报', item['html_url'], title, item['publication_date'], 'relevance', '官方标题与摘要初筛未命中领域词或命中排除词')
                 continue
             # The official API abstract is explicitly labelled; no claim to have read a full PDF.
             result.rows.append(candidate('美国联邦公报',item['html_url'],title,item['publication_date'],
@@ -389,20 +420,26 @@ def cde(start,today):
         for a in doc.select('a[href]'):
             target=urljoin(base,a['href'])
             title=clean(a.get_text(' ',strip=True))
-            if '/main/news/viewInfoCommon/' not in target or target in seen or not relevant(title):
+            if '/main/news/viewInfoCommon/' not in target or target in seen:
                 continue
             seen.add(target)
             result.discovered+=1
             published,evidence=nearby_date(a)
             if published and published<start:
+                result.note('CDE', target, title, published, 'publication-date', '早于新闻日期窗口')
+                continue
+            if EXCLUDE.search(title):
+                result.note('CDE', target, title, published, 'relevance', '命中明确排除词: ' + EXCLUDE.search(title)[0])
                 continue
             try:
-                row=detail('CDE',target,title,published,evidence)
+                row=detail('CDE',target,title,published,evidence,specialist=True)
                 if row:
                     result.rows.append(row)
             except Exception as exc:
                 # A real official index notice remains usable, but cannot stand in for a full guideline.
                 result.errors.append('正文读取受限（'+safe_error(exc)+'），部分条目仅依据官网公告目录')
+                result.limited = True
+                result.note('CDE', target, title, published, 'fetch', '正文读取失败，仅可使用明确标注的官方目录事实: ' + safe_error(exc))
                 if published:
                     result.rows.append(candidate('CDE',target,title,published,'官网公告目录: '+evidence,
                                        '官方公告标题：'+title+'。目录发布日期：'+published+'。正文未能读取，不推断指南具体要求。',basis='official-index-only'))
@@ -437,11 +474,12 @@ def fda(start,today):
         title=clean(a.get_text(' ',strip=True))
         target=urljoin(url,a['href'])
         result.discovered+=1
-        if not published or published<start or not relevant(title,cells[0].get_text(' ',strip=True)):
+        if not published or published<start or published>today:
+            result.note('FDA', target, title, published, 'publication-date', '发布日期缺失或不在新闻日期窗口')
             continue
         evidence='FDA guidance Issue Date: '+cells[-1].get_text(' ',strip=True)
         try:
-            row=detail('FDA',target,title,published,evidence)
+            row=detail('FDA',target,title,published,evidence,specialist=True)
             if row:
                 # FDA issue date is document-specific; generic page maintenance is not a new issue.
                 row['published']=published
@@ -463,7 +501,7 @@ def specifications():
         ('CDE','https://www.cde.org.cn/','官网首页公告及工作动态目录；目录受限时标注覆盖不完整',cde),
         ('ICH','https://www.ich.org/','官网新闻 CMS：按 date 字段分页，读取文章正文',ich),
         ('FDA','https://www.fda.gov/drugs/guidances-drugs/newly-added-guidance-documents','新发布药品指南目录与原文',fda),
-        ('PHUSE','https://phuse.global/Communications/PHUSE_Blog','PHUSE Blog：行业、工作组与会议文章',phuse),
+        ('PHUSE','https://phuse.global/','官方 Blog、活动日历、工作组活动页与首页活动入口',phuse),
         ('美国联邦公报','https://www.federalregister.gov/agencies/food-and-drug-administration','FDA 正式公告 API：90 天分页、读取官方摘要',federalregister),
         ('PMDA',PMDA,'电子研究数据标准目录与最新验证规则',lambda s,t:versioned('PMDA',pmda)),
         ('NCI EVS',NCI,'SDTM、ADaM 受控术语最新版本',lambda s,t:versioned('NCI EVS',nci)),
