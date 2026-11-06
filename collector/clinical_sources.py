@@ -310,7 +310,7 @@ def phuse_blog(start,today):
 def phuse(start,today):
     from phuse_events import collect_events
     combined = Result()
-    for collect_part in (phuse_blog, collect_events):
+    for label, collect_part in (('PHUSE Blog', phuse_blog), ('PHUSE Events', collect_events)):
         try:
             part = collect_part(start,today)
             combined.rows.extend(part.rows)
@@ -320,7 +320,7 @@ def phuse(start,today):
             combined.discovered += part.discovered
             combined.limited = combined.limited or part.limited
         except Exception as exc:
-            combined.errors.append(collect_part.__name__ + ': ' + safe_error(exc))
+            combined.errors.append(label + ': ' + safe_error(exc))
             combined.limited = True
     if not combined.pages:
         raise ValueError('PHUSE blog and event indexes unavailable')
