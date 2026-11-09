@@ -6,9 +6,20 @@ from zoneinfo import ZoneInfo
 from automation import _http_json
 
 CLINICAL = re.compile(
-    r"clinical|pharma|biometr|biostat|cdisc|sdtm|adamig|admiral|submission|define.xml|patient.level|tlgs?\b",
+    r"clinical|pharma|biometr|biostat|cdisc|sdtm|(?-i:ADaM)|adamig|admiral|submission|define[\.\- ]xml|dataset[\.\-]json|patient.level|tl[fg]s?\b|gsdesign|metalite|gtsummary|riskmetric|safetygraphic|adverse.event",
     re.I,
 )
+# Entirely clinical-programming homes. Company orgs stay on the keyword filter above.
+FOCUSED = {
+    "pharmaverse",
+    "cdisc-org",
+    "phuse-org",
+    "openpharma",
+    "insightsengineering",
+    "gsk-biostatistics",
+    "pharmar",
+    "safetygraphics",
+}
 
 
 def collect(accounts, token, start, previous):
@@ -34,12 +45,7 @@ def collect(accounts, token, start, previous):
                         *repo.get("topics", []),
                     ]
                 )
-                if account.lower() not in {
-                    "pharmaverse",
-                    "cdisc-org",
-                    "phuse-org",
-                    "openpharma",
-                } and not CLINICAL.search(text):
+                if account.lower() not in FOCUSED and not CLINICAL.search(text):
                     continue
                 for item in api(f"repos/{repo['full_name']}/releases?per_page=10"):
                     if (

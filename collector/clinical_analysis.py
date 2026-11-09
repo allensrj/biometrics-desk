@@ -20,7 +20,7 @@ SYSTEM = '''你是面向药企临床统计编程人员的信息编辑。只返�
 重要度：高=材料明确提出影响研究设计、分析、数据标准或递交的实质要求/重大版本/重要征求意见；中=有实际工作价值的方法、指南解释、工具更新或专业会议；低=有关但行动价值较弱的背景资讯。草案、建议、试点不得写成已生效的强制义务。
 只能根据给出的材料生成中文标题、简短摘要和对统计编程的影响；禁止推断未提供的要求、发布日期、生效日期、截止日。材料仅为官方摘要或文件索引时，不得声称读过全文；在摘要中说明信息范围。
 每个结果字段：id（原样）、relevant（布尔）、title（中文）、importance（高/中/低）、category（CDISC与标准/中国监管/国际监管/统计方法/行业与会议/技术与工具）、summary（不超过160字）、impact（不超过120字，区分原文事实与建议）、tags（最多4个短词）、evidence（从所给content逐字引用12-150字符，证明相关性）。
-返回 {"items": [...]}。每个输入必须有一个结果。relevant=false时仅需id、relevant。'''
+返回 {"items": [...]}。每个输入必须有一个结果。relevant=false时返回id、relevant、reason。reason用不超过80字说明材料实际在讲什么、为什么不适合临床统计编程看板，要指向具体主题，不要只写“不相关”。'''
 
 
 def fingerprint(row):
@@ -32,7 +32,10 @@ def validate(verdict, row):
     if not isinstance(verdict,dict) or type(verdict.get('relevant')) is not bool:
         raise ValueError('invalid relevance')
     if not verdict['relevant']:
-        return {'relevant':False}
+        reason=clean(verdict.get('reason'))
+        if not isinstance(verdict.get('reason'),str) or len(reason)<8:
+            raise ValueError('missing omission reason')
+        return {'relevant':False,'reason':reason[:160]}
     if verdict.get('importance') not in ('高','中','低') or verdict.get('category') not in CATEGORIES:
         raise ValueError('invalid rank or category')
     evidence=clean(verdict.get('evidence'))
@@ -85,16 +88,22 @@ def analyze(candidates, private, model='deepseek-flash', max_new=160):
     if not key and (Path(private)/'secrets.json').exists():
         key=json.loads((Path(private)/'secrets.json').read_text()).get('deepseekApiKey','')
     by_key={fingerprint(row):row for row in candidates}
-    missing=[(fp,row) for fp,row in by_key.items() if fp not in cache]
+    def needs_reason(verdict):
+        return isinstance(verdict,dict) and verdict.get('relevant') is False and not verdict.get('reason')
+    fresh=[(fp,row) for fp,row in by_key.items() if fp not in cache]
+    backfill=[(fp,row) for fp,row in by_key.items() if needs_reason(cache.get(fp))]
     # Round-robin sources, newest first, prevents a busy regulator crowding out another source.
-    sources={}
-    for pair in sorted(missing,key=lambda x:x[1]['published'],reverse=True):
-        sources.setdefault(pair[1]['source'],[]).append(pair)
-    queue=[]
-    while any(sources.values()):
-        for group in sources.values():
-            if group:
-                queue.append(group.pop(0))
+    def enqueue(pairs):
+        grouped={}
+        for pair in sorted(pairs,key=lambda x:x[1]['published'],reverse=True):
+            grouped.setdefault(pair[1]['source'],[]).append(pair)
+        ordered=[]
+        while any(grouped.values()):
+            for group in grouped.values():
+                if group:
+                    ordered.append(group.pop(0))
+        return ordered
+    queue=enqueue(fresh)+enqueue(backfill)
     pending={}
     batches=[queue[i:i+4] for i in range(0,min(len(queue),max_new),4)]
     if key:
@@ -109,11 +118,13 @@ def analyze(candidates, private, model='deepseek-flash', max_new=160):
                     try:
                         cache[fp]=validate(raw.get(fp),row)
                     except (ValueError,TypeError) as exc:
-                        pending[fp]='分析未通过（'+str(exc)+'），下次重试'
+                        if fp not in cache:
+                            pending[fp]='分析未通过（'+str(exc)+'），下次重试'
     else:
-        pending.update((fp,'未配置分析凭据') for fp,_ in queue[:max_new])
+        pending.update((fp,'未配置分析凭据') for fp,_ in queue[:max_new] if fp not in cache)
     for fp,_ in queue[max_new:]:
-        pending[fp]='超过本轮分析上限，下次继续'
+        if fp not in cache:
+            pending[fp]='超过本轮分析上限，下次继续'
     accepted=[]
     rejected=[]
     for fp,row in by_key.items():
@@ -121,7 +132,10 @@ def analyze(candidates, private, model='deepseek-flash', max_new=160):
         if verdict is None:
             continue
         if not verdict.get('relevant'):
-            rejected.append({'source':row['source'],'url':row['url'],'title':row['originalTitle'],'reason':'与临床统计编程的直接相关性不足'})
+            rejected.append({'source':row['source'],'url':row['url'],'title':row['originalTitle'],
+                             'published':row.get('published',''),'deadline':row.get('deadline',''),
+                             'contentBasis':row.get('contentBasis',''),
+                             'reason':verdict.get('reason') or '模型判断与临床统计编程工作无直接关系，但没有写出具体理由'})
             continue
         accepted.append({**{k:v for k,v in row.items() if k!='content'},
                          **{k:v for k,v in verdict.items() if k!='relevant'},
@@ -129,5 +143,7 @@ def analyze(candidates, private, model='deepseek-flash', max_new=160):
     # Cache only currently eligible candidates; no secret or raw source bodies are stored.
     from automation import atomic_write_json
     atomic_write_json(str(path),{fp:v for fp,v in cache.items() if fp in by_key})
-    pending_rows=[{'source':by_key[fp]['source'],'url':by_key[fp]['url'],'title':by_key[fp]['originalTitle'],'reason':reason} for fp,reason in pending.items()]
+    pending_rows=[{'source':by_key[fp]['source'],'url':by_key[fp]['url'],'title':by_key[fp]['originalTitle'],
+                   'published':by_key[fp].get('published',''),'deadline':by_key[fp].get('deadline',''),'reason':reason}
+                  for fp,reason in pending.items()]
     return accepted,rejected,pending_rows

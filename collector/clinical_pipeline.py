@@ -28,6 +28,48 @@ def independent_previous(data):
             if row.get('provenance',{}).get('kind')==VERSION]
 
 
+def assemble_not_included(screening, rejected, pending, included):
+    """One list of seen-but-unpublished titles, newest publication date first."""
+    rows={}
+    def add(url, source, title, published, deadline, stage, reason):
+        if not url or url in included or not reason:
+            return
+        item=rows.get(url)
+        if item is None:
+            rows[url]=dict(source=source or '', title=title or '', url=url, published=published or '',
+                           deadline=deadline or '', stage=stage, reason=reason)
+            return
+        if published and not item['published']:
+            item['published']=published
+        if deadline and not item['deadline']:
+            item['deadline']=deadline
+        if title and not item['title']:
+            item['title']=title
+        if source and not item['source']:
+            item['source']=source
+        if reason not in item['reason']:
+            item['reason']=item['reason']+'；'+reason
+        if stage=='analysis':
+            item['stage']='analysis'
+    for row in screening:
+        reason=row.get('reason') or ''
+        if row.get('canonicalUrl'):
+            reason=(reason+'。正式链接：'+row['canonicalUrl']) if reason else '正式链接：'+row['canonicalUrl']
+        add(row.get('url'), row.get('source'), row.get('title'), row.get('published'), row.get('deadline'), row.get('stage') or 'screening', reason)
+    for row in rejected:
+        reason=row.get('reason') or '模型判断不收录'
+        if row.get('contentBasis')=='official-index-only':
+            reason='模型只根据官网目录标题判断，没有读到正文：'+reason
+        else:
+            reason='模型判断不收录：'+reason
+        add(row.get('url'), row.get('source'), row.get('title'), row.get('published'), row.get('deadline'), 'analysis', reason)
+    for row in pending:
+        add(row.get('url'), row.get('source'), row.get('title'), row.get('published'), row.get('deadline'), 'pending', row.get('reason') or '分析未完成，下次重试')
+    items=list(rows.values())
+    items.sort(key=lambda row:(row['published'] or '0000-00-00', row['source'], row['url']), reverse=True)
+    return items
+
+
 def collect(root,private,today=None):
     now=datetime.now(TZ)
     today=today or now.date()
@@ -117,12 +159,20 @@ def collect(root,private,today=None):
           'items':news,'agendaOnly':agenda,'sources':statuses,
           'analysis':{'method':'DeepSeek 独立分析官网正文、官方摘要或资料索引','accepted':len(accepted),
                       'irrelevant':len(rejected),'pending':len(pending)},'excluded':excluded}
-    report={k:v for k,v in data.items() if k not in ('items','agendaOnly')}
-    report.update(pending=pending,rejected=rejected,screening=screening,
-                  auditNotes={'latestPublished':'已收录新闻的最新发布日期，不代表官网最新日期',
-                              'latestDiscoveredPublished':'本轮适配器发现并记录的明确发布日期，不代表全站完整覆盖',
-                              'screening':'初筛跳过、窗口排除和逐条读取限制；rejected 单列模型判为不相关的候选'},
-                  records=[{k:row.get(k,'') for k in ('source','url','originalTitle','published','dateEvidence','deadline','deadlineEvidence','contentBasis','lastVerified')} for row in news+agenda])
+    included={row['url'] for row in news+agenda}
+    omitted=assemble_not_included(screening, rejected, pending, included)
+    in_window=sum(bool(row['published']) and start<=row['published']<=end for row in omitted)
+    omission_note=(f"新闻只收录发布日在 {start} 至 {end}、且与临床统计编程直接相关的条目。"
+                   f"本轮另看到 {len(omitted)} 条未放入看板的材料，其中发布日仍在这个窗口内的有 {in_window} 条。"
+                   "notIncluded 按发布日从新到旧列出标题和原因；窗口外的旧目录、已经结束的活动也留在后面。")
+    report={'collectorVersion':VERSION,'updated':data['updated'],'windowStart':start,'windowEnd':end,
+            'omissionNote':omission_note,'notIncluded':omitted,'sources':statuses,'analysis':data['analysis'],
+            'excluded':excluded,'pending':pending,'rejected':rejected,'screening':screening,
+            'auditNotes':{'latestPublished':'已收录新闻的最新发布日期，不代表官网最新日期',
+                          'latestDiscoveredPublished':'本轮适配器发现并记录的明确发布日期，不代表全站完整覆盖',
+                          'notIncluded':'本轮看到但未放入新闻或未结束事项的标题、链接、日期和原因',
+                          'screening':'初筛跳过、窗口排除和逐条读取限制；rejected 单列模型判为不相关的候选'},
+            'records':[{k:row.get(k,'') for k in ('source','url','originalTitle','published','dateEvidence','deadline','deadlineEvidence','contentBasis','lastVerified')} for row in news+agenda]}
     atomic_write_json(str(path),data)
     atomic_write_json(str(Path(root)/'collection-report.json'),report)
     write_summary(data)

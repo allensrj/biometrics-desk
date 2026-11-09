@@ -227,7 +227,7 @@ def cdisc(start, today):
                 published, evidence = nearby_date(a) if base.endswith("/news") else ("", "")
                 dates.append(published)
                 if published and published < start and '/news' in base:
-                    result.note('CDISC', target, title, published, 'publication-date', '早于新闻日期窗口')
+                    result.note('CDISC', target, title, published, 'publication-date', f'发布日 {published} 早于近 90 天窗口（{start} 起），未读取正文')
                     continue
                 links.append((target,title,published,evidence))
             result.discovered += len(links)
@@ -295,9 +295,10 @@ def phuse_blog(start,today):
             result.discovered+=1
             published=parse_date(row['date_published'])
             dates.append(published)
-            if published and published<start:
-                continue
             target='https://phuse.global/Communications/PHUSE_Blog/'+row['slug']
+            if published and published<start:
+                result.note('PHUSE', target, row['title'], published, 'publication-date', f'博客发布日 {published} 早于近 90 天窗口（{start} 起）')
+                continue
             result.fetch_detail('PHUSE',target,row['title'],published,
                                 'PHUSE 官方 CMS date_published: '+row['date_published'],specialist=True)
         if page>=pagination['pageCount'] or any(d and d<start for d in dates):
@@ -342,7 +343,12 @@ def federalregister(start,today):
             title=item['title']
             abstract=item.get('abstract') or ''
             if not relevant(title,abstract):
-                result.note('美国联邦公报', item['html_url'], title, item['publication_date'], 'relevance', '官方标题与摘要初筛未命中领域词或命中排除词')
+                excluded=EXCLUDE.search(title)
+                if excluded:
+                    reason='标题命中排除词：'+excluded[0]
+                else:
+                    reason='标题和官方摘要没有数据标准、试验设计、统计或递交等相关领域词，未送模型判断'
+                result.note('美国联邦公报', item['html_url'], title, item['publication_date'], 'relevance', reason)
                 continue
             # The official API abstract is explicitly labelled; no claim to have read a full PDF.
             result.rows.append(candidate('美国联邦公报',item['html_url'],title,item['publication_date'],
@@ -390,12 +396,19 @@ def ich(start,today):
             published=parse_date(item.get('date'))
             dates.append(published)
             result.discovered+=1
+            link=urljoin('https://www.ich.org/',info['alias'])
             if published and published<start:
+                result.note('ICH', link, info['title'], published, 'publication-date', f'发布日 {published} 早于近 90 天窗口（{start} 起）')
                 continue
             content=clean(item.get('summary','')+' '+widget_text(item.get('mainWidgets',{})))
-            if not relevant(info['title'],content):
+            excluded=EXCLUDE.search(info['title'])
+            if excluded:
+                result.note('ICH', link, info['title'], published, 'relevance', '标题命中排除词: '+excluded[0])
                 continue
-            result.rows.append(candidate('ICH',urljoin('https://www.ich.org/',info['alias']),info['title'],
+            if not KEYWORDS.search(info['title']+' '+content):
+                result.note('ICH', link, info['title'], published, 'relevance', '标题和正文没有临床统计编程相关领域词，未送模型判断')
+                continue
+            result.rows.append(candidate('ICH',link,info['title'],
                                published,'官网新闻 date: '+str(item.get('date','')),content,basis='official-cms-article'))
         if len(items)<50 or (dates and all(d and d<start for d in dates)):
             break
@@ -426,7 +439,7 @@ def cde(start,today):
             result.discovered+=1
             published,evidence=nearby_date(a)
             if published and published<start:
-                result.note('CDE', target, title, published, 'publication-date', '早于新闻日期窗口')
+                result.note('CDE', target, title, published, 'publication-date', f'发布日 {published} 早于近 90 天窗口（{start} 起）')
                 continue
             if EXCLUDE.search(title):
                 result.note('CDE', target, title, published, 'relevance', '命中明确排除词: ' + EXCLUDE.search(title)[0])
@@ -474,8 +487,14 @@ def fda(start,today):
         title=clean(a.get_text(' ',strip=True))
         target=urljoin(url,a['href'])
         result.discovered+=1
-        if not published or published<start or published>today:
-            result.note('FDA', target, title, published, 'publication-date', '发布日期缺失或不在新闻日期窗口')
+        if not published:
+            result.note('FDA', target, title, '', 'publication-date', '目录没有可靠的发布日期，未当作新闻')
+            continue
+        if published<start:
+            result.note('FDA', target, title, published, 'publication-date', f'发布日 {published} 早于近 90 天窗口（{start} 起）')
+            continue
+        if published>today:
+            result.note('FDA', target, title, published, 'publication-date', f'发布日 {published} 晚于采集日 {today}')
             continue
         evidence='FDA guidance Issue Date: '+cells[-1].get_text(' ',strip=True)
         try:

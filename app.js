@@ -271,7 +271,7 @@ async function start() {
     panel.hidden = !isRepo || state.archive;
     panel.innerHTML = `<summary>关注账号的正式发布（${github.releases?.length || 0}）</summary><p>近五天有推送的相关公开项目，新仓库另列于下方。</p>${releases ? "<ul>" + releases + "</ul>" : "<p>当前窗口未收录正式发布。</p>"}${github.releaseErrors?.length ? "<p>检查未完成：" + esc(github.releaseErrors.join("、")) + "</p>" : ""}`;
     el("updates").innerHTML =
-      `<div class="sync"><b>临床情报</b>采集完成　${stamp(status.clinical?.checked)}<p>${"来源：" + sources}</p><p>独立采集官网 · 新闻近 90 个北京时间自然日；未结束事项另列，发布日期缺失时明确标注。</p>${sourceIssues ? "<p class=\"source-warning\">" + sourceIssues + "</p>" : ""}<p><a href="collection-report.json" target="_blank" rel="noopener">查看本轮采集记录 ↗</a></p></div><div class="sync"><b>开源仓库</b><p>采集范围　${esc(github.windowStart)} 至 ${esc(github.windowEnd)}（北京时间）</p></div>`;
+      `<div class="sync"><b>临床情报</b>采集完成　${stamp(status.clinical?.checked)}<p>${"来源：" + sources}</p><p>独立采集官网 · 新闻近 90 个北京时间自然日；未结束事项另列，发布日期缺失时明确标注。</p>${sourceIssues ? "<p class=\"source-warning\">" + sourceIssues + "</p>" : ""}<p><a href="collection-report.json" target="_blank" rel="noopener">查看本轮采集记录 ↗</a>未放进看板的标题和原因在记录的 notIncluded。</p></div><div class="sync"><b>开源仓库</b><p>采集范围　${esc(github.windowStart)} 至 ${esc(github.windowEnd)}（北京时间）</p></div>`;
   }
   document.addEventListener("click", (e) => {
     const b = e.target.closest("[data-action]");

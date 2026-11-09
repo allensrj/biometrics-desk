@@ -30,7 +30,7 @@ PHUSE 活动每轮最多读取 40 个详情页，优先处理明确的未来活�
 
 每站独立采集，**“没有近期内容”和“采集失败”分开记录**。失败时只允许保留本项目此前独立核实、仍在日期窗口内的内容，首次迁移不会把旧的第三方汇总当作兜底数据。分析失败的候选留待下次重试，不伪装成已完成情报。相同内容的分析结果按内容摘要缓存；每轮最多分析 160 个新候选，按来源轮流分配，积压数量公开记录。
 
-90 天是**收录窗口，不是全网完整覆盖保证**。各站范围限于上表的官方入口；滚动目录、分页上限、访问限制和缺少发布日期都会影响覆盖。达到上限或读取不完整时会在网页来源说明中标注，不用旧文件补足来源数量。[本轮采集记录](https://allensrj.github.io/biometrics-desk/collection-report.json) 提供各站读取/收录数、日期证据、待重试项与最新收录日期；`screening` 记录初筛跳过、窗口排除和逐条读取限制，`rejected` 单列模型判为不相关的候选。`latestIncludedPublished`（兼容字段 `latestPublished`）仅代表已收录新闻的最新日期，`latestDiscoveredPublished` 为适配器本轮发现并记录的最新明确日期，都不表示全站完整覆盖；Actions 运行摘要也列出逐站结果。
+90 天是**收录窗口，不是全网完整覆盖保证**。各站范围限于上表的官方入口；滚动目录、分页上限、访问限制和缺少发布日期都会影响覆盖。达到上限或读取不完整时会在网页来源说明中标注，不用旧文件补足来源数量。[本轮采集记录](https://allensrj.github.io/biometrics-desk/collection-report.json) 提供各站读取/收录数、日期证据、待重试项与最新收录日期。`notIncluded` 按发布日从新到旧列出本轮看到但没有放进看板的标题、链接和原因；`screening` 是初筛与窗口排除明细，`rejected` 是模型判为不相关的候选。`latestIncludedPublished`（兼容字段 `latestPublished`）仅代表已收录新闻的最新日期，`latestDiscoveredPublished` 为适配器本轮发现并记录的最新明确日期，都不表示全站完整覆盖；Actions 运行摘要也列出逐站结果。
 
 实现入口：[采集适配器](collector/clinical_sources.py)、[独立分析](collector/clinical_analysis.py)、[日期筛选与数据来源记录](collector/clinical_pipeline.py)。
 
@@ -40,11 +40,11 @@ PHUSE 活动每轮最多读取 40 个详情页，优先处理明确的未来活�
 
 已收录仓库会去重，对内容较少或尚未完成判读的候选做七天回看。列表按相关性优先排列，同一档内按仓库创建时间倒序排列。GitHub 搜索结果与 README 请求数量设有上限，因此每次收录有数量边界。
 
-还会检查关注账号中近期有推送的相关公开项目，单列正式 Release。当前范围包括 pharmaverse、cdisc-org、phuse-org、RConsortium、shajoezhu、Roche、swhume、AstraZeneca、atorus-research 和 openpharma。关键词、关注账号及数量上限可在 [collector/radar_config.json](collector/radar_config.json) 中调整。
+还会检查关注账号中近期有推送的相关公开项目，单列正式 Release。当前范围包括 pharmaverse、cdisc-org、phuse-org、RConsortium、insightsengineering、GSK-Biostatistics、pharmaR、SafetyGraphics、Merck、Boehringer-Ingelheim、shajoezhu、swhume、lexjansen、keaven、Roche、AstraZeneca 和 openpharma。其中 insightsengineering、GSK-Biostatistics、pharmaR、SafetyGraphics 是临床统计编程工具集中的组织；Merck 与 Boehringer-Ingelheim 保留公司账号里的 ADaM、表格、安全性和试验设计项目；lexjansen、keaven 分别对应 Define-XML/Dataset-JSON 与成组序贯设计。关键词、关注账号及数量上限可在 [collector/radar_config.json](collector/radar_config.json) 中调整。
 
 ## 每日更新与部署
 
-GitHub Actions 每天 **北京时间早上 08:00**（UTC 00:00）计划启动采集，流程为读取最近状态、采集数据、验证页面、保存状态、部署 GitHub Pages。Actions 排队和来源响应速度会影响实际完成时间。
+GitHub Actions 的计划时刻是每天 **北京时间 08:00**（UTC 00:00）。实际排队后，看板往往到中午才更新，页面因此写「每日北京时间中午更新」。流程为读取最近状态、采集数据、验证页面、保存状态、部署 GitHub Pages。
 
 工作流在 [.github/workflows/dashboard.yml](.github/workflows/dashboard.yml)。维护者可以在 Actions 页面手动运行 **Refresh and publish dashboard**，默认勾选 `Collect fresh data before publishing`。取消勾选仅用于已有当日独立快照的发布；日期与来源验证不通过时不会部署。采集程序整体失败时，本轮不会替换现有站点；单站失败允许其他站继续更新，并在页面显示失败状态。
 
