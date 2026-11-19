@@ -1,6 +1,6 @@
 # 临床统计编程信息看板 · Biometrics Desk
 
-[打开在线看板](https://allensrj.github.io/biometrics-desk/) · [每日更新记录](https://github.com/allensrj/biometrics-desk/actions/workflows/dashboard.yml)
+[打开在线看板](https://allensrj.github.io/biometrics-desk/) · [每日更新记录](https://github.com/allensrj/biometrics-desk/actions/workflows/refresh-dashboard.yml)
 
 面向药企临床统计编程人员的信息看板，把法规、数据标准、行业动态和相关开源工具放在一个页面里。使用者可以快速浏览近期更新，筛选重要情报，查看未来事项，再通过原文链接核实细节。
 
@@ -46,7 +46,7 @@ PHUSE 活动每轮最多读取 40 个详情页，优先处理明确的未来活�
 
 GitHub Actions 的计划时刻是每天 **北京时间 08:00**（UTC 00:00）。实际排队后，看板往往到中午才更新，页面因此写「每日北京时间中午更新」。流程为读取最近状态、采集数据、验证页面、保存状态、部署 GitHub Pages。
 
-工作流在 [.github/workflows/dashboard.yml](.github/workflows/dashboard.yml)。维护者可以在 Actions 页面手动运行 **Refresh and publish dashboard**，默认勾选 `Collect fresh data before publishing`。取消勾选仅用于已有当日独立快照的发布；日期与来源验证不通过时不会部署。采集程序整体失败时，本轮不会替换现有站点；单站失败允许其他站继续更新，并在页面显示失败状态。
+工作流在 [.github/workflows/refresh-dashboard.yml](.github/workflows/refresh-dashboard.yml)。维护者可以在 Actions 页面手动运行 **Refresh and publish dashboard**，默认勾选 `Collect fresh data before publishing`。取消勾选仅用于已有当日独立快照的发布；日期与来源验证不通过时不会部署。采集程序整体失败时，本轮不会替换现有站点；单站失败允许其他站继续更新，并在页面显示失败状态。
 
 跨运行的去重状态、独立分析缓存和最近数据保存在 Actions 缓存中。缓存失效时重新访问官网采集，不恢复第三方汇总。Pages 发布文件使用明确清单，仅包含页面与展示用 JSON。
 
