@@ -1,8 +1,5 @@
 name: Refresh and publish dashboard
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
@@ -29,7 +26,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
-        if: github.event_name == 'schedule' || github.event_name == 'push' || inputs.refresh
+        if: github.event_name == 'schedule' || inputs.refresh
         with:
           path: |
             ${{ env.RADAR_STATE_DIR }}/seen_repos.json
@@ -45,13 +42,13 @@ jobs:
           python3 -m pip install -r requirements.txt
           python3 -m unittest discover -s tests -v
       - name: Collect public sources
-        if: github.event_name == 'schedule' || github.event_name == 'push' || inputs.refresh
+        if: github.event_name == 'schedule' || inputs.refresh
         env:
           GITHUB_TOKEN: ${{ github.token }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python3 -u refresh.py
       - uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
-        if: github.event_name == 'schedule' || github.event_name == 'push' || inputs.refresh
+        if: github.event_name == 'schedule' || inputs.refresh
         with:
           path: |
             ${{ env.RADAR_STATE_DIR }}/seen_repos.json
